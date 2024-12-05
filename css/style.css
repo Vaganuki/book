@@ -174,10 +174,10 @@ section:not(#depart) h2 {
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 #spotify div iframe {
-  width: 25%;
+  width: 20%;
 }
 
 @keyframes fondAlterAcceuil {
