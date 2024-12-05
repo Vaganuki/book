@@ -1,14 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jacquard+12&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 h3 {
   margin: 0;
 }
 
 html {
-  font-family: Arial, sans-serif;
-  background-color: rgb(183, 198, 224);
+  font-family: "Roboto", Arial, sans-serif;
+  background-color: rgb(245, 245, 245);
 }
 
-header {
+#depart {
   height: 100vh;
   translate: 0 -50px;
   animation: fondAlterAcceuil 15s infinite alternate;
@@ -21,6 +21,7 @@ header {
 }
 
 .accueil {
+  font-family: Arial, sans-serif;
   width: 75.1072961373%;
   margin: 0 auto;
 }
@@ -64,7 +65,7 @@ h1:hover {
   text-shadow: 0 0 25em red, 0 0 20em red, 0 0 15em red, 0 0 5em red, 0 0 10em red, 0 0 2em red, 0 0 1em red;
 }
 
-nav {
+header {
   background-color: white;
   position: sticky;
   top: 0;
@@ -76,11 +77,11 @@ nav {
   height: 50px;
   align-items: center;
 }
-nav.show {
+header.show {
   opacity: 1;
   transform: translateY(0);
 }
-nav > div {
+header nav > div {
   width: 85.8369098712%;
   height: 50px;
   margin: 0 auto;
@@ -88,55 +89,95 @@ nav > div {
   grid-template: 1fr/1fr 1fr;
   font-size: 2.5em;
 }
-nav > div div:first-child {
+header nav > div div:first-child {
   font-family: "Jacquard 12", "Arial Narrow", Arial, sans-serif;
 }
-nav > div div:first-child a {
+header nav > div div:first-child a {
   text-decoration: none;
   color: black;
   transition: 0.2s;
 }
-nav > div div:first-child a:hover {
+header nav > div div:first-child a:hover {
   text-shadow: 0.025em 0.05em green, 0em 0em 0.1em lightgreen, 0em 0em 0.4em lightgreen;
 }
-nav > div div:last-child {
+header nav > div div:last-child {
   text-align: end;
 }
 
-#palmares {
+section:nth-child(even) {
+  background-color: #dfdfdf;
+}
+section:not(#depart) {
+  margin-top: 50px;
+  padding: 3em 0;
+  border-top: solid 0.01em grey;
+}
+section:not(#depart) h2 {
+  margin-top: 0;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 2.5em;
+  padding-left: 2em;
+}
+
+#palmares > div {
+  width: 85.8369098712%;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 85.8369098712%;
-  margin: 0 auto;
-  padding-top: 50px;
 }
-#palmares > h2 {
-  width: 100%;
+#palmares > div a {
+  transition: 0.5s ease-in-out;
+  text-decoration: none;
+  color: black;
+  width: 20%;
+  cursor: pointer;
 }
-#palmares div {
-  font-variant-caps: small-caps;
-  text-align: center;
-  font-size: 1.8em;
+#palmares > div a:hover {
+  font-size: 1.3em;
+  translate: 0 -5px;
+  width: 22%;
+}
+#palmares > div a div {
+  text-transform: uppercase;
   line-height: 1em;
   background-color: white;
-  border-radius: 20px;
-  padding: 0.4em;
-  width: 20%;
-  box-shadow: 0 0.3em 1em black;
-  display: grid;
-  align-items: center;
-  grid-template: 1fr fit-content/1fr;
-}
-#palmares div h3 {
-  margin-bottom: 0.2em;
-}
-#palmares div img {
-  width: 100%;
   border-radius: 10px;
+  height: 400px;
+  box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
 }
-#palmares div img:hover {
-  box-shadow: inset 0 0 40px blue, 0 0.1em 0.2em black;
+#palmares > div a div:hover {
+  box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.5);
+  height: 410px;
+}
+#palmares > div a div h3 {
+  height: 30px;
+  padding: 0.6em;
+}
+#palmares > div a div img {
+  float: initial;
+  width: 100%;
+}
+
+#spotify a {
+  text-decoration: none;
+  color: black;
+}
+#spotify a:hover {
+  text-shadow: 0 0 0.1em rgba(0, 128, 0, 0.2), 0em 0em 0.1em rgba(144, 238, 144, 0.1), 0em 0em 0.4em rgba(144, 238, 144, 0.1);
+}
+#spotify div {
+  width: 1600, 1864;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+#spotify div iframe {
+  width: 25%;
 }
 
 @keyframes fondAlterAcceuil {
