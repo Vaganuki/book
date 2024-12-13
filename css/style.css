@@ -8,9 +8,12 @@ html {
   background-color: rgb(245, 245, 245);
 }
 
+main > * {
+  translate: 0 -50px;
+}
+
 #depart {
   height: 100vh;
-  translate: 0 -50px;
   animation: fondAlterAcceuil 15s infinite alternate;
   transition: opacity 5s ease-in-out, background-image 0s;
   background-size: cover;
@@ -105,12 +108,13 @@ header nav > div div:last-child {
 }
 
 section:nth-child(even) {
-  background-color: #dfdfdf;
+  background-color: #cacaca;
+  box-shadow: 0px -0.01em 2.5em rgba(0, 0, 0, 0.2);
+  border-top: solid 0.01em rgba(100, 100, 100, 0.2);
 }
 section:not(#depart) {
-  margin-top: 50px;
+  scroll-margin-top: 50px;
   padding: 3em 0;
-  border-top: solid 0.01em grey;
 }
 section:not(#depart) h2 {
   margin-top: 0;
@@ -119,8 +123,31 @@ section:not(#depart) h2 {
   padding-left: 2em;
 }
 
+#navSecondaire > div {
+  width: 85.8369098712%;
+  margin: 0 auto;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.8em;
+  font-variant-caps: all-petite-caps;
+  display: grid;
+  grid-template: 1fr/repeat(5, 1fr);
+  justify-items: center;
+}
+#navSecondaire > div > a {
+  height: 1em;
+  width: fit-content;
+  text-decoration: none;
+  color: darkgreen;
+}
+#navSecondaire > div > a:hover {
+  color: lightgreen;
+  text-shadow: 0 0.1em 0.8em green;
+}
+
 #palmares > div {
   width: 85.8369098712%;
+  height: 420px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -180,6 +207,31 @@ section:not(#depart) h2 {
   width: 20%;
 }
 
+#anim {
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 3em;
+  font-weight: 600;
+  transition: 0.3s ease-out;
+}
+#anim.scale {
+  scale: 0.95 0.95;
+}
+
+.letAnim {
+  display: inline-block;
+  animation: transform 0.2s ease-out, translate 1s ease-in-out, color 3s ease-in-out;
+}
+.letAnim.animat {
+  transform: scaleX(0.8) skewX(3deg);
+  translate: 0 -0.15em;
+}
+.letAnim.reset {
+  transform: scaleX(1) skewX(0);
+  translate: 0 0;
+  transition: 1.05s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
 @keyframes fondAlterAcceuil {
   0% {
     background-image: url(../img/accueil.jpg);
@@ -192,6 +244,17 @@ section:not(#depart) h2 {
   }
   100% {
     background-image: url(../img/2024-01-30_192441_16.jpg);
+  }
+}
+@keyframes lettre1 {
+  0% {
+    color: black;
+  }
+  50% {
+    color: red;
+  }
+  100% {
+    color: black;
   }
 }
 #jeuVideo *, #jeuVideo :before, #jeuVideo :after {
