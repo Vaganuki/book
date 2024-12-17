@@ -12,6 +12,19 @@ main > * {
   translate: 0 -50px;
 }
 
+.wip::after {
+  vertical-align: top;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 0.4em;
+  font-weight: 200;
+  content: "Work in progress";
+}
+
+.link {
+  display: inline-block;
+  cursor: url("../img/link_curs.png"), pointer;
+}
+
 #depart {
   height: 100vh;
   animation: fondAlterAcceuil 15s infinite alternate;
@@ -20,19 +33,19 @@ main > * {
   background-position: center;
   box-shadow: inset 0 0 0 4000px rgba(0, 0, 0, 0.3);
   align-content: center;
-  color: white;
 }
 
-.accueil {
+#accueil {
+  color: white;
   font-family: Arial, sans-serif;
   width: 75.1072961373%;
   margin: 0 auto;
 }
-.accueil h2 {
+#accueil h2 {
   margin: 0 0 0.9em 0;
   font-weight: 200;
 }
-.accueil a {
+#accueil a {
   display: inline-block;
   text-align: center;
   font-size: 1.25em;
@@ -45,7 +58,7 @@ main > * {
   margin-left: 7em;
   transition: 0.5s;
 }
-.accueil a:hover {
+#accueil a:hover {
   font-size: 1.5em;
   margin-left: 5.25em;
   box-shadow: 0 0 1em black, 0 0 3em rgb(229, 238, 235);
@@ -123,6 +136,32 @@ section:not(#depart) h2 {
   padding-left: 2em;
 }
 
+#linkTree > div {
+  width: fit-content;
+  margin: 0 auto;
+  display: grid;
+  font-size: 1.25em;
+  grid-template: 150px/repeat(8, 150px);
+  justify-items: center;
+  align-items: center;
+}
+#linkTree > div > span {
+  text-align: center;
+  padding: 0.2em;
+}
+#linkTree > div > span:hover {
+  box-shadow: 0 1em 1em #000;
+}
+#linkTree > div > span > a {
+  height: fit-content;
+  width: fit-content;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
+  text-transform: capitalize;
+  font-weight: bolder;
+  text-decoration: none;
+  color: black;
+}
+
 #navSecondaire > div {
   width: 85.8369098712%;
   margin: 0 auto;
@@ -131,7 +170,7 @@ section:not(#depart) h2 {
   font-size: 1.8em;
   font-variant-caps: all-petite-caps;
   display: grid;
-  grid-template: 1fr/repeat(5, 1fr);
+  grid-template: 1fr/repeat(6, 1fr);
   justify-items: center;
 }
 #navSecondaire > div > a {
