@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/jeu.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://v8.js-dos.com/latest/js-dos.js"></script>
     <script src="./js/nav.js" defer></script>
@@ -11,7 +12,7 @@
     <title>SleepyProject | We won't sleep until dreams come true.</title>
 </head>
 <body>
-    <header id="nav" class="">
+    <header id="nav">
         <nav >
             <div>
                 <div><a href="https://paypal.me/HugoWa" target="_blank">SleepyBoi</a></div>
@@ -19,7 +20,7 @@
             </div>
         </nav>
     </header>
-    <main id="main" style="height: 800vh;">
+    <main id="main">
         <section id="depart">
             <div id="accueil">
                 <h1>SleepyProject</h1>
@@ -27,15 +28,22 @@
             </div>
         </section>
         <section id="navSecondaire">
-            <p class="wip" style="font-size: 2em;"></p>
+            <!--<p class="wip" style="font-size: 2em;"></p>-->
             <div>
-                <a href="#">Accueil</a>
-                <a href="#linkTree">Liens pratiques</a>
-                <a href="#spotify">Spotify</a>
-                <a href="#palmares">Palmares</a>
-                <a href="#test_de_rendu">Test d'animation</a>
-                <a href="#jouer">Jeu Video</a>
+                <a href="#" id="navSecAccueil">Accueil</a>
+                <a href="#moi" id="navSecMoi">Tout sur moi.</a>
+                <a href="#linkTree" id="navSecSuivre">Où me suivre</a>
+                <a href="#spotify" id="navSecSpotify">Spotify</a>
+                <a href="#test_de_rendu" id="navSecAnim">Test d'animation</a>
+                <a href="#jouer" id="navSecJV">Jeu Video</a>
+                <a href="#palmares" id="navSecPalma">Palmares</a>
+                <p id="navSecTxt">Des suggestions ou envie d'un contact direct ? >></p>
+                <a href="#contact" id="navSecContact">Contactez moi</a>
             </div>
+        </section>
+        <section id="moi">
+            <h2 class="wip">Moi</h2>
+            <p>Je vous jure qu'il y aura des choses à dire à un moment quoi</p>
         </section>
         <section id="linkTree">
             <h2 class="wip">"<span class="link">Link</span>Tree"</h2>
@@ -105,6 +113,10 @@
                     });
                 </script>
             </div>
+        </section>
+        <section id="contact">
+            <h2 class="wip">Contact</h2>
+            <p>Euh pour l'instant vous pouvez cliquer là:</br><a href="mailto:hugo.warnotte@gmail.com" target="_blank">hugo.warnotte@gmail.com</a> ou <a href="mailto:sleepyboi.ink@gmail.com" target="_blank">sleepyboi.ink@gmail.com</a></p>
         </section>
     </main>
     <footer>
