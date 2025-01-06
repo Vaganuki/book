@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Jacquard+12&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pirata+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 h3 {
   margin: 0;
 }
@@ -10,10 +10,31 @@ a {
 html {
   font-family: "Roboto", Arial, sans-serif;
   background-color: rgb(245, 245, 245);
+  background: linear-gradient(180deg, #E2E1E7 0%, #D2D9DF 75%, #739EBE 100%);
 }
 
 main > * {
   translate: 0 -65px;
+}
+
+.darkTheme * {
+  color: white;
+}
+.darkTheme header {
+  background-color: rgba(30, 33, 89, 0.6);
+}
+.darkTheme #navSecondaire {
+  background-color: rgba(7, 0, 199, 0.5);
+}
+.darkTheme #navSecondaire a {
+  color: #0700c7;
+}
+.darkTheme #navSecondaire a:hover {
+  color: rgb(200.9698492462, 199, 255);
+}
+
+.invert {
+  filter: invert(100%);
 }
 
 .wip::after {
@@ -29,59 +50,6 @@ main > * {
   cursor: url("../img/link_curs.png"), pointer;
 }
 
-#depart {
-  height: 100vh;
-  animation: fondAlterAcceuil 15s infinite alternate;
-  transition: opacity 5s ease-in-out, background-image 0s;
-  background-size: cover;
-  background-position: center;
-  box-shadow: inset 0 0 0 4000px rgba(0, 0, 0, 0.3);
-  align-content: center;
-}
-
-#accueil {
-  color: white;
-  font-family: Arial, sans-serif;
-  width: 75.1072961373%;
-  margin: 0 auto;
-}
-#accueil h1 {
-  font-size: 5em;
-  font-family: "Jacquard 12", "Arial Narrow", Arial, sans-serif;
-  font-weight: 100;
-  text-shadow: 0 0.05em #88DFF2, 0em 0em 0.1em #88DFF2, 0em 0em 0.4em #88DFF2;
-  margin: 0 0 0 0.2em;
-  width: fit-content;
-}
-#accueil h1:hover {
-  animation: titreDisco 2.5s infinite alternate ease-in-out;
-}
-#accueil h2 {
-  margin: 0 0 0.9em 0;
-  font-weight: 200;
-}
-#accueil a {
-  display: inline-block;
-  text-align: center;
-  font-size: 1.25em;
-  padding: 0.45em;
-  font-variant-caps: small-caps;
-  color: #88DFF2;
-  border: solid 0.15em #88DFF2;
-  background-color: rgba(5, 108, 242, 0.2);
-  margin-left: 7em;
-  transition: 0.5s;
-}
-#accueil a:hover {
-  font-size: 1.5em;
-  margin-left: 5.25em;
-  color: rgb(181.9772727273, 235.3636363636, 247.0227272727);
-  background-color: rgba(97.2591093117, 164.3967611336, 251.7408906883, 0.2);
-  box-shadow: 0 0 1em black, 0 0 3em rgb(245, 245, 245);
-  border: solid 0.15em rgb(181.9772727273, 235.3636363636, 247.0227272727);
-  border-radius: 2px;
-}
-
 header {
   position: sticky;
   top: 0;
@@ -93,12 +61,12 @@ header {
   padding: 0 2em;
   height: 65px;
   border-radius: 32.5px;
-  background-color: rgba(30, 33, 89, 0.6);
+  background-color: rgba(5, 108, 242, 0.6);
   color: white;
   box-shadow: 0 0.4em 1.75em rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(7.5px);
-  align-content: center;
   transition: opacity 0.5s ease-in, transform 0.75s ease-in;
+  align-content: center;
 }
 header.show {
   opacity: 1;
@@ -110,70 +78,162 @@ header nav > div {
   font-size: 2.5em;
 }
 header nav > div div a {
+  font-family: "Pirata One", "Arial Narrow", Arial, sans-serif;
   color: white;
-  transition: 0.2s ease-out;
+  transition: 0.2s ease-in;
 }
 header nav > div div a:hover {
-  text-shadow: 0 0.05em #88DFF2, 0em 0em 0.1em #88DFF2, 0em 0em 0.4em #88DFF2;
-}
-header nav > div div:last-child {
-  text-align: end;
+  text-shadow: 0 0.05em rgb(97.2591093117, 164.3967611336, 251.7408906883), 0em 0em 0.1em rgb(97.2591093117, 164.3967611336, 251.7408906883), 0em 0em 0.4em rgb(97.2591093117, 164.3967611336, 251.7408906883);
 }
 
-section:nth-child(even) {
-  background-color: #cacaca;
-  box-shadow: 0px -0.01em 2.5em rgba(0, 0, 0, 0.2);
-  border-top: solid 0.01em rgba(100, 100, 100, 0.2);
+#navMenu {
+  display: grid;
+  grid-template: 1fr/repeat(2, 20%) 1em;
+  justify-content: end;
+  justify-items: center;
+  align-items: center;
+  font-size: 0.8em;
+}
+#navMenu a {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
+}
+
+#theme {
+  border-radius: 0.5625em;
+}
+#theme:hover {
+  animation: themeJN infinite 1s alternate ease-in;
+  box-shadow: 0 0 0.5em black, 0 0 3em rgb(245, 245, 245);
+}
+
+#depart {
+  height: 100vh;
+  align-content: center;
+  animation: fondAlterAcceuil 15s infinite alternate;
+  transition: opacity 5s ease-in-out, background-image 0s;
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 4000px rgba(0, 0, 0, 0.3);
+}
+
+#accueil {
+  color: white;
+  font-family: Arial, sans-serif;
+  width: fit-content;
+  margin-left: 15em;
+  text-align: center;
+}
+#accueil h1 {
+  font-size: 6.5em;
+  font-family: "Pirata One", "Arial Narrow", Arial, sans-serif;
+  text-shadow: 0 0.05em #88DFF2, 0em 0em 0.1em #88DFF2, 0em 0em 0.4em #88DFF2;
+  margin: 0;
+}
+#accueil h1:hover {
+  animation: titreDisco 2.5s infinite alternate ease-in-out;
+}
+#accueil h2 {
+  margin: 0.5em 0 0.9em 0;
+  font-weight: 200;
+}
+#accueil a {
+  font-size: 1.25em;
+  padding: 0.45em;
+  font-variant-caps: small-caps;
+  color: #88DFF2;
+  border: solid 0.15em #88DFF2;
+  background-color: rgba(5, 108, 242, 0.2);
+  transition: 0.5s;
+}
+#accueil a:hover {
+  font-size: 1.5em;
+  color: rgb(181.9772727273, 235.3636363636, 247.0227272727);
+  background-color: rgba(97.2591093117, 164.3967611336, 251.7408906883, 0.2);
+  box-shadow: 0 0 0.5em black, 0 0 3em rgb(245, 245, 245);
+  border: solid 0.15em rgb(181.9772727273, 235.3636363636, 247.0227272727);
+  border-radius: 2px;
+}
+
+section:nth-child(odd) {
+  box-shadow: inset 0 0 0 4000px rgba(255, 255, 255, 0.15), 0px -0.01em 2.5em rgba(0, 0, 0, 0.05);
+  border-top: solid 0.01em rgba(100, 100, 100, 0.08);
 }
 section:not(#depart) {
-  scroll-margin-top: 80px;
   padding: 3em 0;
+  scroll-margin-top: 80px;
 }
 section:not(#depart) h2 {
   margin-top: 0;
+  padding-left: 2em;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
   font-size: 2.5em;
-  padding-left: 2em;
 }
 
 #navSecAccueil {
   grid-area: secAcc;
   background-color: darkkhaki;
 }
+#navSecAccueil:hover {
+  background-image: url("../img/Placeholders/1.jpg");
+}
 
 #navSecMoi {
   grid-area: secMoi;
   background-color: cornsilk;
+}
+#navSecMoi:hover {
+  background-image: url("../img/Placeholders/2.jpg");
 }
 
 #navSecSuivre {
   grid-area: secSuivre;
   background-color: floralwhite;
 }
+#navSecSuivre:hover {
+  background-image: url("../img/Placeholders/3.png");
+}
 
 #navSecSpotify {
   grid-area: secSpotify;
   background-color: burlywood;
+}
+#navSecSpotify:hover {
+  background-image: url("../img/Placeholders/4.jpg");
 }
 
 #navSecAnim {
   grid-area: secAnim;
   background-color: khaki;
 }
+#navSecAnim:hover {
+  background-image: url("../img/Placeholders/5.jpg");
+}
 
 #navSecJV {
   grid-area: secJV;
   background-color: bisque;
+}
+#navSecJV:hover {
+  background-image: url("../img/Placeholders/6.jpg");
 }
 
 #navSecPalma {
   grid-area: secPalma;
   background-color: antiquewhite;
 }
+#navSecPalma:hover {
+  background-image: url("../img/Placeholders/7.jpg");
+}
 
 #navSecContact {
   grid-area: secContact;
   background-color: blanchedalmond;
+}
+#navSecContact:hover {
+  background-image: url("../img/Placeholders/8.jpg");
 }
 
 #navSecTxt {
@@ -182,6 +242,9 @@ section:not(#depart) h2 {
   padding: 0 0.4em;
 }
 
+#navSecondaire {
+  background-color: rgba(136, 223, 242, 0.2);
+}
 #navSecondaire > div {
   padding: 0 1em;
   font-weight: bold;
@@ -197,11 +260,15 @@ section:not(#depart) h2 {
   text-align: center;
   align-content: center;
   border-radius: 15px;
+  margin: 0.1em;
+  background-size: cover;
+  background-position: center;
 }
 #navSecondaire > div > a:hover {
-  color: #88DFF2;
+  color: rgb(181.9772727273, 235.3636363636, 247.0227272727);
   background-color: rgb(97.2591093117, 164.3967611336, 251.7408906883);
-  text-shadow: 0 0 1em black, 0 0 3em rgb(245, 245, 245);
+  text-shadow: 0 0 0.5em black, 0 0 3em rgb(245, 245, 245);
+  box-shadow: inset 0 0 0 4000px rgba(0, 0, 0, 0.3);
 }
 
 #linkTree > div {
@@ -209,7 +276,7 @@ section:not(#depart) h2 {
   margin: 0 auto;
   display: grid;
   font-size: 1.25em;
-  grid-template: 150px/repeat(8, 150px);
+  grid-template: 15%/repeat(8, 15%);
   justify-items: center;
   align-items: center;
 }
@@ -335,6 +402,16 @@ section:not(#depart) h2 {
   }
   to {
     filter: hue-rotate(100deg);
-    filter: brightness(1.25);
+    filter: brightness(1.4);
   }
 }
+@keyframes themeJN {
+  from {
+    filter: brightness(10);
+  }
+  to {
+    filter: brightness(1);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

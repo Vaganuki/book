@@ -1,6 +1,5 @@
 @use "sass:math";
-@import url('https://fonts.googleapis.com/css2?family=Jacquard+12&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pirata+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 //Calcul de la taille des éléments en %
 
 @function pxToPrct($target, $context) {
@@ -14,7 +13,15 @@ $colorMainSurvol: lighten($colorMain, 20%);
 $colorSecondaire: #88DFF2;
 $colorSecondaireSurvol: lighten($colorSecondaire, 10%);
 $colorMainSombre: #1e2159;
-$borderMiseAvantSurvol:  0 0 1em black,0 0 3em rgb(245, 245, 245);
+$colorMainSombreSurvol: lighten($colorMainSombre,20%);
+$colorSecondaireSombre: #0700c7;
+$colorSecondaireSombreSurvol: lighten($colorSecondaireSombre,50%);
+$fondPrincipal: #E2E1E7;
+$fondSecondaire: #D2D9DF;
+$fondTiercaire: #739EBE;
+$borderMiseAvantSurvol:  0 0 0.5em black,0 0 3em rgb(245, 245, 245);
+$fondSombre: inset 0 0 0 4000px rgba(0, 0, 0, 0.3);
+$fondClair:  inset 0 0 0 4000px rgba(255, 255, 255, 0.15);
 
 //Normalize/Reset personnel
 
@@ -27,12 +34,34 @@ a{
 html{
     font-family: "Roboto" , Arial, sans-serif;
     background-color: rgb(245, 245, 245);
+    background: linear-gradient(180deg,$fondPrincipal 0%, $fondSecondaire 75%, $fondTiercaire 100%);
 }
 main {
     &>*{
         //adaptation selon la nav.
         translate:0  -65px;
     }
+}
+.darkTheme{
+    & *{
+        color: white;
+        //background-color: black;
+    }
+    & header{
+        background-color: rgba($colorMainSombre,0.6);
+    }
+    #navSecondaire{
+        background-color: rgba($colorSecondaireSombre,0.5);
+        & a{
+            color: $colorSecondaireSombre;
+            &:hover{
+                color: $colorSecondaireSombreSurvol;
+            }
+        }
+    }
+}
+.invert{
+    filter: invert(100%);
 }
 //À Retirer une fois le code fini
 
@@ -49,66 +78,6 @@ main {
     display: inline-block;
     cursor: url('../img/link_curs.png'), pointer;
 }
-//Début du code
-
-#depart{
-    height: 100vh;
-    //Rotation d'images de fond du site.
-    animation: fondAlterAcceuil 15s infinite alternate;
-    transition: opacity 5s ease-in-out, background-image 0s;
-    background-size: cover;
-    background-position: center;
-    //Filtre sur l'image de fond pour la lecture
-    box-shadow: inset 0 0 0 4000px rgba(0, 0, 0, 0.3);
-    align-content: center;
-}
-
-// Mise en page à modifier !!
-
-#accueil{
-    color: white;
-    font-family: Arial, sans-serif;
-    width: pxToPrct(1400, 1864);
-    margin: 0 auto;
-    & h1{
-        font-size: 5em;
-        //Typo à potentiellement éditer
-        font-family: "Jacquard 12", 'Arial Narrow', Arial, sans-serif;
-        font-weight: 100;
-        text-shadow: 0 0.05em $colorSecondaire,0em 0em 0.1em $colorSecondaire, 0em 0em 0.4em $colorSecondaire;
-        margin: 0 0 0 0.2em;
-        width: fit-content;
-        &:hover{
-            animation: titreDisco 2.5s infinite alternate ease-in-out;
-        }
-    }
-    & h2{
-        margin: 0 0 0.9em 0;
-        font-weight: 200;
-    }
-    & a{
-        //Bouton de la page d'accueil
-        display: inline-block;
-        text-align: center;
-        font-size: 1.25em;
-        padding: 0.45em;
-        font-variant-caps: small-caps;
-        color: $colorSecondaire;
-        border: solid 0.15em $colorSecondaire;
-        background-color: rgba($colorMain, 0.2);
-        margin-left: 7em;
-        transition: 0.5s;
-        &:hover{
-            font-size: 1.5em;
-            margin-left: 5.25em;
-            color: $colorSecondaireSurvol;
-            background-color: rgba($colorMainSurvol, 0.2);
-            box-shadow:$borderMiseAvantSurvol;
-            border: solid 0.15em $colorSecondaireSurvol;
-            border-radius: 2px;
-        }
-    }
-}
 
 //nav à modifier !!!! Ici rien n'est définitif
 
@@ -123,12 +92,12 @@ header{
     padding: 0 2em;
     height: 65px;
     border-radius: 32.5px;
-    background-color: rgba($colorMainSombre,0.6);
+    background-color: rgba($colorMain,0.6);
     color: white;
     box-shadow: 0 0.4em 1.75em rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(7.5px);
-    align-content: center;
     transition: opacity 0.5s ease-in, transform 0.75s ease-in;
+    align-content: center;
     &.show{
         opacity: 1;
         transform: translateY(10px);
@@ -139,71 +108,169 @@ header{
         font-size: 2.5em;
         & div{
             & a{
+                font-family: 'Pirata One', 'Arial Narrow', Arial, sans-serif;
                 color: white;
-                transition: 0.2s ease-out;
+                transition: 0.2s ease-in;
                 &:hover{
-                    text-shadow: 0 0.05em $colorSecondaire,0em 0em 0.1em $colorSecondaire, 0em 0em 0.4em $colorSecondaire;
+                    text-shadow:0 0.05em $colorMainSurvol,0em 0em 0.1em $colorMainSurvol, 0em 0em 0.4em $colorMainSurvol;
                 }
             }
         }
-        & div:last-child{
-            text-align: end;
+    }
+}
+#navMenu{
+    display: grid;
+    grid-template: 1fr / repeat(2 , 20%) 1em;
+    justify-content: end;
+    justify-items: center;
+    align-items: center;
+    font-size: 0.8em;
+    & a{
+        font-family: "Roboto", Arial, Helvetica, sans-serif;
+        width: fit-content;
+        height: fit-content;
+        margin: 0 auto;
+    }
+}
+#theme{
+    border-radius: 0.5625em;
+    &:hover{
+        animation: themeJN infinite 1s alternate ease-in;
+        box-shadow: $borderMiseAvantSurvol;
+    }
+}
+//Début du site affiché
+
+#depart{
+    height: 100vh;
+    align-content: center;
+    //Rotation d'images de fond du site.
+    animation: fondAlterAcceuil 15s infinite alternate;
+    transition: opacity 5s ease-in-out, background-image 0s;
+    background-size: cover;
+    background-position: center;
+    //Filtre sur l'image de fond pour la lecture
+    box-shadow: $fondSombre;
+}
+#accueil{
+    color: white;
+    font-family: Arial, sans-serif;
+    width: fit-content;
+    margin-left: 15em;
+    text-align: center;
+    //Titre de l'accueil
+    & h1{
+        //Typo à potentiellement éditer
+        font-size: 6.5em;
+        font-family: "Pirata One", 'Arial Narrow', Arial, sans-serif;
+        text-shadow: 0 0.05em $colorSecondaire,0em 0em 0.1em $colorSecondaire, 0em 0em 0.4em $colorSecondaire;
+        margin: 0;
+        &:hover{
+            animation: titreDisco 2.5s infinite alternate ease-in-out;
+        }
+    }
+    //sous-titre
+    & h2{
+        margin: 0.5em 0 0.9em 0;
+        font-weight: 200;
+    }
+    //Bouton de la page d'accueil
+    & a{
+        font-size: 1.25em;
+        padding: 0.45em;
+        font-variant-caps: small-caps;
+        color: $colorSecondaire;
+        border: solid 0.15em $colorSecondaire;
+        background-color: rgba($colorMain, 0.2);
+        transition: 0.5s;
+        &:hover{
+            font-size: 1.5em;
+            color: $colorSecondaireSurvol;
+            background-color: rgba($colorMainSurvol, 0.2);
+            box-shadow:$borderMiseAvantSurvol;
+            border: solid 0.15em $colorSecondaireSurvol;
+            border-radius: 2px;
         }
     }
 }
+
+//Création d'une séparation entre nos diverses sections
+
 section{
-    &:nth-child(even){
-        //Création d'une différence entre les articles.
-        background-color: #cacaca;
-        box-shadow: 0px -0.01em 2.5em rgba(0, 0, 0, 0.2);
-        border-top: solid 0.01em rgba(100, 100, 100, 0.2);
+    &:nth-child(odd){
+        box-shadow:$fondClair, 0px -0.01em 2.5em rgba(0, 0, 0, 0.05);
+        border-top: solid 0.01em rgba(100, 100, 100, 0.08);
     }
     &:not(#depart){
+        padding:3em 0;
         //Décalage des titres selon la nav.
         scroll-margin-top: 80px;
-        padding:3em 0;
         & h2{
             margin-top: 0;
+            padding-left: 2em;
             font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
             font-size: 2.5em;
-            padding-left: 2em;
         } 
     }
 }
 
-//Défition de la grid de la nav
+//Défition de la grid de la nav, de leurs couleurs et de leurs survol
 
 #navSecAccueil{
     grid-area: secAcc;
     background-color: darkkhaki;
+    &:hover{
+        background-image: url('../img/Placeholders/1.jpg');
+    }
 }
 #navSecMoi{
     grid-area: secMoi;
     background-color: cornsilk;
+    &:hover{
+        background-image: url('../img/Placeholders/2.jpg');
+    }
 }
 #navSecSuivre{
     grid-area: secSuivre;
     background-color: floralwhite;
+    &:hover{
+        background-image: url('../img/Placeholders/3.png');
+    }
 }
 #navSecSpotify{
     grid-area: secSpotify;
     background-color: burlywood;
+    &:hover{
+        background-image: url('../img/Placeholders/4.jpg');
+    }
 }
 #navSecAnim{
     grid-area: secAnim;
     background-color: khaki;
+    &:hover{
+        background-image: url('../img/Placeholders/5.jpg');
+    }
 }
 #navSecJV{
     grid-area: secJV;
     background-color: bisque;
+    &:hover{
+        background-image: url('../img/Placeholders/6.jpg');
+    }
 }
 #navSecPalma{
     grid-area: secPalma;
     background-color: antiquewhite;
+    &:hover{
+        background-image: url('../img/Placeholders/7.jpg');
+    }
 }
 #navSecContact{
     grid-area: secContact;
     background-color: blanchedalmond;
+    &:hover{
+        background-image: url('../img/Placeholders/8.jpg');
+    }
 }
 #navSecTxt{
     grid-area: secTxt;
@@ -211,10 +278,12 @@ section{
     padding: 0 0.4em;
 }
 #navSecondaire{
+    background-color: rgba($colorSecondaire,0.2);
     &>div{
         padding: 0 1em;
         font-weight: bold;
         font-size: 2em;
+        //text-transform:uppercase;
         font-variant-caps: all-petite-caps;
         display: grid;
         grid-template: repeat(4,1fr) 1.5fr/ repeat(2,1fr) 2fr;
@@ -225,15 +294,18 @@ section{
                             'secTxt secTxt secContact';
         &>a{
             color: $colorSecondaire;
-            //background-color: $colorMainSombre;
             padding: 0.4em;
             text-align: center;
             align-content: center;
             border-radius: 15px;
+            margin: 0.1em;
+            background-size: cover;
+            background-position: center;
             &:hover{
-                color: $colorSecondaire;
+                color: $colorSecondaireSurvol;
                 background-color: $colorMainSurvol;
                 text-shadow: $borderMiseAvantSurvol;
+                box-shadow: $fondSombre;
             }
         }
     }
@@ -247,7 +319,7 @@ section{
         margin: 0 auto;
         display: grid;
         font-size: 1.25em;
-        grid-template: 150px / repeat(8,150px);
+        grid-template: 15% / repeat(8,15%);
         justify-items: center;
         align-items: center;
         &>span{
@@ -286,7 +358,6 @@ section{
                 width: 22%;
             }
             & div{
-                //text-align: justify;
                 text-transform: uppercase;
                 line-height: 1em;
                 background-color: white;
@@ -305,7 +376,6 @@ section{
                     padding: 0.6em;
                 }
                 & img{
-                    //box-shadow: inset 0 0 4000px blue;
                     float: initial ;
                     width: 100%;
                 }
@@ -368,6 +438,14 @@ section{
     }
     to{
         filter: hue-rotate(100deg);
-        filter: brightness(1.25);
+        filter: brightness(1.4);
+    }
+}
+@keyframes themeJN {
+    from{
+        filter: brightness(10);
+    }
+    to{
+        filter: brightness(1);
     }
 }
