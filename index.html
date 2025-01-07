@@ -9,51 +9,52 @@
     <script src="https://v8.js-dos.com/latest/js-dos.js"></script>
     <script src="./js/nav.js" defer></script>
     <script src="./js/anim.js" defer></script>
+    <audio src="./ressources/Caramella Girls - Caramelldansen HD Version (Swedish Original).mp3" id="caramelleDanse"></audio>
+    <audio src="./ressources/flashbang-sound-effect.mp3" id="flashAudio"></audio>
     <title>SleepyProject | We won't sleep until dreams come true.</title>
 </head>
 <body>
     <header id="nav">
-        <nav>
-            <div>
-                <div><a href="https://paypal.me/HugoWa" target="_blank">SleepyBoi</a></div>
-                <div id="navMenu">
-                    <a href="#">Accueil</a>
-                    <a href="#navSecondaire">Menu</a>
-                    <!--C'est une ampoule vue du haut-->
-                    <svg width="0.5625em" height="0.5625em" id="theme">
-                        <circle r="calc(0.28125em - 0.05em)" cx="0.28125em" cy="0.28125em" fill="white" stroke="white" stroke-width="0.05em" id="rondTheme"/>
-                    </svg>
-                </div>
+        <nav class="unselect">
+            <div><a href="https://paypal.me/HugoWa" target="_blank">SleepyBoi</a></div>
+            <div id="navMenu">
+                <a href="#">Accueil</a>
+                <a href="#navSecondaire">Menu</a>
+                <!--C'est une ampoule vue du haut-->
+                <svg width="0.5625em" height="0.5625em" id="theme">
+                    <circle r="calc(0.28125em - 0.05em)" cx="0.28125em" cy="0.28125em" fill="white" stroke="white" stroke-width="0.05em" id="rondTheme"/>
+                </svg>
             </div>
         </nav>
     </header>
     <main id="main">
         <section id="depart">
             <div id="accueil">
-                <h1>SleepyProject</h1>
+                <h1 class="unselect">SleepyProject</h1>
                 <h2>We won't sleep until our dreams come true.</h2>
-                <a href="#moi">Discover me.</a>
+                <a href="#moi" class="unselect">Discover me.</a>
+                <div id="flashbang" class="unselect hidden">CLIQUE MOI PAS</div>
             </div>
         </section>
-        <section id="navSecondaire">
-            <!--<p class="wip" style="font-size: 2em;"></p>-->
-            <div>
-                <a href="#" id="navSecAccueil">Accueil</a>
-                <a href="#moi" id="navSecMoi">Tout sur moi.</a>
-                <a href="#linkTree" id="navSecSuivre">Où me suivre</a>
-                <a href="#spotify" id="navSecSpotify">Spotify</a>
-                <a href="#test_de_rendu" id="navSecAnim">Test d'animation</a>
-                <a href="#jouer" id="navSecJV">Jeu Video</a>
-                <a href="#palmares" id="navSecPalma">Palmares</a>
+        <section id="navSecondaire" class="animVague">
+            <p class="wip" style="font-size: 5em; margin: 0; height: 38px;"></p>
+            <div class="">
+                <a href="#" id="navSecAccueil" class="unselect">Accueil</a>
+                <a href="#moi" id="navSecMoi" class="unselect">Tout sur moi.</a>
+                <a href="#linkTree" id="navSecSuivre" class="unselect">Où me suivre</a>
+                <a href="#spotify" id="navSecSpotify" class="unselect">Spotify</a>
+                <a href="#test_de_rendu" id="navSecAnim" class="unselect">Test d'animation</a>
+                <a href="#jouer" id="navSecJV" class="unselect">Jeu Video</a>
+                <a href="#palmares" id="navSecPalma" class="unselect">Palmares</a>
                 <p id="navSecTxt">Des suggestions ou envie d'un contact direct ? >></p>
-                <a href="#contact" id="navSecContact">Contactez moi</a>
+                <a href="#contact" id="navSecContact" class="unselect">Contactez moi</a>
             </div>
         </section>
         <section id="moi">
-            <h2 class="wip">Moi</h2>
+            <h2 class="wip unselect">Moi</h2>
             <p>Je vous jure qu'il y aura des choses à dire à un moment quoi</p>
         </section>
-        <section id="linkTree">
+        <section id="linkTree" class="unselect">
             <h2 class="wip">"<span class="link">Link</span>Tree"</h2>
             <div>
                 <span><a href="https://instagram.com/slxxpyboi" target="_blank">Instagram (Graphisme)</a></span>
@@ -66,7 +67,7 @@
                 <span><a href="https://www.moxfield.com/users/Vaganuki" target="_blank">MoxField</a></span>
             </div>
         </section>
-        <section id="palmares">
+        <section id="palmares" class="unselect">
             <h2 class="wip">Palmares</h2>
             <div>
                 <a href="https://www.instagram.com/p/C2zQSAPt2QC/" target="_blank">
@@ -90,14 +91,14 @@
             </div>
         </section>        
         <section id="spotify">
-            <h2><a target="_blank" href="https://open.spotify.com/user/vaganuki/playlists">Spotify playlists</a></h2>
+            <h2><a target="_blank" class="unselect" href="https://open.spotify.com/user/vaganuki/playlists">Spotify playlists</a></h2>
             <div>
                 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6fdlMzDloca5ixc0yePvP4?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1mCUeLAzX306SnGYixVkDB?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6wCDp90v2pwMDws3fviZYw?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>   
             </div>
         </section>
-        <section id="test_de_rendu">
+        <section class="unselect" id="test_de_rendu">
             <h2>Test d'animation</h2>
             <div id="anim">
                 <span class="letAnim">A</span>
@@ -112,7 +113,7 @@
             </div>
         </section>
         <section id="jouer">
-            <h2>On joue ?</h2>
+            <h2 class="unselect">On joue ?</h2>
             <div id="jeuVideo">
                 <div id='dos' style='width: 1000px; height: 600px; margin: 0 auto;background-color: red;'></div>
                 <script>
@@ -123,7 +124,7 @@
             </div>
         </section>
         <section id="contact">
-            <h2 class="wip">Contact</h2>
+            <h2 class="wip unselect">Contact</h2>
             <p>Euh pour l'instant vous pouvez cliquer là:</br><a href="mailto:hugo.warnotte@gmail.com" target="_blank">hugo.warnotte@gmail.com</a> ou <a href="mailto:sleepyboi.ink@gmail.com" target="_blank">sleepyboi.ink@gmail.com</a></p>
         </section>
     </main>

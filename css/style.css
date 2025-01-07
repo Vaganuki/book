@@ -17,7 +17,7 @@ main > * {
   translate: 0 -65px;
 }
 
-.darkTheme * {
+.darkTheme {
   color: white;
 }
 .darkTheme header {
@@ -37,12 +37,56 @@ main > * {
   filter: invert(100%);
 }
 
+.unselect {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .wip::after {
   vertical-align: top;
   font-family: "Roboto", Arial, sans-serif;
   font-size: 0.4em;
   font-weight: 200;
   content: "Work in progress";
+}
+
+.hidden {
+  display: none;
+}
+
+.wow {
+  animation: ahOui 1s infinite linear;
+}
+
+.flash {
+  animation: flashAnim 6s linear;
+}
+
+.animVague {
+  overflow: clip;
+  position: relative;
+}
+.animVague::before, .animVague::after {
+  content: "";
+  width: 200%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  aspect-ratio: 1;
+  translate: -50% 0;
+  background-color: #056CF2;
+  border-top-left-radius: 60% 80%;
+  border-top-right-radius: 50% 80%;
+  border-bottom-left-radius: 30% 80%;
+  border-bottom-right-radius: 40% 80%;
+  mix-blend-mode: multiply;
+  animation: rot 120s linear infinite;
+}
+.animVague::after {
+  animation-delay: -3s;
+  animation-duration: 90s;
 }
 
 .link {
@@ -72,17 +116,17 @@ header.show {
   opacity: 1;
   transform: translateY(10px);
 }
-header nav > div {
+header nav {
   display: grid;
   grid-template: 1fr/1fr 1fr;
   font-size: 2.5em;
 }
-header nav > div div a {
+header nav div a {
   font-family: "Pirata One", "Arial Narrow", Arial, sans-serif;
   color: white;
   transition: 0.2s ease-in;
 }
-header nav > div div a:hover {
+header nav div a:hover {
   text-shadow: 0 0.05em rgb(97.2591093117, 164.3967611336, 251.7408906883), 0em 0em 0.1em rgb(97.2591093117, 164.3967611336, 251.7408906883), 0em 0em 0.4em rgb(97.2591093117, 164.3967611336, 251.7408906883);
 }
 
@@ -129,8 +173,8 @@ header nav > div div a:hover {
 #accueil h1 {
   font-size: 6.5em;
   font-family: "Pirata One", "Arial Narrow", Arial, sans-serif;
-  text-shadow: 0 0.05em #88DFF2, 0em 0em 0.1em #88DFF2, 0em 0em 0.4em #88DFF2;
   margin: 0;
+  text-shadow: 0 0.05em #88DFF2, 0em 0em 0.1em #88DFF2, 0em 0em 0.4em #88DFF2;
 }
 #accueil h1:hover {
   animation: titreDisco 2.5s infinite alternate ease-in-out;
@@ -157,6 +201,17 @@ header nav > div div a:hover {
   border-radius: 2px;
 }
 
+#flashbang {
+  margin: 2em auto 0;
+  padding: 0.8em;
+  opacity: 0.1;
+  filter: blur(1px);
+  border-radius: 15px;
+  background-color: #056cf2;
+  width: fit-content;
+  text-align: center;
+}
+
 section:nth-child(odd) {
   box-shadow: inset 0 0 0 4000px rgba(255, 255, 255, 0.15), 0px -0.01em 2.5em rgba(0, 0, 0, 0.05);
   border-top: solid 0.01em rgba(100, 100, 100, 0.08);
@@ -174,7 +229,7 @@ section:not(#depart) h2 {
 
 #navSecAccueil {
   grid-area: secAcc;
-  background-color: darkkhaki;
+  background-color: #07A2F5;
 }
 #navSecAccueil:hover {
   background-image: url("../img/Placeholders/1.jpg");
@@ -182,7 +237,7 @@ section:not(#depart) h2 {
 
 #navSecMoi {
   grid-area: secMoi;
-  background-color: cornsilk;
+  background-color: #31B6F5;
 }
 #navSecMoi:hover {
   background-image: url("../img/Placeholders/2.jpg");
@@ -190,7 +245,7 @@ section:not(#depart) h2 {
 
 #navSecSuivre {
   grid-area: secSuivre;
-  background-color: floralwhite;
+  background-color: #3C7EC4;
 }
 #navSecSuivre:hover {
   background-image: url("../img/Placeholders/3.png");
@@ -198,7 +253,7 @@ section:not(#depart) h2 {
 
 #navSecSpotify {
   grid-area: secSpotify;
-  background-color: burlywood;
+  background-color: #1D73AF;
 }
 #navSecSpotify:hover {
   background-image: url("../img/Placeholders/4.jpg");
@@ -206,7 +261,7 @@ section:not(#depart) h2 {
 
 #navSecAnim {
   grid-area: secAnim;
-  background-color: khaki;
+  background-color: #1D65DC;
 }
 #navSecAnim:hover {
   background-image: url("../img/Placeholders/5.jpg");
@@ -214,7 +269,7 @@ section:not(#depart) h2 {
 
 #navSecJV {
   grid-area: secJV;
-  background-color: bisque;
+  background-color: #153773;
 }
 #navSecJV:hover {
   background-image: url("../img/Placeholders/6.jpg");
@@ -222,7 +277,7 @@ section:not(#depart) h2 {
 
 #navSecPalma {
   grid-area: secPalma;
-  background-color: antiquewhite;
+  background-color: #0053d8;
 }
 #navSecPalma:hover {
   background-image: url("../img/Placeholders/7.jpg");
@@ -230,7 +285,7 @@ section:not(#depart) h2 {
 
 #navSecContact {
   grid-area: secContact;
-  background-color: blanchedalmond;
+  background-color: #1036FF;
 }
 #navSecContact:hover {
   background-image: url("../img/Placeholders/8.jpg");
@@ -243,7 +298,11 @@ section:not(#depart) h2 {
 }
 
 #navSecondaire {
-  background-color: rgba(136, 223, 242, 0.2);
+  background: radial-gradient(circle, #056CF2 0%, #88DFF2 100%);
+  box-shadow: inset 0 0 0 4000px rgba(255, 255, 255, 0.4);
+  animation: blend infinite 45s;
+  background-size: 500% 500%;
+  color: white;
 }
 #navSecondaire > div {
   padding: 0 1em;
@@ -255,7 +314,7 @@ section:not(#depart) h2 {
   grid-template-areas: "secAcc secAcc secMoi" "secSuivre secSpotify secMoi" "secAnim secPalma secMoi" "secJV secPalma secMoi" "secTxt secTxt secContact";
 }
 #navSecondaire > div > a {
-  color: #88DFF2;
+  color: white;
   padding: 0.4em;
   text-align: center;
   align-content: center;
@@ -265,10 +324,18 @@ section:not(#depart) h2 {
   background-position: center;
 }
 #navSecondaire > div > a:hover {
-  color: rgb(181.9772727273, 235.3636363636, 247.0227272727);
+  color: #88DFF2;
   background-color: rgb(97.2591093117, 164.3967611336, 251.7408906883);
   text-shadow: 0 0 0.5em black, 0 0 3em rgb(245, 245, 245);
   box-shadow: inset 0 0 0 4000px rgba(0, 0, 0, 0.3);
+}
+
+#moi h2 {
+  width: fit-content;
+}
+#moi h2:hover::after {
+  content: "I built this page brick by brick";
+  font-family: "pirata one";
 }
 
 #linkTree > div {
@@ -411,6 +478,32 @@ section:not(#depart) h2 {
   }
   to {
     filter: brightness(1);
+  }
+}
+@keyframes flashAnim {
+  from {
+    filter: brightness(80);
+  }
+  50% {
+    filter: brightness(80);
+  }
+  to {
+    filter: brightness(0);
+  }
+}
+@keyframes blend {
+  to {
+    background-position: 500% 100%;
+  }
+}
+@keyframes ahOui {
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+@keyframes rot {
+  to {
+    rotate: 360deg;
   }
 }
 

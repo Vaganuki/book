@@ -8,6 +8,7 @@
 
 //Définitions des couleurs
 
+
 $colorMain: #056CF2;
 $colorMainSurvol: lighten($colorMain, 20%);
 $colorSecondaire: #88DFF2;
@@ -22,6 +23,7 @@ $fondTiercaire: #739EBE;
 $borderMiseAvantSurvol:  0 0 0.5em black,0 0 3em rgb(245, 245, 245);
 $fondSombre: inset 0 0 0 4000px rgba(0, 0, 0, 0.3);
 $fondClair:  inset 0 0 0 4000px rgba(255, 255, 255, 0.15);
+$fondTresClair:  inset 0 0 0 4000px rgba(255, 255, 255, 0.4);
 
 //Normalize/Reset personnel
 
@@ -43,10 +45,7 @@ main {
     }
 }
 .darkTheme{
-    & *{
-        color: white;
-        //background-color: black;
-    }
+    color: white;
     & header{
         background-color: rgba($colorMainSombre,0.6);
     }
@@ -63,6 +62,11 @@ main {
 .invert{
     filter: invert(100%);
 }
+.unselect{
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 //À Retirer une fois le code fini
 
 .wip{
@@ -73,6 +77,40 @@ main {
         font-weight: 200;
         content:'Work in progress';
     }
+}
+.hidden{
+    display: none;
+}
+.wow{
+    animation: ahOui 1s  infinite linear;
+}
+.flash{
+    animation: flashAnim 6s linear;
+}
+.animVague{
+        overflow: clip;
+        position: relative;
+        &::before,&::after{
+            content: '';
+            width: 200%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: -1;
+            aspect-ratio: 1;
+            translate: -50% 0;
+            background-color: $colorMain;
+            border-top-left-radius: 60% 80%;
+            border-top-right-radius: 50% 80%;
+            border-bottom-left-radius: 30% 80%;
+            border-bottom-right-radius: 40% 80%;
+            mix-blend-mode: multiply;
+            animation: rot 120s linear infinite;
+        }
+        &::after{
+            animation-delay: -3s;
+            animation-duration: 90s;
+        }
 }
 .link{
     display: inline-block;
@@ -102,7 +140,7 @@ header{
         opacity: 1;
         transform: translateY(10px);
     }
-    & nav>div{
+    & nav{
         display: grid;
         grid-template: 1fr / 1fr 1fr ;
         font-size: 2.5em;
@@ -163,8 +201,8 @@ header{
         //Typo à potentiellement éditer
         font-size: 6.5em;
         font-family: "Pirata One", 'Arial Narrow', Arial, sans-serif;
-        text-shadow: 0 0.05em $colorSecondaire,0em 0em 0.1em $colorSecondaire, 0em 0em 0.4em $colorSecondaire;
         margin: 0;
+        text-shadow: 0 0.05em $colorSecondaire,0em 0em 0.1em $colorSecondaire, 0em 0em 0.4em $colorSecondaire;
         &:hover{
             animation: titreDisco 2.5s infinite alternate ease-in-out;
         }
@@ -193,7 +231,18 @@ header{
         }
     }
 }
-
+#flashbang{
+    //display: block;
+    margin: 2em auto 0;
+    padding: 0.8em;
+    opacity: 0.1;
+    filter: blur(1px);
+    border-radius: 15px;
+    background-color: rgba($colorMain, $alpha: 1);
+    width: fit-content;
+    text-align: center;
+    //width: fit-content;
+}
 //Création d'une séparation entre nos diverses sections
 
 section{
@@ -218,56 +267,56 @@ section{
 
 #navSecAccueil{
     grid-area: secAcc;
-    background-color: darkkhaki;
+    background-color: #07A2F5;
     &:hover{
         background-image: url('../img/Placeholders/1.jpg');
     }
 }
 #navSecMoi{
     grid-area: secMoi;
-    background-color: cornsilk;
+    background-color: #31B6F5;
     &:hover{
         background-image: url('../img/Placeholders/2.jpg');
     }
 }
 #navSecSuivre{
     grid-area: secSuivre;
-    background-color: floralwhite;
+    background-color: #3C7EC4;
     &:hover{
         background-image: url('../img/Placeholders/3.png');
     }
 }
 #navSecSpotify{
     grid-area: secSpotify;
-    background-color: burlywood;
+    background-color: #1D73AF;
     &:hover{
         background-image: url('../img/Placeholders/4.jpg');
     }
 }
 #navSecAnim{
     grid-area: secAnim;
-    background-color: khaki;
+    background-color: #1D65DC;
     &:hover{
         background-image: url('../img/Placeholders/5.jpg');
     }
 }
 #navSecJV{
     grid-area: secJV;
-    background-color: bisque;
+    background-color: #153773;
     &:hover{
         background-image: url('../img/Placeholders/6.jpg');
     }
 }
 #navSecPalma{
     grid-area: secPalma;
-    background-color: antiquewhite;
+    background-color: #0053d8;
     &:hover{
         background-image: url('../img/Placeholders/7.jpg');
     }
 }
 #navSecContact{
     grid-area: secContact;
-    background-color: blanchedalmond;
+    background-color: #1036FF;
     &:hover{
         background-image: url('../img/Placeholders/8.jpg');
     }
@@ -278,12 +327,17 @@ section{
     padding: 0 0.4em;
 }
 #navSecondaire{
-    background-color: rgba($colorSecondaire,0.2);
+    //background-color: rgba($colorSecondaire,0.2);
+    //background: radial-gradient(circle, rgba(21,55,115,1) 0%, rgba(13,73,179,1) 20%, rgba(5,91,242,1) 80%, rgba(21,55,115,1) 100%);
+    background: radial-gradient(circle, $colorMain 0%, $colorSecondaire 100%);
+    box-shadow: $fondTresClair;
+    animation: blend infinite 45s;
+    background-size: 500% 500%;
+    color: white;
     &>div{
         padding: 0 1em;
         font-weight: bold;
         font-size: 2em;
-        //text-transform:uppercase;
         font-variant-caps: all-petite-caps;
         display: grid;
         grid-template: repeat(4,1fr) 1.5fr/ repeat(2,1fr) 2fr;
@@ -293,7 +347,7 @@ section{
                             'secJV secPalma secMoi'
                             'secTxt secTxt secContact';
         &>a{
-            color: $colorSecondaire;
+            color: white;
             padding: 0.4em;
             text-align: center;
             align-content: center;
@@ -302,7 +356,7 @@ section{
             background-size: cover;
             background-position: center;
             &:hover{
-                color: $colorSecondaireSurvol;
+                color: $colorSecondaire;
                 background-color: $colorMainSurvol;
                 text-shadow: $borderMiseAvantSurvol;
                 box-shadow: $fondSombre;
@@ -310,6 +364,17 @@ section{
         }
     }
 }
+
+#moi{
+    & h2{
+        width: fit-content;
+        &:hover::after{
+            content: 'I built this page brick by brick';
+            font-family: 'pirata one';
+        }
+    }
+}
+
 //LinkTree à remodifier !!!!
 
 #linkTree{
@@ -447,5 +512,31 @@ section{
     }
     to{
         filter: brightness(1);
+    }
+}
+@keyframes flashAnim {
+    from{
+        filter: brightness(80);
+    }
+    50%{
+        filter: brightness(80);
+    }
+    to{
+        filter: brightness(0);
+    }
+}
+@keyframes blend{
+    to{
+        background-position: 500% 100%;
+    }
+}
+@keyframes ahOui {
+    to{
+        filter: hue-rotate(360deg);
+    }
+}
+@keyframes rot{
+    to{
+        rotate: 360deg;
     }
 }
