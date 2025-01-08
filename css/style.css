@@ -14,23 +14,89 @@ html {
 }
 
 main > * {
-  translate: 0 -65px;
+  translate: 0 -67px;
 }
 
 .darkTheme {
+  background: linear-gradient(180deg, #888 0%, #002a74 75%, #000e25 100%);
   color: white;
 }
+.darkTheme .animVague::before, .darkTheme .animVague::after {
+  background-color: rgb(55.7142857143, 61.2857142857, 165.2857142857);
+}
 .darkTheme header {
-  background-color: rgba(30, 33, 89, 0.6);
+  background-color: rgba(30, 33, 89, 0.4);
+}
+.darkTheme section:nth-child(odd) {
+  box-shadow: inset 0 0 0 4000px rgba(255, 255, 255, 0.15), 0px -0.01em 2.5em rgba(255, 255, 255, 0.05);
+  border-top: solid 0.01em rgba(155, 155, 155, 0.08);
+}
+.darkTheme #navSecAccueil {
+  background-color: #00027c;
+}
+.darkTheme #navSecAccueil:hover {
+  background-image: url("../img/Placeholders/sombre/1.png");
+}
+.darkTheme #navSecMoi {
+  background-color: #00095e;
+}
+.darkTheme #navSecMoi:hover {
+  background-image: url("../img/Placeholders/sombre/2.png");
+}
+.darkTheme #navSecSuivre {
+  background-color: #0061a1;
+}
+.darkTheme #navSecSuivre:hover {
+  background-image: url("../img/Placeholders/sombre/3.png");
+}
+.darkTheme #navSecSpotify {
+  background-color: #031b46;
+}
+.darkTheme #navSecSpotify:hover {
+  background-image: url("../img/Placeholders/sombre/4.png");
+}
+.darkTheme #navSecAnim {
+  background-color: #00509b;
+}
+.darkTheme #navSecAnim:hover {
+  background-image: url("../img/Placeholders/sombre/5.png");
+}
+.darkTheme #navSecJV {
+  background-color: #002258;
+}
+.darkTheme #navSecJV:hover {
+  background-image: url("../img/Placeholders/sombre/6.png");
+}
+.darkTheme #navSecPalma {
+  background-color: #003283;
+}
+.darkTheme #navSecPalma:hover {
+  background-image: url("../img/Placeholders/sombre/7.png");
+}
+.darkTheme #navSecContact {
+  background-color: #001988;
+}
+.darkTheme #navSecContact:hover {
+  background-image: url("../img/Placeholders/sombre/8.png");
 }
 .darkTheme #navSecondaire {
-  background-color: rgba(7, 0, 199, 0.5);
+  background: radial-gradient(circle, #1e2159 0%, #0700c7 100%);
+  background-size: 500% 100%;
+  animation: blend infinite 90s;
+  box-shadow: inset 0 0 0 4000px rgba(255, 255, 255, 0.15);
 }
 .darkTheme #navSecondaire a {
-  color: #0700c7;
+  color: white;
 }
 .darkTheme #navSecondaire a:hover {
   color: rgb(200.9698492462, 199, 255);
+  text-shadow: 0 0 0.5em black, 0 0 3em rgb(245, 245, 245);
+}
+.darkTheme #linkTree a, .darkTheme #spotify a {
+  color: white;
+}
+.darkTheme #linkTree > div > span:hover {
+  box-shadow: 0 0 0.5em black, 0 0 3em rgb(245, 245, 245);
 }
 
 .invert {
@@ -69,23 +135,23 @@ main > * {
 }
 .animVague::before, .animVague::after {
   content: "";
-  width: 200%;
+  width: 150%;
   position: absolute;
   top: 50%;
   left: 50%;
   z-index: -1;
   aspect-ratio: 1;
   translate: -50% 0;
-  background-color: #056CF2;
+  background-color: rgb(97.2591093117, 164.3967611336, 251.7408906883);
   border-top-left-radius: 60% 80%;
-  border-top-right-radius: 50% 80%;
+  border-top-right-radius: 70% 50%;
   border-bottom-left-radius: 30% 80%;
-  border-bottom-right-radius: 40% 80%;
+  border-bottom-right-radius: 70% 65%;
   mix-blend-mode: multiply;
-  animation: rot 120s linear infinite;
+  animation: rot 100s linear infinite;
 }
 .animVague::after {
-  animation-delay: -3s;
+  animation-delay: -10s;
   animation-duration: 90s;
 }
 
@@ -95,21 +161,22 @@ main > * {
 }
 
 header {
+  width: 83.1545064378%;
+  height: 65px;
+  margin: 0 auto;
   position: sticky;
   top: 0;
   z-index: 1;
   opacity: 0;
   transform: translateY(-65px);
-  margin: 0 auto;
-  width: 83.1545064378%;
+  transition: opacity 0.5s ease-in, 0.5s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
   padding: 0 2em;
-  height: 65px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 32.5px;
-  background-color: rgba(5, 108, 242, 0.6);
+  background-color: rgba(5, 108, 242, 0.4);
   color: white;
-  box-shadow: 0 0.4em 1.75em rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(7.5px);
-  transition: opacity 0.5s ease-in, transform 0.75s ease-in;
+  box-shadow: 0 0.4em 1.75em rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
   align-content: center;
 }
 header.show {
@@ -213,7 +280,7 @@ header nav div a:hover {
 }
 
 section:nth-child(odd) {
-  box-shadow: inset 0 0 0 4000px rgba(255, 255, 255, 0.15), 0px -0.01em 2.5em rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 4000px rgba(255, 255, 255, 0.4), 0px -0.01em 2.5em rgba(0, 0, 0, 0.05);
   border-top: solid 0.01em rgba(100, 100, 100, 0.08);
 }
 section:not(#depart) {
@@ -232,7 +299,7 @@ section:not(#depart) h2 {
   background-color: #07A2F5;
 }
 #navSecAccueil:hover {
-  background-image: url("../img/Placeholders/1.jpg");
+  background-image: url("../img/Placeholders/1.png");
 }
 
 #navSecMoi {
@@ -240,7 +307,7 @@ section:not(#depart) h2 {
   background-color: #31B6F5;
 }
 #navSecMoi:hover {
-  background-image: url("../img/Placeholders/2.jpg");
+  background-image: url("../img/Placeholders/2.png");
 }
 
 #navSecSuivre {
@@ -256,7 +323,7 @@ section:not(#depart) h2 {
   background-color: #1D73AF;
 }
 #navSecSpotify:hover {
-  background-image: url("../img/Placeholders/4.jpg");
+  background-image: url("../img/Placeholders/4.png");
 }
 
 #navSecAnim {
@@ -264,7 +331,7 @@ section:not(#depart) h2 {
   background-color: #1D65DC;
 }
 #navSecAnim:hover {
-  background-image: url("../img/Placeholders/5.jpg");
+  background-image: url("../img/Placeholders/5.png");
 }
 
 #navSecJV {
@@ -272,7 +339,7 @@ section:not(#depart) h2 {
   background-color: #153773;
 }
 #navSecJV:hover {
-  background-image: url("../img/Placeholders/6.jpg");
+  background-image: url("../img/Placeholders/6.png");
 }
 
 #navSecPalma {
@@ -280,7 +347,7 @@ section:not(#depart) h2 {
   background-color: #0053d8;
 }
 #navSecPalma:hover {
-  background-image: url("../img/Placeholders/7.jpg");
+  background-image: url("../img/Placeholders/7.png");
 }
 
 #navSecContact {
@@ -288,7 +355,7 @@ section:not(#depart) h2 {
   background-color: #1036FF;
 }
 #navSecContact:hover {
-  background-image: url("../img/Placeholders/8.jpg");
+  background-image: url("../img/Placeholders/8.png");
 }
 
 #navSecTxt {
@@ -299,9 +366,9 @@ section:not(#depart) h2 {
 
 #navSecondaire {
   background: radial-gradient(circle, #056CF2 0%, #88DFF2 100%);
+  background-size: 500% 100%;
   box-shadow: inset 0 0 0 4000px rgba(255, 255, 255, 0.4);
-  animation: blend infinite 45s;
-  background-size: 500% 500%;
+  animation: blend infinite 90s;
   color: white;
 }
 #navSecondaire > div {
@@ -339,7 +406,7 @@ section:not(#depart) h2 {
 }
 
 #linkTree > div {
-  width: fit-content;
+  width: 85.8369098712%;
   margin: 0 auto;
   display: grid;
   font-size: 1.25em;

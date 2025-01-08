@@ -8,7 +8,6 @@
 
 //Définitions des couleurs
 
-
 $colorMain: #056CF2;
 $colorMainSurvol: lighten($colorMain, 20%);
 $colorSecondaire: #88DFF2;
@@ -18,8 +17,11 @@ $colorMainSombreSurvol: lighten($colorMainSombre,20%);
 $colorSecondaireSombre: #0700c7;
 $colorSecondaireSombreSurvol: lighten($colorSecondaireSombre,50%);
 $fondPrincipal: #E2E1E7;
+$fondPrincipalSombre: #888;
 $fondSecondaire: #D2D9DF;
+$fondSecondaireSombre: #002a74;
 $fondTiercaire: #739EBE;
+$fondTiercaireSombre: #000e25;
 $borderMiseAvantSurvol:  0 0 0.5em black,0 0 3em rgb(245, 245, 245);
 $fondSombre: inset 0 0 0 4000px rgba(0, 0, 0, 0.3);
 $fondClair:  inset 0 0 0 4000px rgba(255, 255, 255, 0.15);
@@ -41,21 +43,95 @@ html{
 main {
     &>*{
         //adaptation selon la nav.
-        translate:0  -65px;
+        translate:0  -67px;
     }
 }
 .darkTheme{
+    background: linear-gradient(180deg, $fondPrincipalSombre 0%, $fondSecondaireSombre 75%, $fondTiercaireSombre 100%);
     color: white;
-    & header{
-        background-color: rgba($colorMainSombre,0.6);
+    & .animVague{
+        &::before,&::after{
+            background-color: $colorMainSombreSurvol;
+        }
     }
-    #navSecondaire{
-        background-color: rgba($colorSecondaireSombre,0.5);
-        & a{
-            color: $colorSecondaireSombre;
+    & header{
+        background-color: rgba($colorMainSombre,0.4);
+    }
+    & section{
+        &:nth-child(odd){
+            box-shadow: $fondClair, 0px -0.01em 2.5em rgba($color: white, $alpha: 0.05);
+            border-top: solid 0.01em rgba(155,155,155, 0.08);
+        }
+    }
+    & #navSecAccueil{
+        background-color: #00027c;
+        &:hover{
+            background-image: url('../img/Placeholders/sombre/1.png');
+        }
+    }
+    & #navSecMoi{
+        background-color: #00095e;
+        &:hover{
+            background-image: url('../img/Placeholders/sombre/2.png');
+        }
+    }
+    & #navSecSuivre{
+        background-color: #0061a1;
+        &:hover{
+            background-image: url('../img/Placeholders/sombre/3.png');
+        }
+    }
+    & #navSecSpotify{
+        background-color: #031b46;
+        &:hover{
+            background-image: url('../img/Placeholders/sombre/4.png');
+        }
+    }
+    & #navSecAnim{
+        background-color: #00509b;
+        &:hover{
+            background-image: url('../img/Placeholders/sombre/5.png');
+        }
+    }
+    & #navSecJV{
+        background-color: #002258;
+        &:hover{
+            background-image: url('../img/Placeholders/sombre/6.png');
+        }
+    }
+    & #navSecPalma{
+        background-color: #003283;
+        &:hover{
+            background-image: url('../img/Placeholders/sombre/7.png');
+        }
+    }
+    & #navSecContact{
+        background-color: #001988;
+        &:hover{
+            background-image: url('../img/Placeholders/sombre/8.png');
+        }
+    }
+    & #navSecondaire{
+        background: radial-gradient(circle, $colorMainSombre 0%, $colorSecondaireSombre 100%);
+        background-size: 500% 100%;
+        animation: blend infinite 90s;
+        box-shadow: $fondClair;
+            & a{
+                color: white;
             &:hover{
                 color: $colorSecondaireSombreSurvol;
+                text-shadow: $borderMiseAvantSurvol;
             }
+        }
+    }
+    & #linkTree,& #spotify{
+        & a{
+            color: white;
+        }
+    }
+    & #linkTree{
+        &>div>span:hover{
+            box-shadow: $borderMiseAvantSurvol;
         }
     }
 }
@@ -92,23 +168,23 @@ main {
         position: relative;
         &::before,&::after{
             content: '';
-            width: 200%;
+            width: 150%;
             position: absolute;
             top: 50%;
             left: 50%;
             z-index: -1;
             aspect-ratio: 1;
             translate: -50% 0;
-            background-color: $colorMain;
+            background-color: $colorMainSurvol;
             border-top-left-radius: 60% 80%;
-            border-top-right-radius: 50% 80%;
+            border-top-right-radius: 70% 50%;
             border-bottom-left-radius: 30% 80%;
-            border-bottom-right-radius: 40% 80%;
+            border-bottom-right-radius: 70% 65%;
             mix-blend-mode: multiply;
-            animation: rot 120s linear infinite;
+            animation: rot 100s linear infinite;
         }
         &::after{
-            animation-delay: -3s;
+            animation-delay: -10s;
             animation-duration: 90s;
         }
 }
@@ -120,21 +196,22 @@ main {
 //nav à modifier !!!! Ici rien n'est définitif
 
 header{
+    width: pxToPrct(1550, 1864);
+    height: 65px;
+    margin: 0 auto;
     position: sticky;
     top: 0;
     z-index: 1;
     opacity: 0;
     transform: translateY(-65px);
-    margin: 0 auto;
-    width: pxToPrct(1550, 1864);
+    transition: opacity 0.5s ease-in, 0.5s transform cubic-bezier(0.075, 0.82, 0.165, 1) .2s;
     padding: 0 2em;
-    height: 65px;
+    border: 1px solid rgba(255,255,255,.06);
     border-radius: 32.5px;
-    background-color: rgba($colorMain,0.6);
+    background-color: rgba($colorMain,0.4);
     color: white;
-    box-shadow: 0 0.4em 1.75em rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(7.5px);
-    transition: opacity 0.5s ease-in, transform 0.75s ease-in;
+    box-shadow: 0 0.4em 1.75em rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
     align-content: center;
     &.show{
         opacity: 1;
@@ -247,7 +324,7 @@ header{
 
 section{
     &:nth-child(odd){
-        box-shadow:$fondClair, 0px -0.01em 2.5em rgba(0, 0, 0, 0.05);
+        box-shadow:$fondTresClair, 0px -0.01em 2.5em rgba(0, 0, 0, 0.05);
         border-top: solid 0.01em rgba(100, 100, 100, 0.08);
     }
     &:not(#depart){
@@ -269,14 +346,14 @@ section{
     grid-area: secAcc;
     background-color: #07A2F5;
     &:hover{
-        background-image: url('../img/Placeholders/1.jpg');
+        background-image: url('../img/Placeholders/1.png');
     }
 }
 #navSecMoi{
     grid-area: secMoi;
     background-color: #31B6F5;
     &:hover{
-        background-image: url('../img/Placeholders/2.jpg');
+        background-image: url('../img/Placeholders/2.png');
     }
 }
 #navSecSuivre{
@@ -290,35 +367,35 @@ section{
     grid-area: secSpotify;
     background-color: #1D73AF;
     &:hover{
-        background-image: url('../img/Placeholders/4.jpg');
+        background-image: url('../img/Placeholders/4.png');
     }
 }
 #navSecAnim{
     grid-area: secAnim;
     background-color: #1D65DC;
     &:hover{
-        background-image: url('../img/Placeholders/5.jpg');
+        background-image: url('../img/Placeholders/5.png');
     }
 }
 #navSecJV{
     grid-area: secJV;
     background-color: #153773;
     &:hover{
-        background-image: url('../img/Placeholders/6.jpg');
+        background-image: url('../img/Placeholders/6.png');
     }
 }
 #navSecPalma{
     grid-area: secPalma;
     background-color: #0053d8;
     &:hover{
-        background-image: url('../img/Placeholders/7.jpg');
+        background-image: url('../img/Placeholders/7.png');
     }
 }
 #navSecContact{
     grid-area: secContact;
     background-color: #1036FF;
     &:hover{
-        background-image: url('../img/Placeholders/8.jpg');
+        background-image: url('../img/Placeholders/8.png');
     }
 }
 #navSecTxt{
@@ -330,9 +407,9 @@ section{
     //background-color: rgba($colorSecondaire,0.2);
     //background: radial-gradient(circle, rgba(21,55,115,1) 0%, rgba(13,73,179,1) 20%, rgba(5,91,242,1) 80%, rgba(21,55,115,1) 100%);
     background: radial-gradient(circle, $colorMain 0%, $colorSecondaire 100%);
+    background-size: 500% 100%;
     box-shadow: $fondTresClair;
-    animation: blend infinite 45s;
-    background-size: 500% 500%;
+    animation: blend infinite 90s;
     color: white;
     &>div{
         padding: 0 1em;
@@ -379,8 +456,8 @@ section{
 
 #linkTree{
     >div{
-        //width: pxToPrct(1600, 1864);
-        width: fit-content;
+        width: pxToPrct(1600, 1864);
+        //width: fit-content;
         margin: 0 auto;
         display: grid;
         font-size: 1.25em;
