@@ -1,7 +1,8 @@
 @use "sass:math";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pirata+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-//Calcul de la taille des éléments en %
 
+//Calcul de la taille des éléments en %
+$ratio: 1864;
 @function pxToPrct($target, $context) {
   @return math.div($target, $context) * 100%;
 }
@@ -28,7 +29,6 @@ $fondClair:  inset 0 0 0 4000px rgba(255, 255, 255, 0.15);
 $fondTresClair:  inset 0 0 0 4000px rgba(255, 255, 255, 0.4);
 
 //Normalize/Reset personnel
-
 h3{
     margin: 0;
 }
@@ -46,7 +46,115 @@ main {
         translate:0  -67px;
     }
 }
-.darkTheme{
+//Theme clair
+.light-theme{
+    & .animVague{
+        &::before,&::after{
+            background-color: $colorMainSurvol;
+        }
+    }
+    & header{
+        background-color: rgba($colorMain,0.4);
+        & a:hover{
+            text-shadow:0 0.05em $colorMainSurvol,0em 0em 0.1em $colorMainSurvol, 0em 0em 0.4em $colorMainSurvol;
+        }
+    }
+    & section{
+        &:nth-child(odd){
+            box-shadow:$fondTresClair, 0px -0.01em 2.5em rgba(0, 0, 0, 0.05);
+            border-top: solid 0.01em rgba(100, 100, 100, 0.08);
+        }
+    }
+    & #navSecAccueil{
+        background-color: #07A2F5;
+        &:hover{
+            background-image: url('../img/Placeholders/1.png');
+        }
+    }
+    & #navSecMoi{
+        background-color: #31B6F5;
+        &:hover{
+            background-image: url('../img/Placeholders/2.png');
+        }
+    }
+    & #navSecSuivre{
+        background-color: #3C7EC4;
+        &:hover{
+            background-image: url('../img/Placeholders/3.png');
+        }
+    }
+    & #navSecSpotify{
+        background-color: #1D73AF;
+        &:hover{
+            background-image: url('../img/Placeholders/4.png');
+        }
+    }
+    & #navSecAnim{
+        background-color: #1D65DC;
+        &:hover{
+            background-image: url('../img/Placeholders/5.png');
+        }
+    }
+    & #navSecJV{
+        background-color: #153773;
+        &:hover{
+            background-image: url('../img/Placeholders/6.png');
+        }
+    }
+    & #navSecPalma{
+        background-color: #0053d8;
+        &:hover{
+            background-image: url('../img/Placeholders/7.png');
+        }
+    }
+    & #navSecContact{
+        background-color: #1036FF;
+        &:hover{
+            background-image: url('../img/Placeholders/8.png');
+        }
+    }
+    & #navSecondaire{
+        background: radial-gradient(circle, $colorMain 0%, $colorSecondaire 100%);
+        background-size: 500% 100%;
+        box-shadow: $fondTresClair;
+        animation: blend infinite 90s;
+        &a:hover{
+            color: $colorSecondaire;
+            text-shadow: $borderMiseAvantSurvol;
+        }
+    }
+    & #linkTree{
+        &>div>a{
+            color: $colorMain;
+            border: $colorMain solid 0.1em;
+            &:hover{
+                color: white;
+                background-color: $colorMain;
+                box-shadow: 0 0.06em 1.25em rgba(0, 0, 0, 0.4);
+            }
+        }
+    }
+    & #palmares{
+        &>span{
+            & a{
+            color: black;
+            }
+            & div{
+                background-color: white;
+                box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1);
+                &:hover{
+                    box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.3);
+                }
+            }
+        }
+    }
+    & #spotify a{
+        color: black;
+    }
+}
+
+//Theme Sombre
+.dark-theme{
     background: linear-gradient(180deg, $fondPrincipalSombre 0%, $fondSecondaireSombre 75%, $fondTiercaireSombre 100%);
     color: white;
     & .animVague{
@@ -56,11 +164,14 @@ main {
     }
     & header{
         background-color: rgba($colorMainSombre,0.4);
+        & a:hover{
+            text-shadow:0 0.1em $colorMainSombreSurvol,0em 0em 0.1em $colorSecondaireSombreSurvol, 0em 0em 0.4em $colorSecondaireSombreSurvol;
+        }
     }
     & section{
         &:nth-child(odd){
-            box-shadow: $fondClair, 0px -0.01em 2.5em rgba($color: white, $alpha: 0.05);
-            border-top: solid 0.01em rgba(155,155,155, 0.08);
+            box-shadow: $fondSombre,  0px -0.01em 2.5em rgba($color: black, $alpha: 0.05);
+            border-top: solid 0.01em rgba(50,50,50, 0.08);
         }
     }
     & #navSecAccueil{
@@ -116,46 +227,52 @@ main {
         background-size: 500% 100%;
         animation: blend infinite 90s;
         box-shadow: $fondClair;
-            & a{
-                color: white;
+        & a:hover{
+            color: $colorSecondaireSombreSurvol;
+            text-shadow: $borderMiseAvantSurvol;
+        }
+    }
+    & #linkTree{
+        &>div>a{
+            color: $colorSecondaireSombre;
+            border: $colorSecondaireSombre solid 0.1em;
             &:hover{
-                color: $colorSecondaireSombreSurvol;
-                text-shadow: $borderMiseAvantSurvol;
+                color: white;
+                background-color: $colorSecondaireSombre;
+                box-shadow: 0 0.06em 1.25em rgba(10, 10, 10, 0.5);
             }
         }
     }
-    & #linkTree,& #spotify{
+    & #palmares{
+        &>span{
+            & a{
+            color: white;
+            }
+            & div{
+                background-color: $colorMainSombre;
+                box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.3);
+                &:hover{
+                    box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.5);
+                }
+            }
+        }
+    }
+    & #spotify{
         & a{
             color: white;
         }
     }
-    & #linkTree{
-        &>div>span:hover{
-            box-shadow: $borderMiseAvantSurvol;
-        }
-    }
-}
-.invert{
-    filter: invert(100%);
 }
 .unselect{
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
-//À Retirer une fois le code fini
-
-.wip{
-    &::after{
-        vertical-align: top;
-        font-family: "Roboto" , Arial, sans-serif;
-        font-size: 0.4em;
-        font-weight: 200;
-        content:'Work in progress';
-    }
-}
 .hidden{
     display: none;
+}
+.invert{
+    filter: invert(100%);
 }
 .wow{
     animation: ahOui 1s  infinite linear;
@@ -175,7 +292,6 @@ main {
             z-index: -1;
             aspect-ratio: 1;
             translate: -50% 0;
-            background-color: $colorMainSurvol;
             border-top-left-radius: 60% 80%;
             border-top-right-radius: 70% 50%;
             border-bottom-left-radius: 30% 80%;
@@ -193,10 +309,9 @@ main {
     cursor: url('../img/link_curs.png'), pointer;
 }
 
-//nav à modifier !!!! Ici rien n'est définitif
-
+//Navigation principale
 header{
-    width: pxToPrct(1550, 1864);
+    width: pxToPrct(1550, $ratio);
     height: 65px;
     margin: 0 auto;
     position: sticky;
@@ -208,7 +323,6 @@ header{
     padding: 0 2em;
     border: 1px solid rgba(255,255,255,.06);
     border-radius: 32.5px;
-    background-color: rgba($colorMain,0.4);
     color: white;
     box-shadow: 0 0.4em 1.75em rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
@@ -226,14 +340,22 @@ header{
                 font-family: 'Pirata One', 'Arial Narrow', Arial, sans-serif;
                 color: white;
                 transition: 0.2s ease-in;
-                &:hover{
-                    text-shadow:0 0.05em $colorMainSurvol,0em 0em 0.1em $colorMainSurvol, 0em 0em 0.4em $colorMainSurvol;
-                }
             }
         }
     }
 }
 #navMenu{
+    /*
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.1em 1em;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    
+    */
+
     display: grid;
     grid-template: 1fr / repeat(2 , 20%) 1em;
     justify-content: end;
@@ -254,8 +376,8 @@ header{
         box-shadow: $borderMiseAvantSurvol;
     }
 }
-//Début du site affiché
 
+//Début du site affiché
 #depart{
     height: 100vh;
     align-content: center;
@@ -275,7 +397,6 @@ header{
     text-align: center;
     //Titre de l'accueil
     & h1{
-        //Typo à potentiellement éditer
         font-size: 6.5em;
         font-family: "Pirata One", 'Arial Narrow', Arial, sans-serif;
         margin: 0;
@@ -309,7 +430,6 @@ header{
     }
 }
 #flashbang{
-    //display: block;
     margin: 2em auto 0;
     padding: 0.8em;
     opacity: 0.1;
@@ -318,19 +438,14 @@ header{
     background-color: rgba($colorMain, $alpha: 1);
     width: fit-content;
     text-align: center;
-    //width: fit-content;
 }
-//Création d'une séparation entre nos diverses sections
 
+//Création d'une séparation entre nos diverses sections
 section{
-    &:nth-child(odd){
-        box-shadow:$fondTresClair, 0px -0.01em 2.5em rgba(0, 0, 0, 0.05);
-        border-top: solid 0.01em rgba(100, 100, 100, 0.08);
-    }
     &:not(#depart){
         padding:3em 0;
         //Décalage des titres selon la nav.
-        scroll-margin-top: 80px;
+        scroll-margin-top: 90px;
         & h2{
             margin-top: 0;
             padding-left: 2em;
@@ -340,63 +455,30 @@ section{
     }
 }
 
-//Défition de la grid de la nav, de leurs couleurs et de leurs survol
-
+//Défition de la grid de la nav
 #navSecAccueil{
     grid-area: secAcc;
-    background-color: #07A2F5;
-    &:hover{
-        background-image: url('../img/Placeholders/1.png');
-    }
 }
 #navSecMoi{
     grid-area: secMoi;
-    background-color: #31B6F5;
-    &:hover{
-        background-image: url('../img/Placeholders/2.png');
-    }
 }
 #navSecSuivre{
     grid-area: secSuivre;
-    background-color: #3C7EC4;
-    &:hover{
-        background-image: url('../img/Placeholders/3.png');
-    }
 }
 #navSecSpotify{
     grid-area: secSpotify;
-    background-color: #1D73AF;
-    &:hover{
-        background-image: url('../img/Placeholders/4.png');
-    }
 }
 #navSecAnim{
     grid-area: secAnim;
-    background-color: #1D65DC;
-    &:hover{
-        background-image: url('../img/Placeholders/5.png');
-    }
 }
 #navSecJV{
     grid-area: secJV;
-    background-color: #153773;
-    &:hover{
-        background-image: url('../img/Placeholders/6.png');
-    }
 }
 #navSecPalma{
     grid-area: secPalma;
-    background-color: #0053d8;
-    &:hover{
-        background-image: url('../img/Placeholders/7.png');
-    }
 }
 #navSecContact{
     grid-area: secContact;
-    background-color: #1036FF;
-    &:hover{
-        background-image: url('../img/Placeholders/8.png');
-    }
 }
 #navSecTxt{
     grid-area: secTxt;
@@ -404,12 +486,6 @@ section{
     padding: 0 0.4em;
 }
 #navSecondaire{
-    //background-color: rgba($colorSecondaire,0.2);
-    //background: radial-gradient(circle, rgba(21,55,115,1) 0%, rgba(13,73,179,1) 20%, rgba(5,91,242,1) 80%, rgba(21,55,115,1) 100%);
-    background: radial-gradient(circle, $colorMain 0%, $colorSecondaire 100%);
-    background-size: 500% 100%;
-    box-shadow: $fondTresClair;
-    animation: blend infinite 90s;
     color: white;
     &>div{
         padding: 0 1em;
@@ -433,9 +509,6 @@ section{
             background-size: cover;
             background-position: center;
             &:hover{
-                color: $colorSecondaire;
-                background-color: $colorMainSurvol;
-                text-shadow: $borderMiseAvantSurvol;
                 box-shadow: $fondSombre;
             }
         }
@@ -456,84 +529,75 @@ section{
 
 #linkTree{
     >div{
-        width: pxToPrct(1600, 1864);
-        //width: fit-content;
+        width: pxToPrct(1600, $ratio);
         margin: 0 auto;
-        display: grid;
         font-size: 1.25em;
-        grid-template: 15% / repeat(8,15%);
-        justify-items: center;
-        align-items: center;
-        &>span{
-            text-align: center;
-            padding: 0.2em;
-            &:hover{
-                box-shadow: 0 1em 1em #000;
-            }
-            &>a{
-                height: fit-content;
-                width: fit-content;
-                font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
-                text-transform: capitalize;
-                font-weight: bolder;
-                color: black;
-            }
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        justify-content: center;
+        gap: 15px pxToPrct(100, $ratio);
+        &:nth-child(odd){
+            flex-grow: 1.5;
+        }
+        &>a{
+            width: fit-content;
+            padding: 0.6em;
+            font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
+            font-weight: light;
+            border-radius: 1.2em;
+            transition: box-shadow 0.5s ease-out;
         }
     }
 }
+
 #palmares{
-    &>div{
-        width: pxToPrct(1600, 1864);
-        height: 420px;
+    &>span{
+        width: pxToPrct(1600, $ratio);
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        & a{
-        transition: 0.5s ease-in-out;
-        color: black;
-        width: 20%;
-        cursor: pointer;
+        &>div{
+            width: 320px;
+            height: 400px;
+            margin: 1em;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-content: flex-end;
+            overflow: hidden;
+            transition: transform 0.5s ease-in-out, box-shadow 1.5s ease-out;
             &:hover{
-                font-size: 1.3em;
-                translate: 0 -5px;
-                width: 22%;
+                transform: scale(1.05);
             }
-            & div{
-                text-transform: uppercase;
-                line-height: 1em;
-                background-color: white;
-                border-radius: 10px;
-                height: 400px;
-                box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.3);
-                display: flex;
-                flex-wrap: wrap;
+            & img{
+                width: 100%;
+                height: 350px;
+                object-fit: cover;
                 overflow: hidden;
-                &:hover{
-                    box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.5);
-                    height: 410px;
-                }
+            }
+            & span{
+                display: block;
+                height: 4.6875em;
                 & h3{
-                    height: 30px;
-                    padding: 0.6em;
-                }
-                & img{
-                    float: initial ;
-                    width: 100%;
+                    text-transform: uppercase;
+                    line-height: 1em;
+                    padding: 0.5em;
+                    font-size: 1.5em;
+                    margin-bottom: 0.35rem;
                 }
             }
         }
     }
 }
+
 #spotify{
-    & a{
-        color: black;
-        &:hover{
-            text-shadow: 0 0 0.1em rgba(0, 128, 0, 0.2),0em 0em 0.1em rgba(144, 238, 144,0.1), 0em 0em 0.4em rgba(144, 238, 144,0.1);
-        }
+    & a:hover{
+        text-shadow: 0 0 0.1em rgba(0, 128, 0, 0.2),0em 0em 0.1em rgba(144, 238, 144,0.1), 0em 0em 0.4em rgba(144, 238, 144,0.1);
     }
     & div{
-        width: (1600,1864);
+        width: (1600,$ratio);
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
@@ -552,6 +616,11 @@ section{
     &.scale{
         scale: 0.95 0.95;
     }
+}
+#jeuVideo{
+    margin: 0 auto;
+    width: pxToPrct(1100, $ratio);
+    height: 40em;
 }
 .letAnim{
     display: inline-block;
@@ -615,5 +684,16 @@ section{
 @keyframes rot{
     to{
         rotate: 360deg;
+    }
+}
+//À Retirer une fois le code fini
+
+.wip{
+    &::after{
+        vertical-align: top;
+        font-family: "Roboto" , Arial, sans-serif;
+        font-size: 0.4em;
+        font-weight: 200;
+        content:'Work in progress';
     }
 }

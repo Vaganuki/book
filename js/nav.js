@@ -8,6 +8,11 @@ const html=document.querySelector('html');
 const audioDanse=document.getElementById('caramelleDanse');
 let timer=5;
 
+//Détection et définition du thème préféré par l'utilisateur
+const themeUtil=localStorage.getItem('theme') || 'dark-theme';
+html.classList.add(themeUtil);
+html.classList.contains('dark-theme') ? rond.setAttribute('fill','none'): console.log();
+
 //Selection des éléments du flash
 const flash=document.getElementById('flashbang');
 const audioFlash=document.getElementById('flashAudio');
@@ -41,19 +46,20 @@ themeBtn.addEventListener('click', (evt)=>{
             }
             else{
                 html.classList.remove('invert');
-                    //Reset de l'easter egg + check du fill
-                    let fillCheck=rond.getAttribute('fill');
-                    //Si "l'ampoule" est allumée alors on passe en thème sombre, sinon en thème clair
-                    if(fillCheck=='white'){
-                        rond.setAttribute('fill','none');
-                        html.classList.add('darkTheme');
-                        flash.classList.remove('hidden');
-                    }
-                    else{
-                        rond.setAttribute('fill','white');
-                        html.classList.remove('darkTheme');
-                        flash.classList.add('hidden');
-                    }
+                if(html.classList.contains('dark-theme')){
+                    html.classList.remove('dark-theme');
+                    rond.setAttribute('fill','white');
+                    html.classList.add('light-theme')
+                    localStorage.setItem('theme', 'light-theme');
+                    flash.classList.add('hidden');
+                }
+                else{
+                    html.classList.remove('light-theme')
+                    rond.setAttribute('fill','none');
+                    html.classList.add('dark-theme');
+                    localStorage.setItem('theme','dark-theme');
+                    flash.classList.remove('hidden');
+                }
             }
         }
     }, 5);
