@@ -234,11 +234,11 @@ main {
     }
     & #linkTree{
         &>div>a{
-            color: $colorSecondaireSombre;
-            border: $colorSecondaireSombre solid 0.1em;
+            color: $colorSecondaireSombreSurvol;
+            border: $colorSecondaireSombreSurvol solid 0.1em;
             &:hover{
-                color: white;
-                background-color: $colorSecondaireSombre;
+                color: $colorMainSombre;
+                background-color: $colorSecondaireSombreSurvol;
                 box-shadow: 0 0.06em 1.25em rgba(10, 10, 10, 0.5);
             }
         }
@@ -636,6 +636,71 @@ section{
         transition: 1.05s cubic-bezier(0.68,-0.55,0.27,1.55);
     }
 }
+// ????
+@media only screen and (min-width: 0px) and (max-width: 474px) {
+    body{
+        & *{
+            display: none;
+        }
+        &::after{
+            content: 'Prends un vrai écran non mon reuf ?';
+        }
+    }
+}
+//xs
+@media only screen and (min-width: 475px) {
+    #accueil{
+        & h1{
+            font-size: 1em;
+        }
+    }
+    h1::after{
+        content: '475px';
+        color: #1e2159;
+    }
+}
+
+//sm
+@media (min-width: 640px) {
+    h1::after{
+        content: '640px';
+        color: #1e2159;
+    }
+}
+
+//md
+@media (min-width: 768px) {
+    h1::after{
+        content: '768px';
+        color: #1e2159;
+    }
+}
+
+//lg
+@media (min-width: 1024px) {
+    h1::after{
+        content: '1024px';
+        color: #1e2159;
+    }
+}
+
+//xl
+@media only screen and (min-width: 1288px) {
+    h1::after{
+        content: '1288px';
+        color: #1e2159;
+    }
+}
+
+//2xl
+@media only screen and (min-width: 1536px) {
+    h1::after{
+        content: '1536px';
+        color: #1e2159;
+    }
+}
+
+//Animations
 @keyframes fondAlterAcceuil{
     0%{background-image: url(../img/accueil.jpg);}
     49%{background-image: url(../img/accueil.jpg);}

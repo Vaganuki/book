@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pirata+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 h3 {
   margin: 0;
@@ -187,12 +188,12 @@ main > * {
   text-shadow: 0 0 0.5em black, 0 0 3em rgb(245, 245, 245);
 }
 .dark-theme #linkTree > div > a {
-  color: #0700c7;
-  border: #0700c7 solid 0.1em;
+  color: rgb(200.9698492462, 199, 255);
+  border: rgb(200.9698492462, 199, 255) solid 0.1em;
 }
 .dark-theme #linkTree > div > a:hover {
-  color: white;
-  background-color: #0700c7;
+  color: #1e2159;
+  background-color: rgb(200.9698492462, 199, 255);
   box-shadow: 0 0.06em 1.25em rgba(10, 10, 10, 0.5);
 }
 .dark-theme #palmares > span a {
@@ -575,6 +576,53 @@ section:not(#depart) h2 {
   transition: 1.05s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
+@media only screen and (min-width: 0px) and (max-width: 474px) {
+  body * {
+    display: none;
+  }
+  body::after {
+    content: "Prends un vrai écran non mon reuf ?";
+  }
+}
+@media only screen and (min-width: 475px) {
+  #accueil h1 {
+    font-size: 1em;
+  }
+  h1::after {
+    content: "475px";
+    color: #1e2159;
+  }
+}
+@media (min-width: 640px) {
+  h1::after {
+    content: "640px";
+    color: #1e2159;
+  }
+}
+@media (min-width: 768px) {
+  h1::after {
+    content: "768px";
+    color: #1e2159;
+  }
+}
+@media (min-width: 1024px) {
+  h1::after {
+    content: "1024px";
+    color: #1e2159;
+  }
+}
+@media only screen and (min-width: 1288px) {
+  h1::after {
+    content: "1288px";
+    color: #1e2159;
+  }
+}
+@media only screen and (min-width: 1536px) {
+  h1::after {
+    content: "1536px";
+    color: #1e2159;
+  }
+}
 @keyframes fondAlterAcceuil {
   0% {
     background-image: url(../img/accueil.jpg);
