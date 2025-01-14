@@ -312,18 +312,14 @@ main {
 //Navigation principale
 header{
     width: pxToPrct(1550, $ratio);
-    height: 65px;
-    margin: 0 auto;
     position: sticky;
     top: 0;
     z-index: 1;
     opacity: 0;
-    transform: translateY(-65px);
     transition: opacity 0.5s ease-in, 0.5s transform cubic-bezier(0.075, 0.82, 0.165, 1) .2s;
-    padding: 0 2em;
-    border: 1px solid rgba(255,255,255,.06);
-    border-radius: 32.5px;
+    margin: 0 auto;
     color: white;
+    border: 1px solid rgba(255,255,255,.06);
     box-shadow: 0 0.4em 1.75em rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     align-content: center;
@@ -331,10 +327,17 @@ header{
         opacity: 1;
         transform: translateY(10px);
     }
+    
+    
+    height: 65px;
+    transform: translateY(-65px);
+    padding: 0 2em;
+    border-radius: 32.5px;
     & nav{
         display: grid;
-        grid-template: 1fr / 1fr 1fr ;
-        font-size: 2.5em;
+
+        //font-size: 2.5em;
+        //grid-template: 1fr / 1fr 1fr ;
         & div{
             & a{
                 font-family: 'Pirata One', 'Arial Narrow', Arial, sans-serif;
@@ -345,28 +348,16 @@ header{
     }
 }
 #navMenu{
-    /*
-
     display: flex;
     flex-wrap: wrap;
     gap: 0.1em 1em;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    
-    */
-
-    display: grid;
-    grid-template: 1fr / repeat(2 , 20%) 1em;
     justify-content: end;
     justify-items: center;
     align-items: center;
-    font-size: 0.8em;
     & a{
         font-family: "Roboto", Arial, Helvetica, sans-serif;
         width: fit-content;
         height: fit-content;
-        margin: 0 auto;
     }
 }
 #theme{
@@ -393,22 +384,16 @@ header{
     color: white;
     font-family: Arial, sans-serif;
     width: fit-content;
-    margin-left: 15em;
-    text-align: center;
-    //Titre de l'accueil
+    //margin-left: 15em;
     & h1{
-        font-size: 6.5em;
         font-family: "Pirata One", 'Arial Narrow', Arial, sans-serif;
-        margin: 0;
         text-shadow: 0 0.05em $colorSecondaire,0em 0em 0.1em $colorSecondaire, 0em 0em 0.4em $colorSecondaire;
         &:hover{
             animation: titreDisco 2.5s infinite alternate ease-in-out;
         }
     }
-    //sous-titre
     & h2{
         margin: 0.5em 0 0.9em 0;
-        font-weight: 200;
     }
     //Bouton de la page d'accueil
     & a{
@@ -440,17 +425,16 @@ header{
     text-align: center;
 }
 
-//Création d'une séparation entre nos diverses sections
 section{
     &:not(#depart){
         padding:3em 0;
-        //Décalage des titres selon la nav.
-        scroll-margin-top: 90px;
+        //scroll-margin-top: 90px;
         & h2{
-            margin-top: 0;
-            padding-left: 2em;
             font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
-            font-size: 2.5em;
+            margin-top: 0;
+            
+            //padding-left: 2em;
+            //font-size: 2.5em;
         } 
     }
 }
@@ -492,13 +476,13 @@ section{
         font-weight: bold;
         font-size: 2em;
         font-variant-caps: all-petite-caps;
-        display: grid;
+        /*display: grid;
         grid-template: repeat(4,1fr) 1.5fr/ repeat(2,1fr) 2fr;
         grid-template-areas:'secAcc secAcc secMoi'
                             'secSuivre secSpotify secMoi'
                             'secAnim secPalma secMoi'
                             'secJV secPalma secMoi'
-                            'secTxt secTxt secContact';
+                            'secTxt secTxt secContact';*/
         &>a{
             color: white;
             padding: 0.4em;
@@ -536,7 +520,7 @@ section{
         flex-wrap: wrap;
         align-items: stretch;
         justify-content: center;
-        gap: 15px pxToPrct(100, $ratio);
+        gap: 0.8em pxToPrct(100, $ratio);
         &:nth-child(odd){
             flex-grow: 1.5;
         }
@@ -559,10 +543,9 @@ section{
         flex-wrap: wrap;
         justify-content: space-evenly;
         &>div{
-            width: 320px;
-            height: 400px;
+            //width: 320px;
+            //height: 400px;
             margin: 1em;
-            border-radius: 15px;
             display: flex;
             flex-direction: column;
             align-content: flex-end;
@@ -572,19 +555,22 @@ section{
                 transform: scale(1.05);
             }
             & img{
+                //height: 350px;
+                
                 width: 100%;
-                height: 350px;
                 object-fit: cover;
                 overflow: hidden;
             }
             & span{
+                //height: 4.6875em;
+                
                 display: block;
-                height: 4.6875em;
                 & h3{
+                    //font-size: 1.5em;
+                    
                     text-transform: uppercase;
                     line-height: 1em;
                     padding: 0.5em;
-                    font-size: 1.5em;
                     margin-bottom: 0.35rem;
                 }
             }
@@ -608,9 +594,10 @@ section{
     }
 }
 #anim{
+    //font-size: 3em;
+    
     width: fit-content;
     margin: 0 auto;
-    font-size: 3em;
     font-weight: 600;
     transition: 0.3s ease-out;
     &.scale{
@@ -636,26 +623,111 @@ section{
         transition: 1.05s cubic-bezier(0.68,-0.55,0.27,1.55);
     }
 }
-// ????
-@media only screen and (min-width: 0px) and (max-width: 474px) {
-    body{
-        & *{
-            display: none;
+//lo poti chat
+@media only screen and (min-width: 0px){
+    .light-theme{
+        & #navSecondaire>div>a{
+            background-color: rgba($colorMain, $alpha: 0.5);
+            border: 2px solid rgba($colorMainSombre, $alpha: 0.8);
         }
-        &::after{
-            content: 'Prends un vrai écran non mon reuf ?';
+        & #contact{
+            box-shadow: none;
+            border: none;
         }
+    }
+    .dark-theme{
+        & #navSecondaire>div>a{
+            background-color: rgba($colorMainSombre, $alpha: 0.5);
+            border: 2px solid rgba($colorMainSombreSurvol, $alpha: 0.8);
+        }
+        & #contact{
+            box-shadow: none;
+            border: none;
+        }
+    }
+    #accueil{
+        text-align: center;
+        margin: 0 auto;
+        & h1{
+            font-size: 3.5em;
+            margin: 0;
+        }
+        & h2{
+            font-size: 1.3em;
+            margin: 0.15em 0.7em 1em;
+            font-weight: 200;
+        }
+    }
+    header{
+        height: 40px;
+        border-radius: 20px;
+        padding: 0 1em;
+        transform: translateY(-40px);
+        & nav{
+            font-size: 1.3em;
+            grid-template:1fr / fit-content(1em) 1fr;
+        }
+    }
+    #navMenu{
+        gap: 0.1em 0.5em
+    }
+    #navSecJV, #navSecTxt{
+        display: none;
+    }
+    #navSecondaire{
+        &>div{
+            display: flex;
+            flex-wrap: wrap;
+            &>a{
+                width: 100%;
+            }
+        }
+    }
+    section{
+        &:not(#depart){
+            scroll-margin-top: 60px;
+            & h2{
+                font-size: 2em;
+                width: fit-content;
+                margin: 0 auto;
+            }
+        }
+    }
+    #palmares>span>div{
+        width: 100%;
+        height: 250px;
+        border-radius: 1em;
+        & img{
+            height: 250px;
+        }
+        & h3{
+            font-size: 1.3em;
+        }
+    }
+    #spotify{
+        & div{
+            margin-top: 1em;
+            flex-flow: column;
+            gap: 1em;
+            & iframe{
+                width: 85%;
+                height: 9.5em;
+                margin: 0 auto;
+                border-radius: 1em;
+            }
+        }
+    }
+    #anim{
+        font-size: 2.3em;
+    }
+    #jouer{
+        display: none;
     }
 }
 //xs
-@media only screen and (min-width: 475px) {
-    #accueil{
-        & h1{
-            font-size: 1em;
-        }
-    }
+@media only screen and (min-width: 321px) {
     h1::after{
-        content: '475px';
+        content: '321';
         color: #1e2159;
     }
 }
