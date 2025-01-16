@@ -74,9 +74,6 @@ html{
     & #navSecAnim:hover{
         background-image: url('../img/Placeholders/5.png');
     }
-    & #navSecJV:hover{
-        background-image: url('../img/Placeholders/6.png');
-    }
     & #navSecPalma:hover{
             background-image: url('../img/Placeholders/7.png');
     }
@@ -158,9 +155,6 @@ html{
     }
     & #navSecAnim:hover{
         background-image: url('../img/Placeholders/sombre/5.png');
-    }
-    & #navSecJV:hover{
-        background-image: url('../img/Placeholders/sombre/6.png');
     }
     & #navSecPalma:hover{
         background-image: url('../img/Placeholders/sombre/7.png');
@@ -391,9 +385,6 @@ section{
 #navSecAnim{
     grid-area: secAnim;
 }
-#navSecJV{
-    grid-area: secJV;
-}
 #navSecPalma{
     grid-area: secPalma;
 }
@@ -559,19 +550,11 @@ section{
             background-color: rgba($colorMain, $alpha: 0.5);
             border: 2px solid rgba($colorMainSombre, $alpha: 0.8);
         }
-        & #contact{
-            box-shadow: none;
-            border: none;
-        }
     }
     .dark-theme{
         & #navSecAccueil,#navSecMoi,#navSecSuivre,#navSecSpotify,#navSecAnim,#navSecJV,#navSecPalma,#navSecContact{
             background-color: rgba($colorMainSombre, $alpha: 0.5);
             border: 2px solid rgba($colorMainSombreSurvol, $alpha: 0.8);
-        }
-        & #contact{
-            box-shadow: none;
-            border: none;
         }
     }
     #accueil{
@@ -601,7 +584,7 @@ section{
     #navMenu{
         gap: 0.1em 0.5em
     }
-    #navSecJV, #navSecTxt{
+    #navSecTxt{
         display: none;
     }
     #navSecondaire{
@@ -650,11 +633,6 @@ section{
     }
     #anim{
         font-size: 2.3em;
-    }
-    #jouer{
-        visibility: hidden;
-        height: 0px;
-        padding: 0em 0 !important;
     }
 }
 //Mobile L
@@ -798,9 +776,6 @@ section{
         & #navSecAnim{
             background-color:rgba($color:#1D65DC , $alpha: 0.9) ;
         }
-        & #navSecJV{
-            background-color:rgba($color:#153773 , $alpha: 0.9) ;
-        }
         & #navSecPalma{
             background-color:rgba($color:#0053d8 , $alpha: 0.9) ;
         }
@@ -827,9 +802,6 @@ section{
         & #navSecAnim{
             background-color:rgba($color:#00509b , $alpha: 0.9) ;
         }
-        & #navSecJV{
-            background-color:rgba($color:#002258 , $alpha: 0.9) ;
-        }
         & #navSecPalma{
             background-color:rgba($color:#003283 , $alpha: 0.9) ;
         }
@@ -847,7 +819,7 @@ section{
             grid-template: repeat(4,1fr) 1.5fr/ repeat(2,1fr) 2fr;
             grid-template-areas:'secAcc secAcc secMoi'
                                 'secSuivre secSpotify secMoi'
-                                'secAnim secPalma secMoi'
+                                'secSuivre secPalma secMoi'
                                 'secAnim secPalma secMoi'
                                 'secTxt secTxt secContact';
             &>a{
@@ -858,18 +830,6 @@ section{
 }
 //laptop
 @media only screen and (min-width: 769px) {
-    .light-theme{
-        & #contact{
-            box-shadow:$fondTresClair, 0px -0.01em 2.5em rgba(0, 0, 0, 0.05);
-            border-top: solid 0.01em rgba(100, 100, 100, 0.08);
-        }
-    }
-    .dark-theme{
-        & #contact{
-            box-shadow: $fondSombre,  0px -0.01em 2.5em rgba($color: black, $alpha: 0.05);
-            border-top: solid 0.01em rgba(50,50,50, 0.08);
-        }
-    }
     header{
         padding: 0 2em;
         & nav{
@@ -886,8 +846,8 @@ section{
             grid-template: repeat(4,1fr) 1.5fr/ repeat(2,1fr) 2fr;
             grid-template-areas:'secAcc secAcc secMoi'
                                 'secSuivre secSpotify secMoi'
+                                'secSuivre secPalma secMoi'
                                 'secAnim secPalma secMoi'
-                                'secJV secPalma secMoi'
                                 'secTxt secTxt secContact';
             &>a{
                 width: auto;
@@ -908,22 +868,6 @@ section{
             & iframe{
                 width: 25%;
             }
-        }
-    }
-    #navSecJV{
-        display: initial;
-    }
-    #jouer{
-        visibility: initial;
-        height: auto;
-        padding: 3em 0 !important;
-    }
-    #jeuVideo{
-        margin: 0 auto;
-        width: pxToPrct(1100, $ratio);
-        height: 30em;
-        &::before{
-            content: 'Ça marchait avant ???';
         }
     }
 }
