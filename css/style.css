@@ -10,7 +10,7 @@ a {
 html {
   font-family: "Roboto", Arial, sans-serif;
   background-color: rgb(245, 245, 245);
-  background: linear-gradient(180deg, #E2E1E7 0%, #D2D9DF 75%, #739EBE 100%);
+  background: linear-gradient(180deg, #E2E1E7 0%, #D2D9DF 75%, #80c8ff 100%);
 }
 
 .light-theme .animVague::before, .light-theme .animVague::after {
@@ -203,254 +203,6 @@ html {
   cursor: url("../img/link_curs.png"), pointer;
 }
 
-header {
-  width: 83.1545064378%;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.5s ease-in, 0.5s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
-  margin: 0 auto;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 0.4em 1.75em rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  align-content: center;
-}
-header.show {
-  opacity: 1;
-  transform: translateY(10px);
-}
-header nav div a {
-  font-family: "Pirata One", "Arial Narrow", Arial, sans-serif;
-  color: white;
-  transition: 0.2s ease-in;
-}
-
-#navMenu {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.1em 1em;
-  justify-content: end;
-  justify-items: center;
-  align-items: center;
-}
-#navMenu a {
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
-  width: fit-content;
-  height: fit-content;
-}
-
-#theme {
-  border-radius: 0.5625em;
-}
-#theme:hover {
-  animation: themeJN infinite 1s alternate ease-in;
-  box-shadow: 0 0 0.5em black, 0 0 3em rgb(245, 245, 245);
-}
-
-#depart {
-  height: 100vh;
-  align-content: center;
-  animation: fondAlterAcceuil 15s infinite alternate;
-  transition: opacity 5s ease-in-out, background-image 0s;
-  background-size: cover;
-  background-position: center;
-  box-shadow: inset 0 0 0 4000px rgba(0, 0, 0, 0.3);
-}
-
-#accueil {
-  color: white;
-  font-family: Arial, sans-serif;
-  width: fit-content;
-}
-#accueil h1 {
-  font-family: "Pirata One", "Arial Narrow", Arial, sans-serif;
-  text-shadow: 0 0.05em #88DFF2, 0em 0em 0.1em #88DFF2, 0em 0em 0.4em #88DFF2;
-}
-#accueil h1:hover {
-  animation: titreDisco 2.5s infinite alternate ease-in-out;
-}
-#accueil h2 {
-  margin: 0.5em 0 0.9em 0;
-}
-#accueil a {
-  font-size: 1.25em;
-  padding: 0.45em;
-  font-variant-caps: small-caps;
-  color: #88DFF2;
-  border: solid 0.15em #88DFF2;
-  background-color: rgba(5, 108, 242, 0.2);
-  transition: 0.5s;
-}
-#accueil a:hover {
-  font-size: 1.5em;
-  color: rgb(181.9772727273, 235.3636363636, 247.0227272727);
-  background-color: rgba(97.2591093117, 164.3967611336, 251.7408906883, 0.2);
-  box-shadow: 0 0 0.5em black, 0 0 3em rgb(245, 245, 245);
-  border: solid 0.15em rgb(181.9772727273, 235.3636363636, 247.0227272727);
-  border-radius: 2px;
-}
-
-#flashbang {
-  margin: 2em auto 0;
-  padding: 0.8em;
-  opacity: 0.1;
-  filter: blur(1px);
-  border-radius: 15px;
-  background-color: #056cf2;
-  width: fit-content;
-  text-align: center;
-}
-
-section:not(#depart) h2 {
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
-  margin-top: 0;
-}
-
-#navSecAccueil {
-  grid-area: secAcc;
-}
-
-#navSecMoi {
-  grid-area: secMoi;
-}
-
-#navSecSuivre {
-  grid-area: secSuivre;
-}
-
-#navSecSpotify {
-  grid-area: secSpotify;
-}
-
-#navSecAnim {
-  grid-area: secAnim;
-}
-
-#navSecPalma {
-  grid-area: secPalma;
-}
-
-#navSecContact {
-  grid-area: secContact;
-}
-
-#navSecTxt {
-  grid-area: secTxt;
-  text-align: end;
-  padding: 0 0.4em;
-}
-
-#navSecondaire {
-  color: white;
-}
-#navSecondaire > div {
-  padding: 0 1em;
-  font-weight: bold;
-  font-size: 2em;
-  font-variant-caps: all-petite-caps;
-}
-#navSecondaire > div > a {
-  color: white;
-  padding: 0.4em;
-  text-align: center;
-  align-content: center;
-  border-radius: 15px;
-  margin: 0.1em;
-  background-size: cover;
-  background-position: center;
-}
-#navSecondaire > div > a:hover {
-  box-shadow: inset 0 0 0 4000px rgba(0, 0, 0, 0.3);
-}
-
-#moi h2 {
-  width: fit-content;
-}
-#moi h2:hover::after {
-  content: "I built this page brick by brick";
-  font-family: "pirata one";
-}
-
-#linkTree > div {
-  width: 85.8369098712%;
-  margin: 0 auto;
-  font-size: 1.25em;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: center;
-  gap: 0.8em 5.364806867%;
-}
-#linkTree > div:nth-child(odd) {
-  flex-grow: 1.5;
-}
-#linkTree > div > a {
-  width: fit-content;
-  padding: 0.6em;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
-  font-weight: light;
-  border-radius: 1.2em;
-  transition: box-shadow 0.5s ease-out;
-}
-
-#palmares > span {
-  width: 85.8369098712%;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-#palmares > span > div {
-  margin: 1em;
-  display: flex;
-  flex-direction: column;
-  align-content: flex-end;
-  overflow: hidden;
-  transition: transform 0.5s ease-in-out, box-shadow 1.5s ease-out;
-}
-#palmares > span > div:hover {
-  transform: scale(1.05);
-}
-#palmares > span > div img {
-  width: 100%;
-  object-fit: cover;
-  overflow: hidden;
-}
-#palmares > span > div span {
-  display: block;
-}
-#palmares > span > div span h3 {
-  text-transform: uppercase;
-  line-height: 1em;
-  padding: 0.5em;
-  margin-bottom: 0.35rem;
-}
-
-#spotify a:hover {
-  text-shadow: 0 0 0.1em rgba(0, 128, 0, 0.2), 0em 0em 0.1em rgba(144, 238, 144, 0.1), 0em 0em 0.4em rgba(144, 238, 144, 0.1);
-}
-#spotify div {
-  width: 1600, 1864;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-evenly;
-}
-#spotify div iframe {
-  width: 20%;
-}
-
-#anim {
-  width: fit-content;
-  margin: 0 auto;
-  font-weight: 600;
-  transition: 0.3s ease-out;
-}
-#anim.scale {
-  scale: 0.95 0.95;
-}
-
 .letAnim {
   display: inline-block;
   animation: transform 0.2s ease-out, translate 1s ease-in-out, color 3s ease-in-out;
@@ -477,45 +229,174 @@ section:not(#depart) h2 {
     background-color: rgba(30, 33, 89, 0.5);
     border: 2px solid rgba(55.7142857143, 61.2857142857, 165.2857142857, 0.8);
   }
-  #accueil {
-    text-align: center;
-    margin: 0 auto;
-  }
-  #accueil h1 {
-    font-size: 3.5em;
-    margin: 0;
-  }
-  #accueil h2 {
-    font-size: 1.3em;
-    margin: 0.15em 0.7em 1em;
-    font-weight: 200;
-  }
   header {
     height: 40px;
-    border-radius: 20px;
+    width: 83.1545064378%;
+    margin: 0 auto;
     padding: 0 1em;
+    align-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    opacity: 0;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    box-shadow: 0 0.4em 1.75em rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
     transform: translateY(-40px);
+    transition: opacity 0.5s ease-in, 0.5s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
+  }
+  header.show {
+    opacity: 1;
+    transform: translateY(10px);
   }
   header nav {
     display: grid;
     grid-template: 1fr/fit-content(1em) 1fr;
     font-size: 1.3em;
   }
+  header nav div a {
+    font-family: "Pirata One", "Arial Narrow", Arial, sans-serif;
+    color: white;
+    transition: 0.2s ease-in;
+  }
+  #navMenu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.1em 1em;
+    justify-content: end;
+    justify-items: center;
+    align-items: center;
+  }
+  #navMenu a {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    width: fit-content;
+    height: fit-content;
+  }
+  #theme {
+    border-radius: 0.5625em;
+  }
+  #theme:hover {
+    animation: themeJN infinite 1s alternate ease-in;
+    box-shadow: 0 0 0.5em black, 0 0 3em rgb(245, 245, 245);
+  }
+  #depart {
+    height: 100vh;
+    align-content: center;
+    animation: fondAlterAcceuil 15s infinite alternate;
+    transition: opacity 5s ease-in-out, background-image 0s;
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0 4000px rgba(0, 0, 0, 0.3);
+  }
+  #flashbang {
+    margin: 2em auto 0;
+    padding: 0.8em;
+    opacity: 0.1;
+    filter: blur(1px);
+    border-radius: 15px;
+    background-color: #056cf2;
+    width: fit-content;
+    text-align: center;
+  }
+  #accueil {
+    color: white;
+    font-family: Arial, sans-serif;
+    width: fit-content;
+    text-align: center;
+    margin: 0 auto;
+  }
+  #accueil h1 {
+    font-size: 3.5em;
+    font-family: "Pirata One", "Arial Narrow", Arial, sans-serif;
+    text-shadow: 0 0.05em #88DFF2, 0em 0em 0.1em #88DFF2, 0em 0em 0.4em #88DFF2;
+    margin: 0;
+  }
+  #accueil h1:hover {
+    animation: titreDisco 1.25s infinite alternate ease-in-out;
+  }
+  #accueil h2 {
+    font-size: 1.3em;
+    margin: 0.15em 0.7em 1em;
+    font-weight: 200;
+  }
+  #accueil a {
+    font-size: 1.25em;
+    padding: 0.45em;
+    font-variant-caps: small-caps;
+    color: #88DFF2;
+    border: solid 0.15em #88DFF2;
+    background-color: rgba(5, 108, 242, 0.2);
+    transition: 0.5s;
+  }
+  #accueil a:hover {
+    font-size: 1.5em;
+    color: rgb(181.9772727273, 235.3636363636, 247.0227272727);
+    background-color: rgba(97.2591093117, 164.3967611336, 251.7408906883, 0.2);
+    box-shadow: 0 0 0.5em black, 0 0 3em rgb(245, 245, 245);
+    border: solid 0.15em rgb(181.9772727273, 235.3636363636, 247.0227272727);
+    border-radius: 2px;
+  }
   #navMenu {
     gap: 0.1em 0.5em;
   }
+  #navSecAccueil {
+    grid-area: secAcc;
+  }
+  #navSecMoi {
+    grid-area: secMoi;
+  }
+  #navSecSuivre {
+    grid-area: secSuivre;
+  }
+  #navSecSpotify {
+    grid-area: secSpotify;
+  }
+  #navSecAnim {
+    grid-area: secAnim;
+  }
+  #navSecPalma {
+    grid-area: secPalma;
+  }
+  #navSecContact {
+    grid-area: secContact;
+  }
   #navSecTxt {
+    grid-area: secTxt;
+    text-align: end;
+    padding: 0 0.4em;
     display: none;
   }
+  #navSecondaire {
+    color: white;
+  }
   #navSecondaire > div {
+    padding: 0 1em;
+    font-weight: bold;
+    font-size: 2em;
+    font-variant-caps: all-petite-caps;
     display: flex;
     flex-wrap: wrap;
   }
   #navSecondaire > div > a {
+    color: white;
     width: 100%;
+    padding: 0.4em;
+    margin: 0.1em;
+    border-radius: 15px;
+    text-align: center;
+    align-content: center;
+    background-size: cover;
+    background-position: center;
+  }
+  #navSecondaire > div > a:hover {
+    box-shadow: inset 0 0 0 4000px rgba(0, 0, 0, 0.3);
   }
   section:not(#depart) {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
     scroll-margin-top: 60px;
+    margin-top: 0;
     padding: 3em 0;
   }
   section:not(#depart) h2 {
@@ -523,21 +404,79 @@ section:not(#depart) h2 {
     width: fit-content;
     margin: 0 auto 0.3em;
   }
+  #moi h2 {
+    width: fit-content;
+  }
+  #moi h2:hover::after {
+    content: "I built this page brick by brick";
+    font-family: "pirata one";
+  }
+  #linkTree > div {
+    width: 85.8369098712%;
+    margin: 0 auto;
+    font-size: 1.25em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0.8em 2.6824034335%;
+  }
+  #linkTree > div > a {
+    width: fit-content;
+    padding: 0.6em;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: light;
+    border-radius: 1.2em;
+    transition: box-shadow 0.5s ease-out;
+  }
+  #palmares > span {
+    width: 85.8369098712%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
   #palmares > span > div {
     width: 100%;
     height: 250px;
     border-radius: 1em;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out, box-shadow 1.5s ease-out;
+  }
+  #palmares > span > div:hover {
+    transform: scale(1.05);
   }
   #palmares > span > div img {
+    width: 100%;
     height: 250px;
+    object-fit: cover;
+    overflow: hidden;
   }
-  #palmares > span > div h3 {
+  #palmares > span > div span {
+    display: block;
+  }
+  #palmares > span > div span h3 {
+    margin-bottom: 0.35rem;
+    padding: 0.5em;
     font-size: 1.3em;
+    text-transform: uppercase;
+    line-height: 1em;
+  }
+  #spotify a:hover {
+    text-shadow: 0 0 0.1em rgba(0, 128, 0, 0.2), 0em 0em 0.1em rgba(144, 238, 144, 0.1), 0em 0em 0.4em rgba(144, 238, 144, 0.1);
   }
   #spotify div {
+    width: 85.8369098712%;
+    margin: 0 auto;
     margin-top: 1em;
+    display: flex;
     flex-flow: column;
     gap: 1em;
+    justify-content: space-evenly;
   }
   #spotify div iframe {
     width: 85%;
@@ -546,7 +485,14 @@ section:not(#depart) h2 {
     border-radius: 1em;
   }
   #anim {
-    font-size: 2.3em;
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 2em;
+    font-weight: 600;
+    transition: 0.3s ease-out;
+  }
+  #anim.scale {
+    scale: 0.95 0.95;
   }
 }
 @media only screen and (min-width: 321px) {
@@ -554,7 +500,7 @@ section:not(#depart) h2 {
     translate: 0 -62px;
   }
   #accueil h1 {
-    font-size: 4.5em;
+    font-size: 4em;
   }
   #accueil h2 {
     font-size: 1.5em;
@@ -593,10 +539,15 @@ section:not(#depart) h2 {
     height: 10em;
   }
   #anim {
-    font-size: 2.75em;
+    font-size: 2.5em;
   }
 }
-@media (min-width: 426px) {
+@media screen and (min-width: 375px) {
+  #accueil h1 {
+    font-size: 4.5em;
+  }
+}
+@media only screen and (min-width: 426px) {
   main > * {
     translate: 0 -67px;
   }
@@ -610,10 +561,13 @@ section:not(#depart) h2 {
     font-size: 1.75em;
   }
   #accueil h1 {
-    font-size: 6em;
+    font-size: 5em;
   }
   #accueil h2 {
     margin: 0.3em 0 0.9em;
+  }
+  section:not(#depart) {
+    scroll-margin: 87px;
   }
   section:not(#depart) h2 {
     margin: 0 0 0.3em;
@@ -628,7 +582,7 @@ section:not(#depart) h2 {
   }
   #palmares > span > div span {
     display: block;
-    height: 4.6875em;
+    height: 5.1em;
   }
   #palmares > span > div span h3 {
     font-size: 1.35em;
@@ -696,6 +650,12 @@ section:not(#depart) h2 {
   .dark-theme #navSecContact {
     background-color: rgba(0, 25, 136, 0.9);
   }
+  #accueil h1 {
+    font-size: 6em;
+  }
+  #accueil h2 {
+    margin: 0.5em 0 0.9em 0;
+  }
   #navSecTxt {
     display: inline;
     align-content: center;
@@ -718,15 +678,7 @@ section:not(#depart) h2 {
   }
   #accueil {
     margin: 0;
-    margin-left: 7.5em;
-  }
-  #navSecondaire > div {
-    display: grid;
-    grid-template: repeat(4, 1fr) 1.5fr/repeat(2, 1fr) 2fr;
-    grid-template-areas: "secAcc secAcc secMoi" "secSuivre secSpotify secMoi" "secSuivre secPalma secMoi" "secAnim secPalma secMoi" "secTxt secTxt secContact";
-  }
-  #navSecondaire > div > a {
-    width: auto;
+    margin-left: 10%;
   }
   section:not(#depart) h2 {
     padding-left: 1.5em;
@@ -737,6 +689,60 @@ section:not(#depart) h2 {
   }
   #spotify div iframe {
     width: 25%;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  #accueil {
+    margin-left: 15%;
+  }
+  #accueil h1 {
+    font-size: 6.5em;
+  }
+  section:not(#depart) h2 {
+    padding-left: 2em;
+    font-size: 2.5em;
+  }
+  #anim {
+    font-size: 3em;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  #palmares > span > div {
+    width: 320px;
+    height: 400px;
+  }
+  #palmares > span > div img {
+    height: 350px;
+  }
+  #palmares > span > div span {
+    height: 5em;
+  }
+  #palmares > span > div span h3 {
+    font-size: 1.5em;
+  }
+}
+@media only screen and (min-width: 2559px) {
+  body {
+    font-size: 1.5em;
+  }
+  main > * {
+    translate: 0 -87px;
+  }
+  header {
+    width: 48.2832618026%;
+    height: 85px;
+    padding: 0 2.5em;
+    border-radius: 43px;
+  }
+  header.show {
+    transform: translateY(20px);
+  }
+  #palmares > span > div {
+    width: 600px;
+    height: 750px;
+  }
+  #palmares > span > div img {
+    height: 750px;
   }
 }
 @keyframes fondAlterAcceuil {

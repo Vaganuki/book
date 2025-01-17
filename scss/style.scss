@@ -21,7 +21,7 @@ $fondPrincipal: #E2E1E7;
 $fondPrincipalSombre: #888;
 $fondSecondaire: #D2D9DF;
 $fondSecondaireSombre: #002a74;
-$fondTiercaire: #739EBE;
+$fondTiercaire: #80c8ff;
 $fondTiercaireSombre: #000e25;
 $borderMiseAvantSurvol:  0 0 0.5em black,0 0 3em rgb(245, 245, 245);
 $fondSombre: inset 0 0 0 4000px rgba(0, 0, 0, 0.3);
@@ -40,6 +40,7 @@ html{
     background-color: rgb(245, 245, 245);
     background: linear-gradient(180deg,$fondPrincipal 0%, $fondSecondaire 75%, $fondTiercaire 100%);
 }
+
 //Theme clair
 .light-theme{
     & .animVague{
@@ -203,6 +204,8 @@ html{
         }
     }
 }
+
+//Themes et utilitaires
 .unselect{
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -248,281 +251,6 @@ html{
     display: inline-block;
     cursor: url('../img/link_curs.png'), pointer;
 }
-
-//Navigation principale
-header{
-    width: pxToPrct(1550, $ratio);
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.5s ease-in, 0.5s transform cubic-bezier(0.075, 0.82, 0.165, 1) .2s;
-    margin: 0 auto;
-    color: white;
-    border: 1px solid rgba(255,255,255,.06);
-    box-shadow: 0 0.4em 1.75em rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    align-content: center;
-    &.show{
-        opacity: 1;
-        transform: translateY(10px);
-    }
-    & nav{
-        & div{
-            & a{
-                font-family: 'Pirata One', 'Arial Narrow', Arial, sans-serif;
-                color: white;
-                transition: 0.2s ease-in;
-            }
-        }
-    }
-}
-#navMenu{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.1em 1em;
-    justify-content: end;
-    justify-items: center;
-    align-items: center;
-    & a{
-        font-family: "Roboto", Arial, Helvetica, sans-serif;
-        width: fit-content;
-        height: fit-content;
-    }
-}
-#theme{
-    border-radius: 0.5625em;
-    &:hover{
-        animation: themeJN infinite 1s alternate ease-in;
-        box-shadow: $borderMiseAvantSurvol;
-    }
-}
-
-//Début du site affiché
-#depart{
-    height: 100vh;
-    align-content: center;
-    //Rotation d'images de fond du site.
-    animation: fondAlterAcceuil 15s infinite alternate;
-    transition: opacity 5s ease-in-out, background-image 0s;
-    background-size: cover;
-    background-position: center;
-    //Filtre sur l'image de fond pour la lecture
-    box-shadow: $fondSombre;
-}
-#accueil{
-    color: white;
-    font-family: Arial, sans-serif;
-    width: fit-content;
-    //margin-left: 15em;
-    & h1{
-        //font-size: 6.5em;
-        font-family: "Pirata One", 'Arial Narrow', Arial, sans-serif;
-        text-shadow: 0 0.05em $colorSecondaire,0em 0em 0.1em $colorSecondaire, 0em 0em 0.4em $colorSecondaire;
-        &:hover{
-            animation: titreDisco 2.5s infinite alternate ease-in-out;
-        }
-    }
-    & h2{
-        margin: 0.5em 0 0.9em 0;
-    }
-    //Bouton de la page d'accueil
-    & a{
-        font-size: 1.25em;
-        padding: 0.45em;
-        font-variant-caps: small-caps;
-        color: $colorSecondaire;
-        border: solid 0.15em $colorSecondaire;
-        background-color: rgba($colorMain, 0.2);
-        transition: 0.5s;
-        &:hover{
-            font-size: 1.5em;
-            color: $colorSecondaireSurvol;
-            background-color: rgba($colorMainSurvol, 0.2);
-            box-shadow:$borderMiseAvantSurvol;
-            border: solid 0.15em $colorSecondaireSurvol;
-            border-radius: 2px;
-        }
-    }
-}
-#flashbang{
-    margin: 2em auto 0;
-    padding: 0.8em;
-    opacity: 0.1;
-    filter: blur(1px);
-    border-radius: 15px;
-    background-color: rgba($colorMain, $alpha: 1);
-    width: fit-content;
-    text-align: center;
-}
-
-section{
-    &:not(#depart){
-        //scroll-margin-top: 90px;
-        & h2{
-            font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
-            margin-top: 0;
-            
-            //padding-left: 2em;
-            //font-size: 2.5em;
-        } 
-    }
-}
-
-//Défition de la grid de la nav
-#navSecAccueil{
-    grid-area: secAcc;
-}
-#navSecMoi{
-    grid-area: secMoi;
-}
-#navSecSuivre{
-    grid-area: secSuivre;
-}
-#navSecSpotify{
-    grid-area: secSpotify;
-}
-#navSecAnim{
-    grid-area: secAnim;
-}
-#navSecPalma{
-    grid-area: secPalma;
-}
-#navSecContact{
-    grid-area: secContact;
-}
-#navSecTxt{
-    grid-area: secTxt;
-    text-align: end;
-    padding: 0 0.4em;
-}
-#navSecondaire{
-    color: white;
-    &>div{
-        padding: 0 1em;
-        font-weight: bold;
-        font-size: 2em;
-        font-variant-caps: all-petite-caps;
-        &>a{
-            color: white;
-            padding: 0.4em;
-            text-align: center;
-            align-content: center;
-            border-radius: 15px;
-            margin: 0.1em;
-            background-size: cover;
-            background-position: center;
-            &:hover{
-                box-shadow: $fondSombre;
-            }
-        }
-    }
-}
-
-#moi{
-    & h2{
-        width: fit-content;
-        &:hover::after{
-            content: 'I built this page brick by brick';
-            font-family: 'pirata one';
-        }
-    }
-}
-
-//LinkTree à remodifier !!!!
-
-#linkTree{
-    >div{
-        width: pxToPrct(1600, $ratio);
-        margin: 0 auto;
-        font-size: 1.25em;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: stretch;
-        justify-content: center;
-        gap: 0.8em pxToPrct(100, $ratio);
-        &:nth-child(odd){
-            flex-grow: 1.5;
-        }
-        &>a{
-            width: fit-content;
-            padding: 0.6em;
-            font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
-            font-weight: light;
-            border-radius: 1.2em;
-            transition: box-shadow 0.5s ease-out;
-        }
-    }
-}
-
-#palmares{
-    &>span{
-        width: pxToPrct(1600, $ratio);
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        &>div{
-            //width: 320px;
-            //height: 400px;
-            margin: 1em;
-            display: flex;
-            flex-direction: column;
-            align-content: flex-end;
-            overflow: hidden;
-            transition: transform 0.5s ease-in-out, box-shadow 1.5s ease-out;
-            &:hover{
-                transform: scale(1.05);
-            }
-            & img{
-                //height: 350px;
-                
-                width: 100%;
-                object-fit: cover;
-                overflow: hidden;
-            }
-            & span{
-                //height: 4.6875em;
-                
-                display: block;
-                & h3{
-                    //font-size: 1.5em;
-                    
-                    text-transform: uppercase;
-                    line-height: 1em;
-                    padding: 0.5em;
-                    margin-bottom: 0.35rem;
-                }
-            }
-        }
-    }
-}
-
-#spotify{
-    & a:hover{
-        text-shadow: 0 0 0.1em rgba(0, 128, 0, 0.2),0em 0em 0.1em rgba(144, 238, 144,0.1), 0em 0em 0.4em rgba(144, 238, 144,0.1);
-    }
-    & div{
-        width: (1600,$ratio);
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-evenly;
-        & iframe{
-            width: 20%;
-        }
-    }
-}
-#anim{
-    //font-size: 3em;
-    
-    width: fit-content;
-    margin: 0 auto;
-    font-weight: 600;
-    transition: 0.3s ease-out;
-    &.scale{
-        scale: 0.95 0.95;
-    }
-}
 .letAnim{
     display: inline-block;
     animation: transform 0.2s ease-out, translate 1s ease-in-out, color 3s ease-in-out;
@@ -533,10 +261,11 @@ section{
     &.reset{
         transform: scaleX(1) skewX(0);
         translate: 0 0;
-        //transition: transform 1.05s cubic-bezier(0.68,-0.55,0.27,1.55), translate 0.2s cubic-bezier(0.68,-0.55,0.27,1.55), color 0.5s cubic-bezier(0.68,-0.55,0.27,1.55);
         transition: 1.05s cubic-bezier(0.68,-0.55,0.27,1.55);
     }
 }
+
+//Mise en page du site
 //mobile s
 @media only screen and (min-width: 0px){
     main {
@@ -557,48 +286,179 @@ section{
             border: 2px solid rgba($colorMainSombreSurvol, $alpha: 0.8);
         }
     }
+    header{
+        height: 40px;
+        width: pxToPrct(1550, $ratio);
+        margin: 0 auto;
+        padding: 0 1em;
+        align-content: center;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        opacity: 0;
+        color: white;
+        border: 1px solid rgba(255,255,255,.06);
+        border-radius: 20px;
+        box-shadow: 0 0.4em 1.75em rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        transform: translateY(-40px);
+        transition: opacity 0.5s ease-in, 0.5s transform cubic-bezier(0.075, 0.82, 0.165, 1) .2s;
+        &.show{
+            opacity: 1;
+            transform: translateY(10px);
+        }
+        & nav{
+            display: grid;
+            grid-template:1fr / fit-content(1em) 1fr;
+            font-size: 1.3em;
+            & div{
+                & a{
+                    font-family: 'Pirata One', 'Arial Narrow', Arial, sans-serif;
+                    color: white;
+                    transition: 0.2s ease-in;
+                }
+            }
+        }
+    }
+    #navMenu{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.1em 1em;
+        justify-content: end;
+        justify-items: center;
+        align-items: center;
+        & a{
+            font-family: "Roboto", Arial, Helvetica, sans-serif;
+            width: fit-content;
+            height: fit-content;
+        }
+    }
+    #theme{
+        border-radius: 0.5625em;
+        &:hover{
+            animation: themeJN infinite 1s alternate ease-in;
+            box-shadow: $borderMiseAvantSurvol;
+        }
+    }
+    #depart{
+        height: 100vh;
+        align-content: center;
+        //Rotation d'images de fond du site.
+        animation: fondAlterAcceuil 15s infinite alternate;
+        transition: opacity 5s ease-in-out, background-image 0s;
+        background-size: cover;
+        background-position: center;
+        //Filtre sur l'image de fond pour la lecture
+        box-shadow: $fondSombre;
+    }
+    #flashbang{
+        margin: 2em auto 0;
+        padding: 0.8em;
+        opacity: 0.1;
+        filter: blur(1px);
+        border-radius: 15px;
+        background-color: rgba($colorMain, $alpha: 1);
+        width: fit-content;
+        text-align: center;
+    }
     #accueil{
+        color: white;
+        font-family: Arial, sans-serif;
+        width: fit-content;
         text-align: center;
         margin: 0 auto;
         & h1{
             font-size: 3.5em;
+            font-family: "Pirata One", 'Arial Narrow', Arial, sans-serif;
+            text-shadow: 0 0.05em $colorSecondaire,0em 0em 0.1em $colorSecondaire, 0em 0em 0.4em $colorSecondaire;
             margin: 0;
+            &:hover{
+                animation: titreDisco 1.25s infinite alternate ease-in-out;
+            }    
         }
         & h2{
             font-size: 1.3em;
             margin: 0.15em 0.7em 1em;
             font-weight: 200;
         }
-    }
-    header{
-        height: 40px;
-        border-radius: 20px;
-        padding: 0 1em;
-        transform: translateY(-40px);
-        & nav{
-            display: grid;
-            grid-template:1fr / fit-content(1em) 1fr;
-            font-size: 1.3em;
-        }
+        & a{
+            font-size: 1.25em;
+            padding: 0.45em;
+            font-variant-caps: small-caps;
+            color: $colorSecondaire;
+            border: solid 0.15em $colorSecondaire;
+            background-color: rgba($colorMain, 0.2);
+            transition: 0.5s;
+            &:hover{
+                font-size: 1.5em;
+                color: $colorSecondaireSurvol;
+                background-color: rgba($colorMainSurvol, 0.2);
+                box-shadow:$borderMiseAvantSurvol;
+                border: solid 0.15em $colorSecondaireSurvol;
+                border-radius: 2px;
+            }
+        }    
     }
     #navMenu{
         gap: 0.1em 0.5em
     }
+    #navSecAccueil{
+    grid-area: secAcc;
+    }
+    #navSecMoi{
+        grid-area: secMoi;
+    }
+    #navSecSuivre{
+        grid-area: secSuivre;
+    }
+    #navSecSpotify{
+        grid-area: secSpotify;
+    }
+    #navSecAnim{
+        grid-area: secAnim;
+    }
+    #navSecPalma{
+        grid-area: secPalma;
+    }
+    #navSecContact{
+        grid-area: secContact;
+    }
     #navSecTxt{
+        grid-area: secTxt;
+        text-align: end;
+        padding: 0 0.4em;
         display: none;
     }
     #navSecondaire{
+        color: white;
         &>div{
+            padding: 0 1em;
+            font-weight: bold;
+            font-size: 2em;
+            font-variant-caps: all-petite-caps;
             display: flex;
             flex-wrap: wrap;
             &>a{
+                color: white;
                 width: 100%;
+                padding: 0.4em;
+                margin: 0.1em;
+                border-radius: 15px;
+                text-align: center;
+                align-content: center;
+                background-size: cover;
+                background-position: center;
+                &:hover{
+                    box-shadow: $fondSombre;
+                }
             }
         }
     }
     section{
         &:not(#depart){
+            font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
             scroll-margin-top: 60px;
+            margin-top: 0;
             padding:3em 0;
             & h2{
                 font-size: 2em;
@@ -607,22 +467,87 @@ section{
             }
         }
     }
-    #palmares>span>div{
-        width: 100%;
-        height: 250px;
-        border-radius: 1em;
-        & img{
-            height: 250px;
+    #moi{
+        & h2{
+            width: fit-content;
+            &:hover::after{
+                content: 'I built this page brick by brick';
+                font-family: 'pirata one';
+            }
         }
-        & h3{
-            font-size: 1.3em;
+    }
+    //LinkTree un peu mieux mais toujours pas au top
+    #linkTree{
+        >div{
+            width: pxToPrct(1600, $ratio);
+            margin: 0 auto;
+            font-size: 1.25em;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            justify-content: center;
+            gap: 0.8em pxToPrct(50, $ratio);
+            &>a{
+                width: fit-content;
+                padding: 0.6em;
+                font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
+                font-weight: light;
+                border-radius: 1.2em;
+                transition: box-shadow 0.5s ease-out;
+            }
+        }
+    }
+    #palmares{
+        &>span{
+            width: pxToPrct(1600, $ratio);
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            &>div{
+                width: 100%;
+                height: 250px;
+                border-radius: 1em;
+                margin: 1em;
+                display: flex;
+                flex-direction: column;
+                align-content: flex-end;
+                overflow: hidden;
+                transition: transform 0.5s ease-in-out, box-shadow 1.5s ease-out;
+                &:hover{
+                    transform: scale(1.05);
+                }
+                & img{
+                    width: 100%;
+                    height: 250px;
+                    object-fit: cover;
+                    overflow: hidden;
+                }
+                & span{
+                    display: block;
+                    & h3{
+                        margin-bottom: 0.35rem;
+                        padding: 0.5em;
+                        font-size: 1.3em;
+                        text-transform: uppercase;
+                        line-height: 1em;
+                    }            
+                }
+            }
         }
     }
     #spotify{
+        & a:hover{
+            text-shadow: 0 0 0.1em rgba(0, 128, 0, 0.2),0em 0em 0.1em rgba(144, 238, 144,0.1), 0em 0em 0.4em rgba(144, 238, 144,0.1);
+        }    
         & div{
+            width: pxToPrct(1600,$ratio);
+            margin: 0 auto;
             margin-top: 1em;
+            display: flex;
             flex-flow: column;
             gap: 1em;
+            justify-content: space-evenly;
             & iframe{
                 width: 85%;
                 height: 9.5em;
@@ -632,9 +557,18 @@ section{
         }
     }
     #anim{
-        font-size: 2.3em;
+        width: fit-content;
+        margin: 0 auto;
+        font-size: 2em;
+        font-weight: 600;
+        transition: 0.3s ease-out;
+        &.scale{
+            scale: 0.95 0.95;
+        }
+    
     }
 }
+
 //Mobile L
 @media only screen and (min-width: 321px) {
     main {
@@ -645,7 +579,7 @@ section{
     }
     #accueil{
         & h1{
-            font-size: 4.5em;
+            font-size: 4em;
         }
         & h2{
             font-size: 1.5em;
@@ -689,12 +623,19 @@ section{
         }
     }
     #anim{
-        font-size: 2.75em;
+        font-size: 2.5em;
+    }
+}
+@media screen and (min-width: 375px) {
+    #accueil{
+        & h1{
+            font-size: 4.5em;
+        }
     }
 }
 
 //Tablet
-@media (min-width: 426px) {
+@media only screen and (min-width: 426px) {
     main {
         &>*{
             translate: 0 -67px;
@@ -711,7 +652,7 @@ section{
     }
     #accueil{
         & h1{
-            font-size: 6em;
+            font-size: 5em;
         }
         & h2{
             margin: 0.3em 0 0.9em;
@@ -719,6 +660,7 @@ section{
     }
     section{
         &:not(#depart){
+            scroll-margin: 87px;
             & h2{
                 margin: 0 0 0.3em;
                 padding-left: 1em;
@@ -733,7 +675,7 @@ section{
         }
         & span{
             display: block;
-            height: 4.6875em;
+            height: 5.1em;
             & h3{
                 font-size: 1.35em;
             }
@@ -809,6 +751,14 @@ section{
             background-color:rgba($color:#001988 , $alpha: 0.9) ;
         }
     }
+    #accueil{
+        & h1{
+            font-size: 6em;
+        }
+        & h2{
+            margin: 0.5em 0 0.9em 0;
+        }
+    }
     #navSecTxt{
         display: inline;
         align-content: center;
@@ -838,21 +788,7 @@ section{
     }
     #accueil{
         margin: 0;
-        margin-left: 7.5em;
-    }
-        #navSecondaire{
-        &>div{
-            display: grid;
-            grid-template: repeat(4,1fr) 1.5fr/ repeat(2,1fr) 2fr;
-            grid-template-areas:'secAcc secAcc secMoi'
-                                'secSuivre secSpotify secMoi'
-                                'secSuivre secPalma secMoi'
-                                'secAnim secPalma secMoi'
-                                'secTxt secTxt secContact';
-            &>a{
-                width: auto;
-            }
-        }
+        margin-left: 10%;
     }
     section{
         &:not(#depart){
@@ -874,17 +810,68 @@ section{
 
 //lg
 @media only screen and (min-width: 1025px) {
-
+    #accueil{
+        margin-left: 15%;
+        & h1{
+            font-size: 6.5em;
+        }
+    }
+    section{
+        &:not(#depart){
+            & h2{
+                padding-left: 2em;
+                font-size: 2.5em;
+            } 
+        }
+    }
+    #anim{
+        font-size: 3em;
+    }
 }
 
 //xl
-@media only screen and (min-width: 1288px) {
-
+@media only screen and (min-width: 1280px) {
+    #palmares>span>div{
+        width: 320px;
+        height: 400px;
+        & img{
+            height: 350px;
+        }
+        & span{
+            height: 5em;
+            & h3{
+                font-size: 1.5em;                    
+            }
+        }
+    }
 }
 
-//2xl
-@media only screen and (min-width: 1536px) {
-
+//xxl
+@media only screen and (min-width: 2559px) {
+    body{
+        font-size: 1.5em;
+    }
+    main{
+        &>*{
+            translate: 0 -87px;
+        }
+    }
+    header{
+        width: pxToPrct(900,$ratio);
+        height: 85px;
+        padding: 0 2.5em;
+        border-radius: 43px;
+        &.show{
+            transform: translateY(20px);
+        }
+    }
+    #palmares>span>div{
+        width: 600px;
+        height: 750px;
+        & img{
+            height: 750px;
+        }
+    }
 }
 
 //Animations
@@ -939,7 +926,6 @@ section{
     }
 }
 //À Retirer une fois le code fini
-
 .wip{
     &::after{
         vertical-align: top;
