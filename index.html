@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/nav.js" defer></script>
     <script src="./js/anim.js" defer></script>
+    <script src="./js/node.js" defer></script>
     <audio src="./ressources/Caramella Girls - Caramelldansen HD Version (Swedish Original).mp3" id="caramelleDanse"></audio>
     <audio src="./ressources/flashbang-sound-effect.mp3" id="flashAudio"></audio>
     <title>SleepyProject | We won't sleep until dreams come true.</title>
@@ -117,9 +118,17 @@
                 <span class="letAnim">N</span>
             </div>
         </section>
-        <section id="contact">
-            <h2 class="wip unselect">Contact</h2>
-            <p>Euh pour l'instant vous pouvez cliquer là:</br><a href="mailto:hugo.warnotte@gmail.com" target="_blank">hugo.warnotte@gmail.com</a> ou <a href="mailto:sleepyboi.ink@gmail.com" target="_blank">sleepyboi.ink@gmail.com</a></p>
+        <section id="contact" class="unselect">
+            <h2 class="wip">Contact</h2>
+            <form action="#">
+                <input type="text" id="nomContact" placeholder="Nom de contact">
+                <input type="email" id="mailContact" placeholder="adresse@mail.com">
+                <textarea id="msgContact" placeholder="Message"></textarea>
+                <input type="submit" value="Envoyer">
+            </form>
+            <!--
+                <p>Euh pour l'instant vous pouvez cliquer là:</br><a href="mailto:hugo.warnotte@gmail.com" target="_blank">hugo.warnotte@gmail.com</a> ou <a href="mailto:sleepyboi.ink@gmail.com" target="_blank">sleepyboi.ink@gmail.com</a></p>
+            -->
         </section>
     </main>
     <footer>

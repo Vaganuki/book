@@ -494,6 +494,29 @@ html {
   #anim.scale {
     scale: 0.95 0.95;
   }
+  #contact form {
+    width: 52.5751072961%;
+    border: 1px solid black;
+    margin: 0 auto;
+    padding: 1.25em;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: -0.6em 0.6em 0 rgba(0, 0, 0, 0.26);
+  }
+  #contact form input, #contact form textarea {
+    border: 0.125em solid rgba(0, 0, 0, 0.6);
+    background-color: lightgrey;
+    padding: 0.3125em;
+    margin-top: 0.625em;
+  }
+  #contact form input[type=submit] {
+    align-self: flex-end;
+  }
+  #contact form textarea {
+    min-height: 3.125em;
+    resize: vertical;
+  }
 }
 @media only screen and (min-width: 321px) {
   main > * {
@@ -809,6 +832,11 @@ html {
   font-size: 0.4em;
   font-weight: 200;
   content: "Work in progress";
+}
+
+form::after {
+  content: "Ce form ne fait actuellement rien";
+  margin-top: 1em;
 }
 
 /*# sourceMappingURL=style.css.map */

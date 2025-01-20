@@ -565,7 +565,33 @@ html{
         &.scale{
             scale: 0.95 0.95;
         }
-    
+    }
+    #contact{
+        & form{
+            width: pxToPrct(980, $ratio);
+            border: 1px solid black;
+            margin: 0 auto;
+            padding: 1.25em;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            box-shadow: -0.6em 0.6em 0 rgba($color: #000000, $alpha: 0.26);
+            & input,textarea{
+                border: 0.125em solid rgba(0, 0, 0, 0.6);
+                background-color: lightgrey;
+                padding: 0.3125em;
+                margin-top: 0.625em;
+            }
+            & input{
+                &[type=submit]{
+                    align-self: flex-end;
+                }
+            }
+            & textarea {
+                min-height: 3.125em;
+                resize: vertical;
+            }
+        }
     }
 }
 
@@ -934,4 +960,9 @@ html{
         font-weight: 200;
         content:'Work in progress';
     }
+}
+
+form::after{
+    content: 'Ce form ne fait actuellement rien';
+    margin-top: 1em;
 }
