@@ -16,6 +16,9 @@ html.classList.contains('dark-theme') ? rond.setAttribute('fill','none'): consol
 //Selection des éléments du flash
 const flash=document.getElementById('flashbang');
 const audioFlash=document.getElementById('flashAudio');
+if(html.classList.contains('dark-theme')){
+    flash.classList.remove('hidden');
+}
 
 //Animation de la navigation
 window.addEventListener('scroll', function(event) {

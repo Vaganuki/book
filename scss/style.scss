@@ -8,7 +8,6 @@ $ratio: 1864;
 }
 
 //Définitions des couleurs
-
 $colorMain: #056CF2;
 $colorMainSurvol: lighten($colorMain, 20%);
 $colorSecondaire: #88DFF2;
@@ -119,6 +118,22 @@ html{
     & #spotify a{
         color: black;
     }
+    & #contact{
+        & form{
+            background-color: white;
+            border: 1px solid black;
+            box-shadow: -0.6em 0.6em 0 rgba($color: #000000, $alpha: 0.26);
+            & h2{
+                border-bottom: 1px solid black;
+            }
+            & span{
+                & input,textarea{
+                    border: 0.125em solid rgba(0, 0, 0, 0.6);
+                    background-color: lightgrey;
+                }
+            }
+        }
+    }
 }
 
 //Theme Sombre
@@ -127,7 +142,7 @@ html{
     color: white;
     & .animVague{
         &::before,&::after{
-            background-color: $colorMainSombreSurvol;
+            background-color: $colorSecondaireSombre;
         }
     }
     & header{
@@ -203,6 +218,26 @@ html{
             color: white;
         }
     }
+    & #contact{
+        & form{
+            background-color: $fondTiercaireSombre;
+            border: 1px solid white;
+            box-shadow: -0.6em 0.6em 0 rgba($color: #ffffff, $alpha: 0.26);
+            & h2{
+                border-bottom: 1px solid white;
+            }
+            & span{
+                & input,textarea{
+                    border: 0.125em solid rgba(255, 255, 255, 0.6);
+                    background-color: grey;
+                    color: white;
+                    &::placeholder{
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
 }
 
 //Themes et utilitaires
@@ -232,7 +267,7 @@ html{
             position: absolute;
             top: 50%;
             left: 50%;
-            z-index: -1;
+            z-index: -10;
             aspect-ratio: 1;
             translate: -50% 0;
             border-top-left-radius: 60% 80%;
@@ -311,6 +346,9 @@ html{
             display: grid;
             grid-template:1fr / fit-content(1em) 1fr;
             font-size: 1.3em;
+            & #navMenu{
+                font-size: 0.85em;
+            }
             & div{
                 & a{
                     font-family: 'Pirata One', 'Arial Narrow', Arial, sans-serif;
@@ -495,7 +533,7 @@ html{
                 font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
                 font-weight: light;
                 border-radius: 1.2em;
-                transition: box-shadow 0.5s ease-out;
+                transition: box-shadow 0.5s ease-out, background 0.25s ease;
             }
         }
     }
@@ -571,14 +609,11 @@ html{
     #contact{
         & form{
             width: pxToPrct(980, $ratio);
-            border: 1px solid black;
             margin: 0 auto;
-            background-color: white;
-            box-shadow: -0.6em 0.6em 0 rgba($color: #000000, $alpha: 0.26);
+            font-family: 'Roboto', Courier, monospace;
             & h2{
                 margin: 0;
                 padding: 0.5em;
-                border-bottom: 1px solid black;
                 text-align: center;
             }
             & span{
@@ -586,8 +621,6 @@ html{
                 flex-direction: column;
                 padding: 1.25em;
                 & input,textarea{
-                    border: 0.125em solid rgba(0, 0, 0, 0.6);
-                    background-color: lightgrey;
                     padding: 0.3125em;
                     margin-top: 0.625em;
                 }
@@ -629,6 +662,9 @@ html{
         transform: translateY(-62px);
         & nav{
             font-size: 1.5em;
+            & #navMenu{
+                font-size: 0.8em;
+            }
         }
     }
     section{
@@ -686,6 +722,9 @@ html{
         transform: translateY(-67px);
         & nav{
             font-size: 1.75em;
+            & #navMenu{
+                font-size: 0.7em;
+            }
         }
     }
     #accueil{
@@ -830,6 +869,9 @@ html{
         padding: 0 2em;
         & nav{
             font-size: 2.5em;
+            & #navMenu{
+                font-size: 0.6em;
+            }
         }
     }
     #accueil{

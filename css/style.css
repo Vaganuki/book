@@ -79,13 +79,25 @@ html {
 .light-theme #spotify a {
   color: black;
 }
+.light-theme #contact form {
+  background-color: white;
+  border: 1px solid black;
+  box-shadow: -0.6em 0.6em 0 rgba(0, 0, 0, 0.26);
+}
+.light-theme #contact form h2 {
+  border-bottom: 1px solid black;
+}
+.light-theme #contact form span input, .light-theme #contact form span textarea {
+  border: 0.125em solid rgba(0, 0, 0, 0.6);
+  background-color: lightgrey;
+}
 
 .dark-theme {
   background: linear-gradient(180deg, #888 0%, #002a74 75%, #000e25 100%);
   color: white;
 }
 .dark-theme .animVague::before, .dark-theme .animVague::after {
-  background-color: rgb(55.7142857143, 61.2857142857, 165.2857142857);
+  background-color: #0700c7;
 }
 .dark-theme header {
   background-color: rgba(30, 33, 89, 0.4);
@@ -150,6 +162,22 @@ html {
 .dark-theme #spotify a {
   color: white;
 }
+.dark-theme #contact form {
+  background-color: #000e25;
+  border: 1px solid white;
+  box-shadow: -0.6em 0.6em 0 rgba(255, 255, 255, 0.26);
+}
+.dark-theme #contact form h2 {
+  border-bottom: 1px solid white;
+}
+.dark-theme #contact form span input, .dark-theme #contact form span textarea {
+  border: 0.125em solid rgba(255, 255, 255, 0.6);
+  background-color: grey;
+  color: white;
+}
+.dark-theme #contact form span input::placeholder, .dark-theme #contact form span textarea::placeholder {
+  color: white;
+}
 
 .unselect {
   -webkit-user-select: none;
@@ -183,7 +211,7 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: -1;
+  z-index: -10;
   aspect-ratio: 1;
   translate: -50% 0;
   border-top-left-radius: 60% 80%;
@@ -255,6 +283,9 @@ html {
     display: grid;
     grid-template: 1fr/fit-content(1em) 1fr;
     font-size: 1.3em;
+  }
+  header nav #navMenu {
+    font-size: 0.85em;
   }
   header nav div a {
     font-family: "Pirata One", "Arial Narrow", Arial, sans-serif;
@@ -429,7 +460,7 @@ html {
     font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
     font-weight: light;
     border-radius: 1.2em;
-    transition: box-shadow 0.5s ease-out;
+    transition: box-shadow 0.5s ease-out, background 0.25s ease;
   }
   #palmares > span {
     width: 85.8369098712%;
@@ -498,15 +529,12 @@ html {
   }
   #contact form {
     width: 52.5751072961%;
-    border: 1px solid black;
     margin: 0 auto;
-    background-color: white;
-    box-shadow: -0.6em 0.6em 0 rgba(0, 0, 0, 0.26);
+    font-family: "Roboto", Courier, monospace;
   }
   #contact form h2 {
     margin: 0;
     padding: 0.5em;
-    border-bottom: 1px solid black;
     text-align: center;
   }
   #contact form span {
@@ -515,8 +543,6 @@ html {
     padding: 1.25em;
   }
   #contact form span input, #contact form span textarea {
-    border: 0.125em solid rgba(0, 0, 0, 0.6);
-    background-color: lightgrey;
     padding: 0.3125em;
     margin-top: 0.625em;
   }
@@ -547,6 +573,9 @@ html {
   }
   header nav {
     font-size: 1.5em;
+  }
+  header nav #navMenu {
+    font-size: 0.8em;
   }
   section:not(#depart) {
     scroll-margin-top: 82px;
@@ -594,6 +623,9 @@ html {
   }
   header nav {
     font-size: 1.75em;
+  }
+  header nav #navMenu {
+    font-size: 0.7em;
   }
   #accueil h1 {
     font-size: 5em;
@@ -714,6 +746,9 @@ html {
   }
   header nav {
     font-size: 2.5em;
+  }
+  header nav #navMenu {
+    font-size: 0.6em;
   }
   #accueil {
     margin: 0;
