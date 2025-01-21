@@ -462,8 +462,10 @@ html{
             padding:3em 0;
             & h2{
                 font-size: 2em;
-                width: fit-content;
-                margin: 0 auto 0.3em;
+                &:not(form h2){
+                    width: fit-content;
+                    margin: 0 auto 0.3em;
+                }
             }
         }
     }
@@ -571,25 +573,33 @@ html{
             width: pxToPrct(980, $ratio);
             border: 1px solid black;
             margin: 0 auto;
-            padding: 1.25em;
-            display: flex;
-            flex-direction: column;
             background-color: white;
             box-shadow: -0.6em 0.6em 0 rgba($color: #000000, $alpha: 0.26);
-            & input,textarea{
-                border: 0.125em solid rgba(0, 0, 0, 0.6);
-                background-color: lightgrey;
-                padding: 0.3125em;
-                margin-top: 0.625em;
+            & h2{
+                margin: 0;
+                padding: 0.5em;
+                border-bottom: 1px solid black;
+                text-align: center;
             }
-            & input{
-                &[type=submit]{
-                    align-self: flex-end;
+            & span{
+                display: flex;
+                flex-direction: column;
+                padding: 1.25em;
+                & input,textarea{
+                    border: 0.125em solid rgba(0, 0, 0, 0.6);
+                    background-color: lightgrey;
+                    padding: 0.3125em;
+                    margin-top: 0.625em;
                 }
-            }
-            & textarea {
-                min-height: 3.125em;
-                resize: vertical;
+                & input{
+                    &[type=submit]{
+                        align-self: flex-end;
+                    }
+                }
+                & textarea {
+                    min-height: 3.125em;
+                    resize: vertical;
+                }
             }
         }
     }
@@ -626,7 +636,9 @@ html{
             scroll-margin-top: 82px;
             & h2{
                 font-size: 2.5em;
-                margin: 0 auto 0.5em;
+                &:not(form h2){
+                    margin: 0 auto 0.5em;
+                }
             }
         }
     }
@@ -687,7 +699,7 @@ html{
     section{
         &:not(#depart){
             scroll-margin: 87px;
-            & h2{
+            & h2:not(form h2){
                 margin: 0 0 0.3em;
                 padding-left: 1em;
             }
@@ -721,6 +733,14 @@ html{
     }
     #anim{
         font-size: 2.75em;
+    }
+    #contact{
+        form{
+            & h2{
+                padding: 0.4347826086956522em;
+                text-align: left;
+            }
+        }
     }
 }
 //Nav secondaire
@@ -818,7 +838,7 @@ html{
     }
     section{
         &:not(#depart){
-            & h2{
+            & h2:not(form h2){
                 padding-left: 1.5em;
             }
         }
@@ -845,8 +865,10 @@ html{
     section{
         &:not(#depart){
             & h2{
-                padding-left: 2em;
                 font-size: 2.5em;
+                &:not(form h2){
+                    padding-left: 2em;
+                }
             } 
         }
     }

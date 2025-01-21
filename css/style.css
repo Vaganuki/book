@@ -401,6 +401,8 @@ html {
   }
   section:not(#depart) h2 {
     font-size: 2em;
+  }
+  section:not(#depart) h2:not(form h2) {
     width: fit-content;
     margin: 0 auto 0.3em;
   }
@@ -498,22 +500,30 @@ html {
     width: 52.5751072961%;
     border: 1px solid black;
     margin: 0 auto;
-    padding: 1.25em;
-    display: flex;
-    flex-direction: column;
     background-color: white;
     box-shadow: -0.6em 0.6em 0 rgba(0, 0, 0, 0.26);
   }
-  #contact form input, #contact form textarea {
+  #contact form h2 {
+    margin: 0;
+    padding: 0.5em;
+    border-bottom: 1px solid black;
+    text-align: center;
+  }
+  #contact form span {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25em;
+  }
+  #contact form span input, #contact form span textarea {
     border: 0.125em solid rgba(0, 0, 0, 0.6);
     background-color: lightgrey;
     padding: 0.3125em;
     margin-top: 0.625em;
   }
-  #contact form input[type=submit] {
+  #contact form span input[type=submit] {
     align-self: flex-end;
   }
-  #contact form textarea {
+  #contact form span textarea {
     min-height: 3.125em;
     resize: vertical;
   }
@@ -543,6 +553,8 @@ html {
   }
   section:not(#depart) h2 {
     font-size: 2.5em;
+  }
+  section:not(#depart) h2:not(form h2) {
     margin: 0 auto 0.5em;
   }
   #palmares > span > div {
@@ -592,7 +604,7 @@ html {
   section:not(#depart) {
     scroll-margin: 87px;
   }
-  section:not(#depart) h2 {
+  section:not(#depart) h2:not(form h2) {
     margin: 0 0 0.3em;
     padding-left: 1em;
   }
@@ -622,6 +634,10 @@ html {
   }
   #anim {
     font-size: 2.75em;
+  }
+  #contact form h2 {
+    padding: 0.4347826087em;
+    text-align: left;
   }
 }
 @media only screen and (min-width: 530px) {
@@ -703,7 +719,7 @@ html {
     margin: 0;
     margin-left: 10%;
   }
-  section:not(#depart) h2 {
+  section:not(#depart) h2:not(form h2) {
     padding-left: 1.5em;
   }
   #spotify div {
@@ -722,8 +738,10 @@ html {
     font-size: 6.5em;
   }
   section:not(#depart) h2 {
-    padding-left: 2em;
     font-size: 2.5em;
+  }
+  section:not(#depart) h2:not(form h2) {
+    padding-left: 2em;
   }
   #anim {
     font-size: 3em;

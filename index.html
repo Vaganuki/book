@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/normalize.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link id="offNORM" rel="stylesheet" href="./css/normalize.css">
+    <link id="offCSS" rel="stylesheet" href="./css/style.css">
     <script src="./js/nav.js" defer></script>
     <script src="./js/anim.js" defer></script>
-    <script src="./js/node.js" defer></script>
+    <script src="./js/fuckCSS.js" defer></script>
     <audio src="./ressources/Caramella Girls - Caramelldansen HD Version (Swedish Original).mp3" id="caramelleDanse"></audio>
     <audio src="./ressources/flashbang-sound-effect.mp3" id="flashAudio"></audio>
     <title>SleepyProject | We won't sleep until dreams come true.</title>
@@ -119,20 +119,23 @@
             </div>
         </section>
         <section id="contact" class="unselect">
-            <h2 class="wip">Contact</h2>
+            <p class="wip" style="font-size: 4em; margin: 0;"></p>
             <form action="#">
-                <input type="text" id="nomContact" placeholder="Nom de contact">
-                <input type="email" id="mailContact" placeholder="adresse@mail.com">
-                <textarea id="msgContact" placeholder="Message"></textarea>
-                <input type="submit" value="Envoyer">
+                <h2>Contact</h2>
+                <span>
+                    <input type="text" id="nomContact" placeholder="Nom de contact">
+                    <input type="email" id="mailContact" placeholder="adresse@mail.com">
+                    <textarea id="msgContact" placeholder="Message"></textarea>
+                    <input type="submit" value="Envoyer">
+                </span>
             </form>
-            <!--
-                <p>Euh pour l'instant vous pouvez cliquer là:</br><a href="mailto:hugo.warnotte@gmail.com" target="_blank">hugo.warnotte@gmail.com</a> ou <a href="mailto:sleepyboi.ink@gmail.com" target="_blank">sleepyboi.ink@gmail.com</a></p>
-            -->
+            <p style="width: fit-content; margin: 4em auto 0; text-align: center;">Pour l'instant vous pouvez cliquer là:</br><a href="mailto:hugo.warnotte@gmail.com" target="_blank">hugo.warnotte@gmail.com</a> ou <a href="mailto:sleepyboi.ink@gmail.com" target="_blank">sleepyboi.ink@gmail.com</a></p>
         </section>
     </main>
     <footer>
         <p>ici c'est pour les kiffeurs #pieds</p>
+        <button id="fuckCSS">Bouton à désactiver le CSS (stp non)</button>
+        <p>Le bouton reste en bas de page, pas de soucis</p>
     </footer>
 </body>
 <!--
