@@ -76,6 +76,9 @@ html {
 .light-theme #palmares > span div:hover {
   box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.3);
 }
+.light-theme #palmares > span div p {
+  background: rgba(97.2591093117, 164.3967611336, 251.7408906883, 0.85);
+}
 .light-theme #spotify a {
   color: black;
 }
@@ -158,6 +161,9 @@ html {
 }
 .dark-theme #palmares > span div:hover {
   box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.5);
+}
+.dark-theme #palmares > span div p {
+  background: rgba(55.7142857143, 61.2857142857, 165.2857142857, 0.85);
 }
 .dark-theme #spotify a {
   color: white;
@@ -463,34 +469,55 @@ html {
     transition: box-shadow 0.5s ease-out, background 0.25s ease;
   }
   #palmares > span {
-    width: 85.8369098712%;
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
   #palmares > span > div {
-    width: 100%;
-    height: 250px;
+    width: 250px;
+    height: 275px;
     border-radius: 1em;
     margin: 1em;
-    display: flex;
-    flex-direction: column;
-    align-content: flex-end;
     overflow: hidden;
-    transition: transform 0.5s ease-in-out, box-shadow 1.5s ease-out;
+    transition: transform 0.5s ease-in-out, box-shadow 1.5s ease-out, filter 0.4s ease;
   }
   #palmares > span > div:hover {
     transform: scale(1.05);
   }
+  #palmares > span > div:hover ~ div {
+    transform: scale(0.9);
+    filter: grayscale(0.65);
+  }
+  #palmares > span > div:hover p {
+    visibility: visible;
+    opacity: 1;
+  }
+  #palmares > span > div:has(~ div:hover) {
+    transform: scale(0.9);
+    filter: grayscale(0.65);
+  }
   #palmares > span > div img {
     width: 100%;
-    height: 250px;
+    height: 260px;
     object-fit: cover;
     overflow: hidden;
   }
+  #palmares > span > div p {
+    position: absolute;
+    color: white;
+    width: calc(250px - 1em);
+    height: calc(275px - 5.1em - 1em);
+    margin: 0;
+    padding: 0.5em;
+    border-radius: 0 0 1em 1em;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.75s ease, visibility 0.5s ease;
+    font-weight: 600;
+  }
   #palmares > span > div span {
     display: block;
+    height: 5.1em;
   }
   #palmares > span > div span h3 {
     margin-bottom: 0.35rem;
@@ -595,6 +622,9 @@ html {
   #palmares > span > div h3 {
     font-size: 1.5em;
   }
+  #palmares > span > div p {
+    height: calc(325px - 5.1em - 1em);
+  }
   #spotify div {
     margin-top: 1.25em;
     gap: 1.25em;
@@ -647,12 +677,12 @@ html {
   #palmares > span > div img {
     height: 300px;
   }
-  #palmares > span > div span {
-    display: block;
-    height: 5.1em;
-  }
   #palmares > span > div span h3 {
     font-size: 1.35em;
+  }
+  #palmares > span > div p {
+    width: calc(240px - 1em);
+    height: calc(300px - 5.1em - 1em);
   }
   #spotify div {
     flex-flow: row;
@@ -796,6 +826,10 @@ html {
   #palmares > span > div span h3 {
     font-size: 1.5em;
   }
+  #palmares > span > div p {
+    width: calc(320px - 1em);
+    height: calc(400px - 5em - 1em);
+  }
 }
 @media only screen and (min-width: 2559px) {
   body {
@@ -819,6 +853,10 @@ html {
   }
   #palmares > span > div img {
     height: 750px;
+  }
+  #palmares > span > div p {
+    width: calc(600px - 1em);
+    height: calc(750px - 5em - 1em);
   }
 }
 @keyframes fondAlterAcceuil {

@@ -112,6 +112,9 @@ html{
                 &:hover{
                     box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.3);
                 }
+                & p{
+                    background: rgba($colorMainSurvol, $alpha: 0.85);
+                }
             }
         }
     }
@@ -209,6 +212,9 @@ html{
                 box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.3);
                 &:hover{
                     box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.5);
+                }
+                & p{
+                    background: rgba($colorMainSombreSurvol, $alpha: 0.85);
                 }
             }
         }
@@ -539,32 +545,53 @@ html{
     }
     #palmares{
         &>span{
-            width: pxToPrct(1600, $ratio);
-            margin: 0 auto;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
             &>div{
-                width: 100%;
-                height: 250px;
+                width: 250px;
+                height: 275px;
                 border-radius: 1em;
                 margin: 1em;
-                display: flex;
-                flex-direction: column;
-                align-content: flex-end;
                 overflow: hidden;
-                transition: transform 0.5s ease-in-out, box-shadow 1.5s ease-out;
+                transition: transform 0.5s ease-in-out, box-shadow 1.5s ease-out, filter 0.4s ease;
                 &:hover{
                     transform: scale(1.05);
+                    & ~ div{
+                        transform: scale(0.9);
+                        filter: grayscale(0.65);    
+                    }
+                    & p{
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                }
+                &:has(~  div:hover){
+                    transform: scale(0.9);
+                    filter: grayscale(0.65);
                 }
                 & img{
                     width: 100%;
-                    height: 250px;
+                    height: 260px;
                     object-fit: cover;
                     overflow: hidden;
                 }
+                & p{
+                    position: absolute;
+                    color: white;
+                    width: calc(250px - 1em);
+                    height: calc(275px - 5.1em - 1em);
+                    margin: 0;
+                    padding: 0.5em;
+                    border-radius: 0 0 1em 1em;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: opacity 0.75s ease, visibility 0.5s ease;
+                    font-weight: 600;
+                }
                 & span{
                     display: block;
+                    height: 5.1em;
                     & h3{
                         margin-bottom: 0.35rem;
                         padding: 0.5em;
@@ -686,6 +713,9 @@ html{
         & h3{
             font-size: 1.5em;
         }
+        & p{
+            height: calc(325px - 5.1em - 1em);
+        }
     }
     #spotify{
         & div{
@@ -751,11 +781,13 @@ html{
             height: 300px;
         }
         & span{
-            display: block;
-            height: 5.1em;
             & h3{
                 font-size: 1.35em;
             }
+        }
+        & p{
+            width: calc(240px - 1em);
+            height: calc(300px - 5.1em - 1em);
         }
     }
     #spotify{
@@ -933,6 +965,10 @@ html{
                 font-size: 1.5em;                    
             }
         }
+        & p{
+            width: calc(320px - 1em);
+            height: calc(400px - 5em - 1em);
+        }
     }
 }
 
@@ -960,6 +996,10 @@ html{
         height: 750px;
         & img{
             height: 750px;
+        }
+        & p{
+            width: calc(600px - 1em);
+            height: calc(750px - 5em - 1em);
         }
     }
 }
