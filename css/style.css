@@ -399,15 +399,6 @@ html {
   #navSecContact {
     grid-area: secContact;
   }
-  #navSecTxt {
-    grid-area: secTxt;
-    text-align: end;
-    padding: 0 0.4em;
-    display: none;
-  }
-  #navSecondaire {
-    color: white;
-  }
   #navSecondaire > div {
     padding: 0 1em;
     font-weight: bold;
@@ -757,14 +748,10 @@ html {
   #accueil h2 {
     margin: 0.5em 0 0.9em 0;
   }
-  #navSecTxt {
-    display: inline;
-    align-content: center;
-  }
   #navSecondaire > div {
     display: grid;
     grid-template: repeat(4, 1fr) 1.5fr/repeat(2, 1fr) 2fr;
-    grid-template-areas: "secAcc secAcc secMoi" "secSuivre secSpotify secMoi" "secSuivre secPalma secMoi" "secAnim secPalma secMoi" "secTxt secTxt secContact";
+    grid-template-areas: "secAcc secAcc secMoi" "secSuivre secSpotify secMoi" "secSuivre secPalma secMoi" "secSuivre secPalma secMoi" "secAnim secContact secContact";
   }
   #navSecondaire > div > a {
     width: auto;
