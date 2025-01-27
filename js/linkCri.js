@@ -1,26 +1,29 @@
 //Element à trigger
 const trig=document.getElementById('linkTrig');
 //Chargement des audios
-const audio=[
-    new Audio('../ressources/Link/ha_2.wav'),
-    new Audio('../ressources/Link/ha_1.wav'),
-    new Audio('../ressources/Link/ha_3.wav'),
-    new Audio('../ressources/Link/ha_4.wav'),
-    new Audio('../ressources/Link/ha_5.wav'),
-    new Audio('../ressources/Link/ha_6.wav'),
-    new Audio('../ressources/Link/ha_7.wav'),
-    new Audio('../ressources/Link/ha_8.wav'),
-    new Audio('../ressources/Link/ha_9.wav'),
-    new Audio('../ressources/Link/ha_10.wav'),
-    new Audio('../ressources/Link/ha_11.wav'),
-    new Audio('../ressources/Link/ha_12.wav'),
-    new Audio('../ressources/Link/ha_13.wav'),
-    new Audio('../ressources/Link/ha_14.wav')
+let audio= new Audio();
+const audioSRC=[
+    '../ressources/Link/ha_2.wav',
+    '../ressources/Link/ha_1.wav',
+    '../ressources/Link/ha_3.wav',
+    '../ressources/Link/ha_4.wav',
+    '../ressources/Link/ha_5.wav',
+    '../ressources/Link/ha_6.wav',
+    '../ressources/Link/ha_7.wav',
+    '../ressources/Link/ha_8.wav',
+    '../ressources/Link/ha_9.wav',
+    '../ressources/Link/ha_10.wav',
+    '../ressources/Link/ha_11.wav',
+    '../ressources/Link/ha_12.wav',
+    '../ressources/Link/ha_13.wav',
+    '../ressources/Link/ha_14.wav'
 ];
 //Play d'un audio aléatoire
 trig.addEventListener('click', ()=>{
-    let i=Math.floor(Math.random()*audio.length);
-    audio[i].play();
+    let i=Math.floor(Math.random()*audioSRC.length);
+    audio.src=audioSRC[i];
+    console.log(audio);
+    audio.play();
 });
 
 /*
