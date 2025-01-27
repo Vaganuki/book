@@ -26,27 +26,6 @@ html {
   box-shadow: inset 0 0 0 4000px rgba(255, 255, 255, 0.4), 0px -0.01em 2.5em rgba(0, 0, 0, 0.05);
   border-top: solid 0.01em rgba(100, 100, 100, 0.08);
 }
-.light-theme #navSecAccueil:hover {
-  background-image: url("../img/Placeholders/1.png");
-}
-.light-theme #navSecMoi:hover {
-  background-image: url("../img/Placeholders/2.png");
-}
-.light-theme #navSecSuivre:hover {
-  background-image: url("../img/Placeholders/3.png");
-}
-.light-theme #navSecSpotify:hover {
-  background-image: url("../img/Placeholders/4.png");
-}
-.light-theme #navSecAnim:hover {
-  background-image: url("../img/Placeholders/5.png");
-}
-.light-theme #navSecPalma:hover {
-  background-image: url("../img/Placeholders/7.png");
-}
-.light-theme #navSecContact:hover {
-  background-image: url("../img/Placeholders/8.png");
-}
 .light-theme #navSecondaire {
   background: radial-gradient(circle, #056CF2 0%, #88DFF2 100%);
   background-size: 500% 100%;
@@ -111,27 +90,6 @@ html {
 .dark-theme section:nth-child(odd) {
   box-shadow: inset 0 0 0 4000px rgba(0, 0, 0, 0.3), 0px -0.01em 2.5em rgba(0, 0, 0, 0.05);
   border-top: solid 0.01em rgba(50, 50, 50, 0.08);
-}
-.dark-theme #navSecAccueil:hover {
-  background-image: url("../img/Placeholders/sombre/1.png");
-}
-.dark-theme #navSecMoi:hover {
-  background-image: url("../img/Placeholders/sombre/2.png");
-}
-.dark-theme #navSecSuivre:hover {
-  background-image: url("../img/Placeholders/sombre/3.png");
-}
-.dark-theme #navSecSpotify:hover {
-  background-image: url("../img/Placeholders/sombre/4.png");
-}
-.dark-theme #navSecAnim:hover {
-  background-image: url("../img/Placeholders/sombre/5.png");
-}
-.dark-theme #navSecPalma:hover {
-  background-image: url("../img/Placeholders/sombre/7.png");
-}
-.dark-theme #navSecContact:hover {
-  background-image: url("../img/Placeholders/sombre/8.png");
 }
 .dark-theme #navSecondaire {
   background: radial-gradient(circle, #1e2159 0%, #0700c7 100%);
@@ -420,6 +378,7 @@ html {
   }
   #navSecondaire > div > a:hover {
     box-shadow: inset 0 0 0 4000px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 0.5em black, 0 0 3em rgb(245, 245, 245);
   }
   section:not(#depart) {
     font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
@@ -696,51 +655,131 @@ html {
 @media only screen and (min-width: 530px) {
   .light-theme #navSecondaire > div > a {
     border: none;
+    overflow: hidden;
+    position: relative;
+  }
+  .light-theme #navSecondaire > div > a::after {
+    transition: opacity 0.4s ease;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    mix-blend-mode: soft-light;
+    background-size: cover;
+    background-position: center;
+  }
+  .light-theme #navSecondaire > div > a:hover::after {
+    opacity: 1;
+    box-shadow: inset 0 0 0 4000px rgba(0, 0, 0, 0.3);
   }
   .light-theme #navSecAccueil {
     background-color: rgba(7, 162, 245, 0.9);
   }
+  .light-theme #navSecAccueil::after {
+    background-image: url("../img/Placeholders/1.png");
+  }
   .light-theme #navSecMoi {
     background-color: rgba(49, 182, 245, 0.9);
+  }
+  .light-theme #navSecMoi::after {
+    background-image: url("../img/Placeholders/2.png");
   }
   .light-theme #navSecSuivre {
     background-color: rgba(60, 126, 196, 0.9);
   }
+  .light-theme #navSecSuivre::after {
+    background-image: url("../img/Placeholders/3.png");
+  }
   .light-theme #navSecSpotify {
     background-color: rgba(29, 115, 175, 0.9);
+  }
+  .light-theme #navSecSpotify::after {
+    background-image: url("../img/Placeholders/4.png");
   }
   .light-theme #navSecAnim {
     background-color: rgba(29, 101, 220, 0.9);
   }
+  .light-theme #navSecAnim::after {
+    background-image: url("../img/Placeholders/5.png");
+  }
   .light-theme #navSecPalma {
     background-color: rgba(0, 83, 216, 0.9);
+  }
+  .light-theme #navSecPalma::after {
+    background-image: url("../img/Placeholders/7.png");
   }
   .light-theme #navSecContact {
     background-color: rgba(16, 54, 255, 0.9);
   }
+  .light-theme #navSecContact::after {
+    background-image: url("../img/Placeholders/8.png");
+  }
   .dark-theme #navSecondaire > div > a {
     border: none;
+    overflow: hidden;
+    position: relative;
+  }
+  .dark-theme #navSecondaire > div > a::after {
+    transition: opacity 0.4s ease;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    mix-blend-mode: lighten;
+    background-size: cover;
+    background-position: center;
+  }
+  .dark-theme #navSecondaire > div > a:hover::after {
+    opacity: 0.5;
+    box-shadow: inset 0 0 0 4000px rgba(0, 0, 0, 0.3);
   }
   .dark-theme #navSecAccueil {
     background-color: rgba(0, 2, 124, 0.9);
   }
+  .dark-theme #navSecAccueil::after {
+    background-image: url("../img/Placeholders/sombre/1.png");
+  }
   .dark-theme #navSecMoi {
     background-color: rgba(0, 9, 94, 0.9);
+  }
+  .dark-theme #navSecMoi::after {
+    background-image: url("../img/Placeholders/sombre/2.png");
   }
   .dark-theme #navSecSuivre {
     background-color: rgba(0, 97, 161, 0.9);
   }
+  .dark-theme #navSecSuivre::after {
+    background-image: url("../img/Placeholders/sombre/3.png");
+  }
   .dark-theme #navSecSpotify {
     background-color: rgba(3, 27, 70, 0.9);
+  }
+  .dark-theme #navSecSpotify::after {
+    background-image: url("../img/Placeholders/sombre/4.png");
   }
   .dark-theme #navSecAnim {
     background-color: rgba(0, 80, 155, 0.9);
   }
+  .dark-theme #navSecAnim::after {
+    background-image: url("../img/Placeholders/sombre/5.png");
+  }
   .dark-theme #navSecPalma {
     background-color: rgba(0, 50, 131, 0.9);
   }
+  .dark-theme #navSecPalma::after {
+    background-image: url("../img/Placeholders/sombre/7.png");
+  }
   .dark-theme #navSecContact {
     background-color: rgba(0, 25, 136, 0.9);
+  }
+  .dark-theme #navSecContact::after {
+    background-image: url("../img/Placeholders/sombre/8.png");
   }
   #accueil h1 {
     font-size: 6em;

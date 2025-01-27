@@ -59,28 +59,6 @@ html{
             border-top: solid 0.01em rgba(100, 100, 100, 0.08);
         }
     }
-    & #navSecAccueil:hover{
-        background-image: url('../img/Placeholders/1.png');
-    }
-    & #navSecMoi:hover{
-        background-image: url('../img/Placeholders/2.png');
-    }
-    & #navSecSuivre:hover{
-        background-image: url('../img/Placeholders/3.png');
-    }
-    & #navSecSpotify:hover{
-        background-image: url('../img/Placeholders/4.png');
-    }
-    & #navSecAnim:hover{
-        background-image: url('../img/Placeholders/5.png');
-    }
-    & #navSecPalma:hover{
-            background-image: url('../img/Placeholders/7.png');
-    }
-    & #navSecContact:hover{
-        background-image: url('../img/Placeholders/8.png');
-
-    }
     & #navSecondaire{
         background: radial-gradient(circle, $colorMain 0%, $colorSecondaire 100%);
         background-size: 500% 100%;
@@ -160,27 +138,6 @@ html{
             box-shadow: $fondSombre,  0px -0.01em 2.5em rgba($color: black, $alpha: 0.05);
             border-top: solid 0.01em rgba(50,50,50, 0.08);
         }
-    }
-    & #navSecAccueil:hover{
-        background-image: url('../img/Placeholders/sombre/1.png');
-    }
-    & #navSecMoi:hover{
-        background-image: url('../img/Placeholders/sombre/2.png');
-    }
-    & #navSecSuivre:hover{
-        background-image: url('../img/Placeholders/sombre/3.png');
-    }
-    & #navSecSpotify:hover{
-        background-image: url('../img/Placeholders/sombre/4.png');
-    }
-    & #navSecAnim:hover{
-        background-image: url('../img/Placeholders/sombre/5.png');
-    }
-    & #navSecPalma:hover{
-        background-image: url('../img/Placeholders/sombre/7.png');
-    }
-    & #navSecContact:hover{
-        background-image: url('../img/Placeholders/sombre/8.png');
     }
     & #navSecondaire{
         background: radial-gradient(circle, $colorMainSombre 0%, $colorSecondaireSombre 100%);
@@ -488,6 +445,7 @@ html{
                 background-position: center;
                 &:hover{
                     box-shadow: $fondSombre;
+                    text-shadow: $borderMiseAvantSurvol;
                 }
             }
         }
@@ -813,53 +771,134 @@ html{
     .light-theme{
         & #navSecondaire>div>a{
             border: none ;
+            overflow: hidden;
+            position: relative;
+            &::after{
+                transition: opacity 0.4s ease;
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                opacity: 0;
+                mix-blend-mode: soft-light;
+                background-size: cover;
+                background-position: center;
+            }
+            &:hover::after{
+                opacity: 1;
+                box-shadow: $fondSombre;
+            }
         }
         & #navSecAccueil{
             background-color:rgba($color:#07A2F5 , $alpha: 0.9) ;
+            &::after{
+                background-image: url('../img/Placeholders/1.png');
+            }
         }
         & #navSecMoi{
             background-color:rgba($color:#31B6F5 , $alpha: 0.9) ;
+            &::after{
+                background-image: url('../img/Placeholders/2.png');
+            }
         }
         & #navSecSuivre{
             background-color:rgba($color:#3C7EC4 , $alpha: 0.9) ;
+            &::after{
+                background-image: url('../img/Placeholders/3.png');
+            }
         }
         & #navSecSpotify{
             background-color:rgba($color:#1D73AF , $alpha: 0.9) ;
+            &::after{
+                background-image: url('../img/Placeholders/4.png');
+            }
         }
         & #navSecAnim{
             background-color:rgba($color:#1D65DC , $alpha: 0.9) ;
+            &::after{
+                background-image: url('../img/Placeholders/5.png');
+            }
         }
         & #navSecPalma{
             background-color:rgba($color:#0053d8 , $alpha: 0.9) ;
+            &::after{
+                background-image: url('../img/Placeholders/7.png');
+            }
         }
         & #navSecContact{
             background-color: rgba($color:#1036FF , $alpha: 0.9);
+            &::after{
+                background-image: url('../img/Placeholders/8.png');
+            }
         }
     }
     .dark-theme{
         & #navSecondaire>div>a{
             border: none;
+            overflow: hidden;
+            position: relative;
+            &::after{
+                transition: opacity 0.4s ease;
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                opacity: 0;
+                mix-blend-mode: lighten;
+                background-size: cover;
+                background-position: center;
+            }
+            &:hover::after{
+                opacity: 0.5;
+                box-shadow: $fondSombre;
+            }
         }
         & #navSecAccueil{
             background-color:rgba($color:#00027c , $alpha: 0.9) ;
+            &::after{
+                background-image: url('../img/Placeholders/sombre/1.png');
+            }
+
         }
         & #navSecMoi{
             background-color:rgba($color:#00095e , $alpha: 0.9) ;
+            &::after{
+                background-image: url('../img/Placeholders/sombre/2.png');
+            }
         }
         & #navSecSuivre{
             background-color:rgba($color:#0061a1 , $alpha: 0.9) ;
+            &::after{
+                background-image: url('../img/Placeholders/sombre/3.png');
+            }
         }
         & #navSecSpotify{
             background-color:rgba($color:#031b46 , $alpha: 0.9) ;
+            &::after{
+                background-image: url('../img/Placeholders/sombre/4.png');
+            }
         }
         & #navSecAnim{
             background-color:rgba($color:#00509b , $alpha: 0.9) ;
+            &::after{
+                background-image: url('../img/Placeholders/sombre/5.png');
+            }
         }
         & #navSecPalma{
             background-color:rgba($color:#003283 , $alpha: 0.9) ;
+            &::after{
+                background-image: url('../img/Placeholders/sombre/7.png');
+            }
         }
         & #navSecContact{
             background-color:rgba($color:#001988 , $alpha: 0.9) ;
+            &::after{
+                background-image: url('../img/Placeholders/sombre/8.png');
+            }
         }
     }
     #accueil{
