@@ -5,7 +5,7 @@ const navigationBar = document.getElementById('nav');
 const themeBtn=document.getElementById('theme');
 const rond=document.getElementById('rondTheme');
 const html=document.querySelector('html');
-const audioDanse= new Audio('../ressources/Caramella Girls - Caramelldansen HD Version (Swedish Original).mp3');
+const audioDanse= new Audio('./ressources/Caramella Girls - Caramelldansen HD Version (Swedish Original).mp3');
 let timer=5;
 
 //Détection et définition du thème préféré par l'utilisateur
@@ -15,7 +15,7 @@ html.classList.contains('dark-theme') ? rond.setAttribute('fill','none'): consol
 
 //Selection des éléments du flash
 const flash=document.getElementById('flashbang');
-const audioFlash= new Audio('../ressources/flashbang.mp3');
+const audioFlash= new Audio('./ressources/flashbang.mp3');
 if(html.classList.contains('dark-theme')){
     flash.classList.remove('hidden');
 }
