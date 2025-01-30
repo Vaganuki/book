@@ -142,6 +142,9 @@ html {
 .dark-theme #contact form span input::placeholder, .dark-theme #contact form span textarea::placeholder {
   color: white;
 }
+.dark-theme footer button {
+  color: whitesmoke;
+}
 
 .unselect {
   -webkit-user-select: none;
@@ -191,7 +194,7 @@ html {
 }
 
 .link {
-  cursor: url("../img/link_curs.png"), pointer;
+  cursor: url("../img/Placeholders/link_curs.png"), pointer;
 }
 
 .letAnim {
@@ -452,17 +455,19 @@ html {
     overflow: hidden;
   }
   #palmares > span > div p {
-    position: absolute;
-    color: white;
-    width: calc(250px - 1em);
-    height: calc(275px - 5.1em - 1em);
-    margin: 0;
-    padding: 0.5em;
-    border-radius: 0 0 1em 1em;
-    opacity: 0;
-    visibility: hidden;
     transition: opacity 0.75s ease, visibility 0.5s ease;
-    font-weight: 600;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    width: calc(250px - 1.5em);
+    height: calc(275px - 5.1em - 1.5em);
+    margin: 0;
+    padding: 0.75em;
+    border-radius: 0 0 1em 1em;
+    color: white;
+    text-align: justify;
+    line-height: 1.25em;
+    font-size: 0.65em;
   }
   #palmares > span > div span {
     display: block;
@@ -529,6 +534,24 @@ html {
     min-height: 3.125em;
     resize: vertical;
   }
+  footer {
+    padding: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+  }
+  footer button {
+    background-color: rgba(220, 20, 60, 0.4);
+    border: solid 1px red;
+    border-radius: 50px;
+    height: 2em;
+    padding: 0 1em;
+    backdrop-filter: blur(60px);
+  }
+  footer button:hover {
+    animation: shake 0.1s alternate infinite;
+  }
 }
 @media only screen and (min-width: 321px) {
   main > * {
@@ -572,7 +595,8 @@ html {
     font-size: 1.5em;
   }
   #palmares > span > div p {
-    height: calc(325px - 5.1em - 1em);
+    height: calc(325px - 5.1em - 1.5em);
+    font-size: 0.8em;
   }
   #spotify div {
     margin-top: 1.25em;
@@ -630,8 +654,9 @@ html {
     font-size: 1.35em;
   }
   #palmares > span > div p {
-    width: calc(240px - 1em);
-    height: calc(300px - 5.1em - 1em);
+    width: calc(240px - 1.5em);
+    height: calc(300px - 5.1em - 1.5em);
+    font-size: 0.7em;
   }
   #spotify div {
     flex-flow: row;
@@ -852,8 +877,9 @@ html {
     font-size: 1.5em;
   }
   #palmares > span > div p {
-    width: calc(320px - 1em);
-    height: calc(400px - 5em - 1em);
+    width: calc(320px - 1.5em);
+    height: calc(400px - 5em - 1.5em);
+    font-size: 1em;
   }
 }
 @media only screen and (min-width: 2559px) {
@@ -880,8 +906,9 @@ html {
     height: 750px;
   }
   #palmares > span > div p {
-    width: calc(600px - 1em);
-    height: calc(750px - 5em - 1em);
+    width: calc(600px - 1.5em);
+    height: calc(750px - 1.5em);
+    font-size: 1.25em;
   }
 }
 @keyframes fondAlterAcceuil {
@@ -942,6 +969,41 @@ html {
     rotate: 360deg;
   }
 }
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
 .wip::after {
   vertical-align: top;
   font-family: "Roboto", Arial, sans-serif;
@@ -950,9 +1012,21 @@ html {
   content: "Work in progress";
 }
 
-form::after {
+form h2::after {
+  font-size: 0.3em;
   content: "Ce form ne fait actuellement rien";
-  margin-top: 1em;
+  margin-left: 0.2em;
+  vertical-align: super;
+}
+
+.formTemp {
+  width: fit-content;
+  margin: 4em auto 0;
+  text-align: center;
+}
+.formTemp > a {
+  color: greenyellow;
+  text-shadow: 0 0 0.75em black;
 }
 
 /*# sourceMappingURL=style.css.map */

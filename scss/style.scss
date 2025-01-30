@@ -202,6 +202,11 @@ html{
             }
         }
     }
+    & footer{
+        & button{
+            color: whitesmoke;
+        }
+    }
 }
 
 //Themes et utilitaires
@@ -248,7 +253,7 @@ html{
 }
 .link{
     // display: inline-block;
-    cursor: url('../img/link_curs.png'), pointer;
+    cursor: url('../img/Placeholders/link_curs.png'), pointer;
 }
 .letAnim{
     display: inline-block;
@@ -529,17 +534,19 @@ html{
                     overflow: hidden;
                 }
                 & p{
-                    position: absolute;
-                    color: white;
-                    width: calc(250px - 1em);
-                    height: calc(275px - 5.1em - 1em);
-                    margin: 0;
-                    padding: 0.5em;
-                    border-radius: 0 0 1em 1em;
-                    opacity: 0;
-                    visibility: hidden;
                     transition: opacity 0.75s ease, visibility 0.5s ease;
-                    font-weight: 600;
+                    visibility: hidden;
+                    opacity: 0;
+                    position: absolute;
+                    width: calc(250px - 1.5em);
+                    height: calc(275px - 5.1em - 1.5em);
+                    margin: 0;
+                    padding: 0.75em;
+                    border-radius: 0 0 1em 1em;
+                    color: white;
+                    text-align: justify;
+                    line-height: 1.25em;
+                    font-size: 0.65em;
                 }
                 & span{
                     display: block;
@@ -615,6 +622,24 @@ html{
             }
         }
     }
+    footer{
+        padding: 0.5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+        & button{
+            background-color: rgba(220, 20, 60, 0.4);
+            border: solid 1px red;
+            border-radius: 50px;
+            height: 2em;
+            padding: 0 1em;
+            backdrop-filter: blur(60px);
+            &:hover{
+                animation: shake 0.1s alternate infinite;
+            }
+        }
+    }
 }
 
 //Mobile L
@@ -666,7 +691,8 @@ html{
             font-size: 1.5em;
         }
         & p{
-            height: calc(325px - 5.1em - 1em);
+            height: calc(325px - 5.1em - 1.5em);
+            font-size: 0.8em;
         }
     }
     #spotify{
@@ -738,8 +764,9 @@ html{
             }
         }
         & p{
-            width: calc(240px - 1em);
-            height: calc(300px - 5.1em - 1em);
+            width: calc(240px - 1.5em);
+            height: calc(300px - 5.1em - 1.5em);
+            font-size: 0.7em;
         }
     }
     #spotify{
@@ -995,8 +1022,9 @@ html{
             }
         }
         & p{
-            width: calc(320px - 1em);
-            height: calc(400px - 5em - 1em);
+            width: calc(320px - 1.5em);
+            height: calc(400px - 5em - 1.5em);
+            font-size: 1em;
         }
     }
 }
@@ -1027,8 +1055,9 @@ html{
             height: 750px;
         }
         & p{
-            width: calc(600px - 1em);
-            height: calc(750px - 5em - 1em);
+            width: calc(600px - 1.5em);
+            height: calc(750px - 1.5em);
+            font-size: 1.25em;
         }
     }
 }
@@ -1084,6 +1113,41 @@ html{
         rotate: 360deg;
     }
 }
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg); 
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
 //À Retirer une fois le code fini
 .wip{
     &::after{
@@ -1095,7 +1159,20 @@ html{
     }
 }
 
-form::after{
-    content: 'Ce form ne fait actuellement rien';
-    margin-top: 1em;
+form{
+    & h2::after{
+        font-size: 0.3em;
+        content: 'Ce form ne fait actuellement rien';
+        margin-left: 0.2em;
+        vertical-align: super;
+    }
+}
+.formTemp{
+    width: fit-content;
+    margin: 4em auto 0;
+    text-align: center;
+    &>a{
+        color: greenyellow;
+        text-shadow: 0 0 0.75em black;
+    }
 }
