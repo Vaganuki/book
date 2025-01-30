@@ -248,7 +248,7 @@ html{
 }
 .link{
     // display: inline-block;
-    cursor: url('../img/link_curs.png'), pointer;
+    cursor: url('../img/Placeholders/link_curs.png'), pointer;
 }
 .letAnim{
     display: inline-block;
@@ -529,17 +529,19 @@ html{
                     overflow: hidden;
                 }
                 & p{
-                    position: absolute;
-                    color: white;
-                    width: calc(250px - 1em);
-                    height: calc(275px - 5.1em - 1em);
-                    margin: 0;
-                    padding: 0.5em;
-                    border-radius: 0 0 1em 1em;
-                    opacity: 0;
-                    visibility: hidden;
                     transition: opacity 0.75s ease, visibility 0.5s ease;
-                    font-weight: 600;
+                    visibility: hidden;
+                    opacity: 0;
+                    position: absolute;
+                    width: calc(250px - 1.5em);
+                    height: calc(275px - 5.1em - 1.5em);
+                    margin: 0;
+                    padding: 0.75em;
+                    border-radius: 0 0 1em 1em;
+                    color: white;
+                    text-align: justify;
+                    line-height: 1.25em;
+                    font-size: 0.65em;
                 }
                 & span{
                     display: block;
@@ -666,7 +668,8 @@ html{
             font-size: 1.5em;
         }
         & p{
-            height: calc(325px - 5.1em - 1em);
+            height: calc(325px - 5.1em - 1.5em);
+            font-size: 0.8em;
         }
     }
     #spotify{
@@ -738,8 +741,9 @@ html{
             }
         }
         & p{
-            width: calc(240px - 1em);
-            height: calc(300px - 5.1em - 1em);
+            width: calc(240px - 1.5em);
+            height: calc(300px - 5.1em - 1.5em);
+            font-size: 0.7em;
         }
     }
     #spotify{
@@ -995,8 +999,9 @@ html{
             }
         }
         & p{
-            width: calc(320px - 1em);
-            height: calc(400px - 5em - 1em);
+            width: calc(320px - 1.5em);
+            height: calc(400px - 5em - 1.5em);
+            font-size: 1em;
         }
     }
 }
@@ -1027,8 +1032,9 @@ html{
             height: 750px;
         }
         & p{
-            width: calc(600px - 1em);
-            height: calc(750px - 5em - 1em);
+            width: calc(600px - 1.5em);
+            height: calc(750px - 1.5em);
+            font-size: 1.25em;
         }
     }
 }

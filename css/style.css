@@ -191,7 +191,7 @@ html {
 }
 
 .link {
-  cursor: url("../img/link_curs.png"), pointer;
+  cursor: url("../img/Placeholders/link_curs.png"), pointer;
 }
 
 .letAnim {
@@ -452,17 +452,19 @@ html {
     overflow: hidden;
   }
   #palmares > span > div p {
-    position: absolute;
-    color: white;
-    width: calc(250px - 1em);
-    height: calc(275px - 5.1em - 1em);
-    margin: 0;
-    padding: 0.5em;
-    border-radius: 0 0 1em 1em;
-    opacity: 0;
-    visibility: hidden;
     transition: opacity 0.75s ease, visibility 0.5s ease;
-    font-weight: 600;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    width: calc(250px - 1.5em);
+    height: calc(275px - 5.1em - 1.5em);
+    margin: 0;
+    padding: 0.75em;
+    border-radius: 0 0 1em 1em;
+    color: white;
+    text-align: justify;
+    line-height: 1.25em;
+    font-size: 0.65em;
   }
   #palmares > span > div span {
     display: block;
@@ -572,7 +574,8 @@ html {
     font-size: 1.5em;
   }
   #palmares > span > div p {
-    height: calc(325px - 5.1em - 1em);
+    height: calc(325px - 5.1em - 1.5em);
+    font-size: 0.8em;
   }
   #spotify div {
     margin-top: 1.25em;
@@ -630,8 +633,9 @@ html {
     font-size: 1.35em;
   }
   #palmares > span > div p {
-    width: calc(240px - 1em);
-    height: calc(300px - 5.1em - 1em);
+    width: calc(240px - 1.5em);
+    height: calc(300px - 5.1em - 1.5em);
+    font-size: 0.7em;
   }
   #spotify div {
     flex-flow: row;
@@ -852,8 +856,9 @@ html {
     font-size: 1.5em;
   }
   #palmares > span > div p {
-    width: calc(320px - 1em);
-    height: calc(400px - 5em - 1em);
+    width: calc(320px - 1.5em);
+    height: calc(400px - 5em - 1.5em);
+    font-size: 1em;
   }
 }
 @media only screen and (min-width: 2559px) {
@@ -880,8 +885,9 @@ html {
     height: 750px;
   }
   #palmares > span > div p {
-    width: calc(600px - 1em);
-    height: calc(750px - 5em - 1em);
+    width: calc(600px - 1.5em);
+    height: calc(750px - 1.5em);
+    font-size: 1.25em;
   }
 }
 @keyframes fondAlterAcceuil {
