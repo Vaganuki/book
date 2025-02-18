@@ -38,6 +38,7 @@ html{
     font-family: "Roboto" , Arial, sans-serif;
     background-color: rgb(245, 245, 245);
     background: linear-gradient(180deg,$fondPrincipal 0%, $fondSecondaire 75%, $fondTiercaire 100%);
+    scroll-behavior: smooth;
 }
 
 //Theme clair

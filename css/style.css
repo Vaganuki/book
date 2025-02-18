@@ -11,6 +11,7 @@ html {
   font-family: "Roboto", Arial, sans-serif;
   background-color: rgb(245, 245, 245);
   background: linear-gradient(180deg, #E2E1E7 0%, #D2D9DF 75%, #80c8ff 100%);
+  scroll-behavior: smooth;
 }
 
 .light-theme .animVague::before, .light-theme .animVague::after {
