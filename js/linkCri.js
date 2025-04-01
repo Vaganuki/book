@@ -29,6 +29,7 @@ const audioSRC=[
 
 // Création de l'audio
 let audio = new Audio();
+audio.src = '';
 audio.preload = 'auto';
 
 //Play d'un audio aléatoire
