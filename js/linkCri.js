@@ -27,17 +27,15 @@ const audioSRC=[
 // --------------- test -------------------
 
 
-// Précharger les audios
-const audioFiles = audioSRC.map(src => {
-    let audio = new Audio(src);
-    audio.preload = 'auto';
-    return audio;
-});
+// Création de l'audio
+let audio = new Audio();
+audio.preload = 'auto';
 
-// Jouer un audio aléatoire
-trig.addEventListener('click', () => {
-    let i = Math.floor(Math.random() * audioFiles.length);
-    audioFiles[i].play();
+//Play d'un audio aléatoire
+trig.addEventListener('click', ()=>{
+    let i=Math.floor(Math.random()*audioSRC.length);
+    audio.src = audioSRC[i];
+    audio.play();
 });
 
 /*
