@@ -18,10 +18,26 @@ const audioSRC=[
     './ressources/Link/ha_14.wav'
 ];
 //Play d'un audio aléatoire
-trig.addEventListener('click', ()=>{
-    let i=Math.floor(Math.random()*audioSRC.length);
-    let audio= new Audio(audioSRC[i]);
-    audio.play();
+// trig.addEventListener('click', ()=>{
+//     let i=Math.floor(Math.random()*audioSRC.length);
+//     let audio= new Audio(audioSRC[i]);
+//     audio.play();
+// });
+
+// --------------- test -------------------
+
+
+// Précharger les audios
+const audioFiles = audioSRC.map(src => {
+    let audio = new Audio(src);
+    audio.preload = 'auto';
+    return audio;
+});
+
+// Jouer un audio aléatoire
+trig.addEventListener('click', () => {
+    let i = Math.floor(Math.random() * audioFiles.length);
+    audioFiles[i].play();
 });
 
 /*
