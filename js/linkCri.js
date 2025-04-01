@@ -1,7 +1,6 @@
 //Element à trigger
 const trig=document.getElementById('linkTrig');
 //Chargement des audios
-let audio= new Audio();
 const audioSRC=[
     './ressources/Link/ha_2.wav',
     './ressources/Link/ha_1.wav',
@@ -21,7 +20,7 @@ const audioSRC=[
 //Play d'un audio aléatoire
 trig.addEventListener('click', ()=>{
     let i=Math.floor(Math.random()*audioSRC.length);
-    audio.src=audioSRC[i];
+    let audio= new Audio(audioSRC[i]);
     audio.play();
 });
 
