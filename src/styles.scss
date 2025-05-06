@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+//body {
+//  margin: 0;
+//  padding: 0;
+//  height: 100vh;
+//  background: linear-gradient(
+//      to bottom,
+//      #421d5d 0%,
+//      #e44585 100%,
+//  );
+//
+//  &::before {
+//    content: '';
+//    position: absolute;
+//    top: 0;
+//    left: 0;
+//    width: 100%;
+//    height: 100%;
+//    z-index: -1;
+//    background-image: linear-gradient(
+//        to right,
+//        rgba(255, 255, 255, 0.125) 1px,
+//        transparent 1px
+//    ),
+//    linear-gradient(
+//        to bottom,
+//        rgba(255, 255, 255, 0.125) 1px,
+//        transparent 1px
+//    );
+//    background-size: 32px 32px;
+//    pointer-events: none;
+//  }
+//}
