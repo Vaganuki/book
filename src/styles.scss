@@ -31,3 +31,124 @@
 //    pointer-events: none;
 //  }
 //}
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Coral+Pixels&display=swap');
+@import "primeicons/primeicons.css";
+
+:root {
+  --primary-color: #D22FFF;
+  --primary-inverse-color: #FFF1FF;
+  --primary-hover-color: #BD28B8;
+  --primary-active-color: #A11EA0;
+
+  --highlight-bg: #ECD3F0;
+  --highlight-focus-bg: #D8B4E2;
+  --highlight-text: #2B0035;
+
+  --surface-bg: #f3e6f8;
+  --text-color: #2B0035;
+}
+
+.dark-mode {
+  --primary-color: #E961C6;
+  --primary-inverse-color: #0F0417;
+  --primary-hover-color: #F180D4;
+  --primary-active-color: #FF9CE4;
+
+  --highlight-bg: rgba(233, 97, 198, 0.24);
+  --highlight-focus-bg: rgba(233, 97, 198, 0.4);
+  --highlight-text: #F7CFFF;
+
+  --surface-bg: #1a0d22;
+  --text-color: #F7CFFF;
+}
+
+* {
+  font-family: 'Press Start 2P', 'Pixelify Sans', 'Coral Pixels', Arial, Helvetica, monospace;
+  font-weight: 100;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--surface-bg);
+  color: var(--text-color);
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
+}
+
+// À voir si nécessaire ?
+
+button.p-button {
+  background-color: var(--primary-color);
+  color: var(--primary-inverse-color);
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  //transition: background 0.2s ease;
+
+  &:hover {
+    background-color: var(--primary-color-hover);
+
+    &::before {
+      content: "> ";
+    }
+  }
+
+  &:focus {
+    background-color: var(--primary-active-color);
+
+    &::before {
+      content: "> ";
+    }
+  }
+
+
+  clip-path: polygon(
+      0px calc(100% - 6px),
+      3px calc(100% - 6px),
+      3px calc(100% - 3px),
+      6px calc(100% - 3px),
+      6px 100%,
+      calc(100% - 6px) 100%,
+      calc(100% - 6px) calc(100% - 3px),
+      calc(100% - 3px) calc(100% - 3px),
+      calc(100% - 3px) calc(100% - 6px),
+      100% calc(100% - 6px),
+      100% 6px,
+      calc(100% - 3px) 6px,
+      calc(100% - 3px) 3px,
+      calc(100% - 6px) 3px,
+      calc(100% - 6px) 0px,
+      6px 0px,
+      6px 3px,
+      3px 3px,
+      3px 6px,
+      0px 6px
+  );
+}
+
+.p-inputtext {
+  background-color: var(--surface-bg);
+  border: 1px solid var(--highlight-focus-bg);
+  color: var(--text-color);
+  border-radius: 0.25rem;
+
+  &:focus {
+    outline: 2px solid var(--highlight-focus-bg);
+  }
+}
+
+.p-card {
+  background-color: var(--card-bg);
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  color: var(--text-color);
+}
+
+.p-highlight {
+  background-color: var(--highlight-bg);
+  color: var(--highlight-text-color);
+}
