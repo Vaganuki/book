@@ -1,1 +1,87 @@
 @import "primeicons/primeicons.css";
+#screen {
+  display: grid;
+  grid-template:
+    "titleBar titleBar" 8.5%
+    "sideNav sideScreen" 91.5% / 1fr 3fr;
+
+  height: 90vh;
+  width: 95vw;
+  background-color: var(--primary-inverse-color);
+  color: var(--text-color);
+  clip-path: polygon(
+      0px calc(100% - 6px),
+      3px calc(100% - 6px),
+      3px calc(100% - 3px),
+      6px calc(100% - 3px),
+      6px 100%,
+      calc(100% - 6px) 100%,
+      calc(100% - 6px) calc(100% - 3px),
+      calc(100% - 3px) calc(100% - 3px),
+      calc(100% - 3px) calc(100% - 6px),
+      100% calc(100% - 6px),
+      100% 6px,
+      calc(100% - 3px) 6px,
+      calc(100% - 3px) 3px,
+      calc(100% - 6px) 3px,
+      calc(100% - 6px) 0px,
+      6px 0px,
+      6px 3px,
+      3px 3px,
+      3px 6px,
+      0px 6px
+  );
+}
+
+#titleBar {
+  grid-area: titleBar;
+  text-transform: uppercase;
+  display: grid;
+  grid-template: 1fr / 1fr fit-content(1em);
+  padding: 0 1rem;
+  align-items: center;
+  border: 6px solid var(--primary-color);
+  //outline: 6px solid var(--primary-inverse-color);
+  //outline-offset: -2px;
+
+  & #titleMain {
+    display: flex;
+    align-items: center;
+
+    & h1 {
+      width: fit-content;
+      margin-left: 0.4rem;
+    }
+  }
+
+  & #titleSide {
+    display: flex;
+    gap: 0.5rem;
+
+    & * {
+      //border: var(--primary-color) 4px solid;
+      padding: 0.25rem;
+    }
+
+    & #closingScreen {
+      display: block;
+      //pointer-events: bounding-box;
+      cursor: pointer;
+    }
+  }
+}
+
+#sideNav{
+  grid-area: sideNav;
+  padding: 0 1rem;
+  border: 6px solid var(--primary-color);
+  border-top: none;
+
+}
+#sideScreen{
+  grid-area: sideScreen;
+  padding: 0 1rem;
+  border: 6px solid var(--primary-color);
+  border-top: none;
+  border-left: none;
+}

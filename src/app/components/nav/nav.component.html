@@ -1,1 +1,7 @@
-<p>nav works!</p>
+<ul>
+  @for (item of routes; track $index) {
+    <li>
+      <a [routerLink]="[item.route]">{{item.name}}</a>
+    </li>
+  }
+</ul>
