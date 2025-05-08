@@ -1,7 +1,9 @@
-<ul>
+<ul class="navMenu">
   @for (item of routes; track $index) {
-    <li>
-      <a [routerLink]="[item.route]">{{item.name}}</a>
+    <li class="navItem">
+      <a [routerLink]="[item.route]" routerLinkActive="routerLinkActive" [routerLinkActiveOptions]="{exact: true}">{{item.label}}</a>
     </li>
   }
 </ul>
+
+<!--<p-menu [model]="menuItems"/>-->

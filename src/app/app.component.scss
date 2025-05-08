@@ -59,11 +59,11 @@
     gap: 0.5rem;
 
     & * {
-      //border: var(--primary-color) 4px solid;
+      border: var(--primary-color) 4px solid;
       padding: 0.25rem;
     }
 
-    & #closingScreen {
+    & #closingScreen, #minusScreen{
       display: block;
       //pointer-events: bounding-box;
       cursor: pointer;
@@ -73,7 +73,7 @@
 
 #sideNav{
   grid-area: sideNav;
-  padding: 0 1rem;
+  //padding: 0 1rem;
   border: 6px solid var(--primary-color);
   border-top: none;
 

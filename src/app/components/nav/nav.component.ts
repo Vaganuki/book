@@ -1,22 +1,73 @@
-import { Component } from '@angular/core';
-import { NavItem } from './models/navitem.model';
-import {RouterLink} from '@angular/router';
+import {Component} from '@angular/core';
+import {RouterLink, RouterLinkActive} from '@angular/router';
+import {NavItem} from './models/navitem.model';
 
 @Component({
   selector: 'app-nav',
-  imports: [RouterLink],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss'
 })
 export class NavComponent {
-  routes:  NavItem[] =[
+  routes: NavItem[] = [
     {
-      name:'Liens',
-      route: 'demos'
+      label: 'Accueil',
+      route: '/',
     },
     {
-      name :'Exo',
-      route : 'exos'
+      label: 'Liens',
+      route: 'links'
     },
-  ]
+    {
+      label: 'Musiques',
+      route: 'music'
+    },
+    {
+      label: 'Palmares',
+      route: 'palmares'
+    },
+    {
+      label: 'Tout sur moi',
+      route: 'about-me'
+    },
+    {
+      label: 'Contact',
+      route: 'contact'
+    },
+    {
+      label: 'dev',
+      route: 'dev'
+    }
+  ];
+
+  // menuItems: MenuItem[] = [
+  //   {
+  //     label:'Accueil',
+  //     routerLink:'/',
+  //   },
+  //   {
+  //     label:'Liens',
+  //     routerLink:'links'
+  //   },
+  //   {
+  //     label:'Musiques',
+  //     routerLink:'music'
+  //   },
+  //   {
+  //     label:'Palmares',
+  //     routerLink:'palmares'
+  //   },
+  //   {
+  //     label:'Tout sur moi',
+  //     routerLink:'about-me'
+  //   },
+  //   {
+  //     label:'Contact',
+  //     routerLink:'contact'
+  //   },
+  //   {
+  //     label:'dev',
+  //     routerLink:'dev'
+  //   }
+  // ];
 }

@@ -3,16 +3,16 @@
 
 <p-button *ngIf="!showScreen" label="Lancer l'app" icon="pi pi-user" iconPos="right" (onClick)="toggleScreen()"/>
 
-<div id="screen" *ngIf="showScreen">
+<div id="screen" *ngIf="showScreen" @pixelGlitchIn>
   <div id="titleBar">
     <div id="titleMain">
       <i class="pi pi-eye" (click)="toggleDarkMode()"></i>
       <h1>SleepyProject</h1>
     </div>
     <div id="titleSide">
-      <i class="pi pi-minus"></i>
+      <i class="pi pi-minus" (click)="toggleScreen()" id="minusScreen"></i>
       <i class="pi pi-plus"></i>
-      <i class="pi pi-ban" (click)="toggleScreen()"  id="closingScreen"></i>
+      <i class="pi pi-ban" (click)="closeScreen()"  id="closingScreen"></i>
     </div>
   </div>
   <div id="sideNav">
