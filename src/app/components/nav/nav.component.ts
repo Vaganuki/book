@@ -23,8 +23,8 @@ export class NavComponent {
       route: 'music'
     },
     {
-      label: 'Palmares',
-      route: 'palmares'
+      label: 'Mes productions',
+      route: 'projects'
     },
     {
       label: 'Tout sur moi',

@@ -3,6 +3,9 @@ import {DevTestsComponent} from './components/dev-tests/dev-tests.component';
 import {LinksComponent} from './components/links/links.component';
 import {MainScreenComponent} from './components/main-screen/main-screen.component';
 import {MusicComponent} from './components/music/music.component';
+import {ProjectsComponent} from './components/projects/projects.component';
+import {AboutMeComponent} from './components/about-me/about-me.component';
+import {ContactsComponent} from './components/contacts/contacts.component';
 
 export const routes: Routes = [
   {
@@ -18,16 +21,16 @@ export const routes: Routes = [
     component: MusicComponent,
   },
   {
-    path: 'palmares',
-    component: DevTestsComponent,
+    path: 'projects',
+    component: ProjectsComponent,
   },
   {
     path: 'about-me',
-    component: DevTestsComponent,
+    component: AboutMeComponent,
   },
   {
     path: 'contact',
-    component: DevTestsComponent,
+    component: ContactsComponent,
   },
   {
     path: '',
