@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, QueryList, ViewChildren} from '@angular/core';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 import {NavItem} from './models/navitem.model';
 
@@ -40,34 +40,28 @@ export class NavComponent {
     }
   ];
 
-  // menuItems: MenuItem[] = [
-  //   {
-  //     label:'Accueil',
-  //     routerLink:'/',
-  //   },
-  //   {
-  //     label:'Liens',
-  //     routerLink:'links'
-  //   },
-  //   {
-  //     label:'Musiques',
-  //     routerLink:'music'
-  //   },
-  //   {
-  //     label:'Palmares',
-  //     routerLink:'palmares'
-  //   },
-  //   {
-  //     label:'Tout sur moi',
-  //     routerLink:'about-me'
-  //   },
-  //   {
-  //     label:'Contact',
-  //     routerLink:'contact'
-  //   },
-  //   {
-  //     label:'dev',
-  //     routerLink:'dev'
-  //   }
-  // ];
+  //Support des inputs clavier
+  @ViewChildren('navLink', {read: ElementRef}) nav_ItemList!: QueryList<ElementRef>;
+  private indexNav = 0;
+
+  ngAfterViewInit() {
+    window.addEventListener('keydown', this.navKeyFocus);
+    console.log(this.nav_ItemList);
+  }
+
+  navKeyFocus = (event: KeyboardEvent) => {
+    const navList = this.nav_ItemList.toArray();
+    switch (event.key) {
+      case 'ArrowUp':
+        this.indexNav = this.indexNav - 1 >= 0 ? this.indexNav - 1 : navList.length - 1;
+        navList[this.indexNav].nativeElement.focus();
+        break;
+      case 'ArrowDown':
+        this.indexNav = (this.indexNav + 1) % navList.length;
+        navList[this.indexNav].nativeElement.focus();
+        break;
+      default:
+        break;
+    }
+  }
 }

@@ -1,7 +1,7 @@
 <ul class="navMenu">
   @for (item of routes; track $index) {
     <li class="navItem">
-      <a [routerLink]="[item.route]" routerLinkActive="routerLinkActive" [routerLinkActiveOptions]="{exact: true}">{{item.label}}</a>
+      <button #navLink [routerLink]="[item.route]" routerLinkActive="routerLinkActive" [routerLinkActiveOptions]="{exact: true}">{{item.label}}</button>
     </li>
   }
 </ul>
