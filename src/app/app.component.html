@@ -1,7 +1,11 @@
 <!--<p-button label="Toggle Dark Mode" (onClick)="toggleDarkMode()"/>-->
 
 
-<p-button *ngIf="!showScreen" label="Lancer l'app" icon="pi pi-user" iconPos="right" (onClick)="toggleScreen()"/>
+<!--<p-button *ngIf="!showScreen" label="Lancer l'app" icon="pi pi-user" iconPos="right" (onClick)="toggleScreen()"/>-->
+<div class="test" *ngIf="!showScreen" (dblclick)="toggleScreen()">
+
+  <img src="images/file-place-holder.png" alt="icon img">
+</div>
 
 <div id="screen" *ngIf="showScreen" @pixelGlitchIn>
   <div id="titleBar">
@@ -12,13 +16,13 @@
     <div id="titleSide">
       <i class="pi pi-minus" (click)="toggleScreen()" id="minusScreen"></i>
       <i class="pi pi-plus"></i>
-      <i class="pi pi-ban" (click)="closeScreen()"  id="closingScreen"></i>
+      <i class="pi pi-ban" (click)="closeScreen()" id="closingScreen"></i>
     </div>
   </div>
   <div id="sideNav">
     <app-nav></app-nav>
   </div>
   <div id="sideScreen">
-    <router-outlet />
+    <router-outlet/>
   </div>
 </div>

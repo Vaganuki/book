@@ -1,4 +1,5 @@
 @import "primeicons/primeicons.css";
+
 #screen {
   display: grid;
   grid-template:
@@ -63,7 +64,7 @@
       padding: 0.25rem;
     }
 
-    & #closingScreen, #minusScreen{
+    & #closingScreen, #minusScreen {
       display: block;
       //pointer-events: bounding-box;
       cursor: pointer;
@@ -71,17 +72,36 @@
   }
 }
 
-#sideNav{
+#sideNav {
   grid-area: sideNav;
   //padding: 0 1rem;
   border: 6px solid var(--primary-color);
   border-top: none;
 
 }
-#sideScreen{
+
+#sideScreen {
   grid-area: sideScreen;
-  padding: 0 1rem;
+  padding: 0.4rem;
   border: 6px solid var(--primary-color);
   border-top: none;
   border-left: none;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+
+  &::after {
+    content: "Sleepy_Project.exe";
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.5rem;
+    margin-top: 0.4rem;
+  }
+  & img{
+    width: 100%;
+    image-rendering: pixelated;
+  }
 }
