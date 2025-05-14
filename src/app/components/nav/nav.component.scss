@@ -43,7 +43,7 @@
       &:hover,
       &:focus {
         &::before{
-          content: '> ';
+          content: '>';
         }
       }
     }
@@ -52,6 +52,6 @@
 
 .routerLinkActive {
   &::before {
-    content: ">";
+    content: "> ";
   }
 }
