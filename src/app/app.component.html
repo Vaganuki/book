@@ -2,9 +2,20 @@
 
 
 <!--<p-button *ngIf="!showScreen" label="Lancer l'app" icon="pi pi-user" iconPos="right" (onClick)="toggleScreen()"/>-->
-<div class="test" *ngIf="!showScreen" (dblclick)="toggleScreen()">
+<link rel="stylesheet" href="components/nav/nav.component.scss">
+<div class="iconEXE" *ngIf="!showScreen" (dblclick)="toggleScreen()">
 
-  <img src="images/file-place-holder.png" alt="icon img">
+  <svg viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg"
+       xmlns:xlink="http://www.w3.org/1999/xlink">
+    <rect width="20" height="28" fill="url(#pattern0_49_3)"/>
+    <defs>
+      <pattern id="pattern0_49_3" patternContentUnits="objectBoundingBox" width="1" height="1">
+        <use xlink:href="#image0_49_3" transform="scale(0.05 0.0357143)"/>
+      </pattern>
+      <image id="image0_49_3" preserveAspectRatio="none"
+             xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFu2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgOS4xLWMwMDIgNzkuYjdjNjRjYywgMjAyNC8wNy8xNi0wNzo1OTo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDI2LjEgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyNS0wNS0xM1QxODo1NToxNCswMjowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjUtMDUtMTRUMTc6MTk6MzkrMDI6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjUtMDUtMTRUMTc6MTk6MzkrMDI6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjQ2YzA5MDIzLTAzYWYtMjM0My1hODk1LTg5Zjc0NTk0YjM0MSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozZmM5YzU1OS1hNmQwLTBjNDktYmM5Mi1iMzE3MzBkOWZjZDIiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDozZmM5YzU1OS1hNmQwLTBjNDktYmM5Mi1iMzE3MzBkOWZjZDIiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjNmYzljNTU5LWE2ZDAtMGM0OS1iYzkyLWIzMTczMGQ5ZmNkMiIgc3RFdnQ6d2hlbj0iMjAyNS0wNS0xM1QxODo1NToxNCswMjowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDI2LjEgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NmMwOTAyMy0wM2FmLTIzNDMtYTg5NS04OWY3NDU5NGIzNDEiIHN0RXZ0OndoZW49IjIwMjUtMDUtMTRUMTc6MTk6MzkrMDI6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCAyNi4xIChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7noQnqAAAAcElEQVRIie3WSw4AERAE0CqZ+1+5ZqNDEKOnLbs2Ep8XQkC0CL5wVylJyw7TAFKSaOXQhlJndoT1MXSsL17oCw2BKzQMjugV0FAAev4MXm2GxQ3ujhdJXVuyJcEEE0wwwQYS/l/DlPossL/OoygB4AVZxSo8Dfm3pgAAAABJRU5ErkJggg=="/>
+    </defs>
+  </svg>
 </div>
 
 <div id="screen" *ngIf="showScreen" @pixelGlitchIn>

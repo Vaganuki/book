@@ -1,5 +1,7 @@
 @import "primeicons/primeicons.css";
 
+$primary-color: #E961C6FF;
+
 #screen {
   display: grid;
   grid-template:
@@ -88,21 +90,33 @@
   border-left: none;
 }
 
-.test {
+.iconEXE {
   display: flex;
   flex-direction: column;
-  width: fit-content;
-  // height: 5vh;
+  width: 5vw;
 
   &::after {
     content: "Sleepy_Project.exe";
+    align-self: center;
     text-align: center;
     text-transform: uppercase;
-    font-size: 0.75rem;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 0.5rem;
     margin-top: 0.4rem;
   }
-  & img{
-    width: 100%;
+
+  & svg {
+    align-self: center;
+    width: 60%;
     image-rendering: pixelated;
+  }
+
+  &:hover {
+    & svg,
+    &::after {
+      background-color: rgba($primary-color, 0.4);
+      border: darken($primary-color, 0.2) 1px solid;
+    }
   }
 }
