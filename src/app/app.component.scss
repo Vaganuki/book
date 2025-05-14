@@ -113,6 +113,7 @@ $primary-color: #E961C6FF;
   }
 
   &:hover {
+    cursor: pointer;
     & svg,
     &::after {
       background-color: rgba($primary-color, 0.4);
