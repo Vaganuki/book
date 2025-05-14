@@ -82,12 +82,27 @@ $primary-color: #E961C6FF;
 
 }
 
+::-webkit-scrollbar {
+  width: 20px;
+  &-track{
+    background: var(--primary-color);
+  }
+  &-thumb {
+    background: var(--primary-active-color);
+   &:hover{
+     background: var(--highlight-bg);
+   }
+  }
+}
+
 #sideScreen {
   grid-area: sideScreen;
   padding: 0.4rem;
   border: 6px solid var(--primary-color);
   border-top: none;
   border-left: none;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .iconEXE {
