@@ -1,0 +1,60 @@
+.SideScreenWrapper{
+  padding: 0.4em;
+}
+.almanach-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-family: 'IM Fell English', serif;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    color: #f4e3b2;
+
+    select {
+      margin-top: 0.5rem;
+      padding: 0.3rem;
+      border-radius: 4px;
+      background: #222;
+      color: #eee;
+      border: 1px solid #c9a857;
+    }
+  }
+}
+
+.entry {
+  display: flex;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 0.3rem;
+  }
+
+  .meta {
+    flex: 1;
+  }
+
+  .tags {
+    margin: 0.5rem 0;
+    span {
+      background: #444;
+      color: #fff;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      margin-right: 0.3rem;
+      font-size: 0.8rem;
+    }
+  }
+
+  .year, .type {
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+}
