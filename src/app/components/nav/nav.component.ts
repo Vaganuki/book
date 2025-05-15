@@ -44,10 +44,6 @@ export class NavComponent {
       route: '/',
     },
     {
-      label: 'Liens',
-      route: 'links'
-    },
-    {
       label: 'Musiques',
       route: 'music'
     },
@@ -58,6 +54,10 @@ export class NavComponent {
     {
       label: 'Tout sur moi',
       route: 'about-me'
+    },
+    {
+      label: 'Où me trouver',
+      route: 'links'
     },
     {
       label: 'Contact',

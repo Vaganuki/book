@@ -1,0 +1,31 @@
+.terminalScreen {
+  background-color: #130015;
+  padding: 1rem;
+  font-family: 'VT323', monospace;
+  color: #f5ccff;
+  min-height: 100%;
+}
+
+.terminalOutput {
+  margin-bottom: 1rem;
+}
+
+.terminalInput {
+  display: flex;
+  align-items: center;
+
+  .prompt {
+    color: #ff9cf0;
+    margin-right: 0.5rem;
+  }
+
+  input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #ff9cf0;
+    font-size: 1rem;
+    outline: none;
+    caret-color: #ffb6ff;
+  }
+}

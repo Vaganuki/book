@@ -1,10 +1,22 @@
-<h2 class="wip">"<span class="link" id="linkTrig">Link</span>Tree"</h2>
-<div>
-  <a href="https://instagram.com/slxxpyboi" target="_blank">Instagram (Graphisme)</a>
-  <a href="https://instagram.com/slxxpyboi.tattoo" target="_blank">Instagram (Tatouage)</a>
-  <a href="https://be.linkedin.com/in/hugo-warnotte" target="_blank">LinkedIn</a>
-  <a href="mailto:sleepyboi.ink@gmail.com" target="_blank">Mail</a>
-  <a href="https://github.com/Vaganuki/" target="_blank">GitHub</a>
-  <a href="https://paypal.me/HugoWa" target="_blank">PayPal</a>
-  <a href="https://www.moxfield.com/users/Vaganuki" target="_blank">MoxField</a>
+<div class="terminalScreen">
+  <div class="terminalOutput">
+    <div *ngFor="let line of outputHistory">{{ line }}</div>
+  </div>
+  <div class="terminalInput">
+    <span class="prompt">✦</span>
+    <input #terminalInput type="text" [(ngModel)]="currentInput" (keydown.enter)="handleCommand()" autofocus>
+  </div>
 </div>
+
+<!--    LEGACY   -->
+
+<!--<h2 class="wip">"<span class="link" id="linkTrig">Link</span>Tree"</h2>-->
+<!--<div>-->
+<!--  <a href="https://instagram.com/slxxpyboi" target="_blank">Instagram (Graphisme)</a>-->
+<!--  <a href="https://instagram.com/slxxpyboi.tattoo" target="_blank">Instagram (Tatouage)</a>-->
+<!--  <a href="https://be.linkedin.com/in/hugo-warnotte" target="_blank">LinkedIn</a>-->
+<!--  <a href="mailto:sleepyboi.ink@gmail.com" target="_blank">Mail</a>-->
+<!--  <a href="https://github.com/Vaganuki/" target="_blank">GitHub</a>-->
+<!--  <a href="https://paypal.me/HugoWa" target="_blank">PayPal</a>-->
+<!--  <a href="https://www.moxfield.com/users/Vaganuki" target="_blank">MoxField</a>-->
+<!--</div>-->
