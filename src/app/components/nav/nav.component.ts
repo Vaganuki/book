@@ -44,20 +44,20 @@ export class NavComponent {
       route: '/',
     },
     {
-      label: 'Musiques',
-      route: 'music'
-    },
-    {
-      label: 'Mes productions',
-      route: 'projects'
-    },
-    {
       label: 'Tout sur moi',
       route: 'about-me'
     },
     {
       label: 'Où me trouver',
       route: 'links'
+    },
+    {
+      label: 'Mes productions',
+      route: 'projects'
+    },
+    {
+      label: 'Musiques',
+      route: 'music'
     },
     {
       label: 'Contact',
