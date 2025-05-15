@@ -36,8 +36,11 @@ export class AppComponent {
   }
 
   toggleDarkMode() {
+    const darkThemeButton = document.getElementById('darkScreen');
     const element = document.querySelector('html');
     element!.classList.toggle('dark-mode');
+    darkThemeButton!.classList.toggle('pi-moon');
+    darkThemeButton!.classList.toggle('pi-sun');
   }
 
   showScreen: boolean = false;

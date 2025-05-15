@@ -1,7 +1,3 @@
-<!--<p-button label="Toggle Dark Mode" (onClick)="toggleDarkMode()"/>-->
-
-
-<!--<p-button *ngIf="!showScreen" label="Lancer l'app" icon="pi pi-user" iconPos="right" (onClick)="toggleScreen()"/>-->
 <link rel="stylesheet" href="components/nav/nav.component.scss">
 <div class="iconEXE" *ngIf="!showScreen" (click)="toggleScreen()">
 
@@ -25,9 +21,9 @@
       <h1>SleepyProject</h1>
     </div>
     <div id="titleSide">
+      <i class="pi pi-moon" (click)="toggleDarkMode()" id="darkScreen"></i>
       <i class="pi pi-minus" (click)="toggleScreen()" id="minusScreen"></i>
-      <i class="pi pi-plus"></i>
-      <i class="pi pi-ban" (click)="closeScreen()" id="closingScreen"></i>
+      <i class="pi pi-times" (click)="closeScreen()" id="closingScreen"></i>
     </div>
   </div>
   <div id="sideNav">
