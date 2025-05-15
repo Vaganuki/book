@@ -1,6 +1,7 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, inject, ViewChild} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-links',
@@ -10,6 +11,8 @@ import {FormsModule} from '@angular/forms';
 })
 export class LinksComponent {
   @ViewChild('terminalInput', {static: false}) terminalInput!: ElementRef<HTMLInputElement>;
+
+  private readonly router = inject(Router);
 
   outputHistory: string[] = [
     'Bienvenue dans le Grimoire-Terminal...',
@@ -38,30 +41,54 @@ export class LinksComponent {
         break;
       case 'instagraphisme':
         this.outputHistory.push('Ouverture du parchemin visuel : Instagraphisme...');
+        setTimeout(() => {
+          window.open('https://instagram.com/slxxpyboi', '_blank');
+        }, 600);
         break;
       case 'instattoo':
         this.outputHistory.push('Ouverture des glyphes encrés : Instattoo...');
+        setTimeout(() => {
+          window.open('https://instagram.com/slxxpyboi.tattoo', '_blank');
+        }, 600);
         break;
       case 'linkedin':
         this.outputHistory.push('Connexion à la Toile des Âmes Professionnelles : LinkedIn...');
+        setTimeout(() => {
+          window.open('https://be.linkedin.com/in/hugo-warnotte', '_blank');
+        }, 600);
         break;
       case 'github':
         this.outputHistory.push('Invocation des scripts anciens : GitHub...');
+        setTimeout(() => {
+          window.open('https://github.com/Vaganuki/', '_blank');
+        }, 600);
         break;
       case 'donation':
         this.outputHistory.push('Ouverture de l\'autel des donations...');
+        setTimeout(() => {
+          window.open('https://paypal.me/HugoWa', '_blank');
+        }, 600);
         break;
       case 'moxfield':
         this.outputHistory.push('Accès au grimoire des cartes: Moxfield...');
+        setTimeout(() => {
+          window.open('https://www.moxfield.com/users/Vaganuki', '_blank');
+        }, 600);
         break;
       case 'legacy':
         this.outputHistory.push('Consultationdes archives ancestrales: Legacy...');
+        setTimeout(() => {
+          window.open('/legacy/index.html');
+        }, 600);
         break;
       case 'torpfiolo':
         this.outputHistory.push('C\'est rigolo comme contrepèterie mais on est déjà dans le portfolio. Petit comique.');
         break
       case 'contact':
         this.outputHistory.push('Ouverture du portail de communication: Contact...');
+        setTimeout(() => {
+          window.open('mailto:hugo.warnotte@gmail.com', '_blank');
+        }, 600);
         break
       case 'clear':
         this.outputHistory = [];
@@ -96,5 +123,4 @@ export class LinksComponent {
       });
     }, 0);
   }
-
 }
