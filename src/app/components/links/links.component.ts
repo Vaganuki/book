@@ -1,7 +1,6 @@
-import {Component, ElementRef, inject, ViewChild} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-links',
@@ -12,7 +11,6 @@ import {Router} from '@angular/router';
 export class LinksComponent {
   @ViewChild('terminalInput', {static: false}) terminalInput!: ElementRef<HTMLInputElement>;
 
-  private readonly router = inject(Router);
 
   outputHistory: string[] = [
     'Bienvenue dans le Grimoire-Terminal...',
@@ -110,6 +108,9 @@ export class LinksComponent {
         break;
       case 'fais le loup':
         this.outputHistory.push('l-l-le le l-l-lOUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUP');
+        break;
+      case 'hlep':
+        this.outputHistory.push('Tu veux dire \'help\', non ?');
         break;
       default:
         this.outputHistory.push(`Commande inconnue : ${cmd}`);
