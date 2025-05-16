@@ -1,38 +1,27 @@
 <div class="SideScreenWrapper">
-  <div class="almanachControls">
-<!--    <label>-->
-<!--      Trier par:-->
-<!--      <select [(ngModel)]="filterType" (change)="sortProductions()">-->
-<!--        <option value="year">Année</option>-->
-<!--        <option value="title">Titre</option>-->
-<!--        <option value="type">Type</option>-->
-<!--      </select>-->
-<!--    </label>-->
-    <label>
-      Filtrer par type:
-      <select [(ngModel)]="filterType" (change)="filterProductions()">
-        <option value="">Tous</option>
-        <option *ngFor="let t of types">{{ t }}</option>
-      </select>
-    </label>
-  </div>
-  <div class="almanach">
-    <div class="entries">
-      <div class="entry" *ngFor="let project of displayedProductions">
-        <img *ngIf="project.image" [src]="project.image" alt="{{project.title}}">
-        <div class="meta">
-          <h3>{{ project.title }}</h3>
-          <p>{{ project.description }}</p>
-          <div class="tags">
-            <span *ngFor="let tag of project.tags">#{{ tag }}</span>
-          </div>
-          <p class="year">{{project.year}}</p>
-          <p class="type">{{project.type}}</p>
-          <a [href]="project.link" target="_blank">✧ Explorer</a>
-        </div>
+
+  <ng-container *ngIf="!selectedCategory">
+    <h2 class="title">Mes productions</h2>
+    <div class="menu">
+      <div class="menuItem" *ngFor="let item of projects" (click)="selectCategory(item)">
+        <h3>{{ item.title }}</h3>
+        <p *ngIf="item.description">{{ item.description }}</p>
       </div>
     </div>
-  </div>
+  </ng-container>
+
+  <ng-container *ngIf="selectedCategory">
+    <div class="submenu">
+      <button class="backBtn" (click)="backToMenu()">&larr; Retour</button>
+      <h2 class="subtitle">{{ selectedCategory.title }}</h2>
+      <div class="menuItem" *ngFor="let sub of selectedCategory.subItems" (click)="selectCategory(sub)">
+        <h3>{{ sub.title }}</h3>
+        <p *ngIf="sub.description">{{ sub.description }}</p>
+        <span class="year" *ngIf="sub.year">{{ sub.year }}</span>
+      </div>
+    </div>
+  </ng-container>
+
 </div>
 
 
