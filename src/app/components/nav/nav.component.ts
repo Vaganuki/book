@@ -34,6 +34,9 @@ export class NavComponent {
         this.indexNav = (this.indexNav + 1) % navList.length;
         navList[this.indexNav].nativeElement.focus();
         break;
+      case 'ArrowLeft':
+        navList[this.indexNav].nativeElement.focus();
+        break;
       default:
         break;
     }

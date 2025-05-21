@@ -1,5 +1,5 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {Component, ElementRef, inject, PLATFORM_ID, ViewChild} from '@angular/core';
+import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
 @Component({
@@ -9,8 +9,21 @@ import {FormsModule} from '@angular/forms';
   styleUrl: './links.component.scss',
 })
 export class LinksComponent {
+
+  private platformId = inject(PLATFORM_ID);
+
   @ViewChild('terminalInput', {static: false}) terminalInput!: ElementRef<HTMLInputElement>;
 
+  ngAfterViewInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      window.addEventListener('keydown', this.terminalFocus);
+    }
+  }
+  terminalFocus = (event: KeyboardEvent) => {
+    if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp' && event.key !== 'Enter' && event.key !== ' ' && event.key!== 'ArrowLeft') {
+      this.terminalInput.nativeElement.focus();
+    }
+  }
 
   outputHistory: string[] = [
     'Bienvenue dans le Grimoire-Terminal...',
