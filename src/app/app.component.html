@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="components/nav/nav.component.scss">
-<div class="iconEXE" *ngIf="!showScreen" (dblclick)="toggleScreen()">
+<div id="icon" class="iconEXE" *ngIf="showIcon" (dblclick)="openScreen()">
 
   <svg viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg"
        xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -14,7 +14,7 @@
   </svg>
 </div>
 
-<div id="screen" *ngIf="showScreen" @pixelGlitchIn>
+<div id="screen" *ngIf="showScreen" [hidden]="showIcon" @pixelGlitchIn>
   <div id="titleBar">
     <div id="titleMain">
       <i class="pi pi-eye" (click)="toggleDarkMode()"></i>
@@ -22,7 +22,7 @@
     </div>
     <div id="titleSide">
       <i class="pi pi-moon" (click)="toggleDarkMode()" id="darkScreen"></i>
-      <i class="pi pi-minus" (click)="toggleScreen()" id="minusScreen"></i>
+      <i class="pi pi-minus" (click)="hideScreen()" id="minusScreen"></i>
       <i class="pi pi-times" (click)="closeScreen()" id="closingScreen"></i>
     </div>
   </div>

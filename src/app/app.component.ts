@@ -42,16 +42,24 @@ export class AppComponent {
     darkThemeButton!.classList.toggle('pi-moon');
     darkThemeButton!.classList.toggle('pi-sun');
   }
-
   showScreen: boolean = false;
+  showIcon : boolean = true;
 
-  toggleScreen() {
-    this.showScreen = !this.showScreen;
+  hideScreen() {
+    this.showIcon = true;
   }
+
+
+  openScreen() {
+    this.showScreen = true;
+    this.showIcon = false;
+  }
+
 
   closeScreen() {
     this.router.navigate(['/']).then(() => {
       this.showScreen = false;
     });
+    this.showIcon = true;
   }
 }
