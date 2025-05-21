@@ -3,17 +3,17 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  color: #e6dbff;
   height: 100%;
-  .card {
-    background: rgba(40, 0, 60, 0.8);
 
+  .card {
     display: flex;
+    background-color: var(--highlight-bg);
     flex-direction: row;
     align-items: flex-start;
     gap: 2rem;
     width: 100%;
     height: 100%;
+    color: var(--highlight-text);
 
     .portrait img {
       width: 120px;
@@ -28,13 +28,6 @@
       h2 {
         font-family: 'Press Start 2P', monospace;
         margin-bottom: 1rem;
-        color: #d8b4fe;
-      }
-
-      p {
-        font-size: 0.9rem;
-        line-height: 1.4;
-        margin-bottom: 1.5rem;
       }
 
       .bars {
@@ -43,51 +36,27 @@
 
           label {
             font-size: 0.8rem;
-            display: block;
-            margin-bottom: 0.3rem;
           }
 
           .progress {
-            background: #322;
+            background: black;
             border: 1px solid #888;
             height: 14px;
             border-radius: 4px;
 
             .fill {
               height: 100%;
-              background: linear-gradient(to right, #d946ef, #8b5cf6);
+              background: var(--primary-active-color);
               border-radius: 4px;
-              transition: width 0.4s ease;
             }
           }
         }
       }
     }
   }
-
-  .companion {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    img {
-      width: 64px;
-      height: 64px;
-      image-rendering: pixelated;
-    }
-
-    .dialogue {
-      font-family: monospace;
-      margin-top: 0.5rem;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      border: 1px solid #8a4fff;
-    }
-  }
 }
 
-.pixel-fade{
+.pixel-fade {
   animation: pixel-fade-in 1s steps(4) both;
 }
 
@@ -103,4 +72,49 @@
     transform: scale(1);
     opacity: 1;
   }
+}
+
+@keyframes crt-appear {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.7);
+  }
+  25% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.95);
+  }
+  75% {
+    transform: scaleY(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes scanline-flash {
+  0% {
+    background: rgba(255,255,255,0.9);
+    height: 100%;
+    top: 0;
+  }
+  100% {
+    background: transparent;
+    height: 0;
+    top: 100%;
+  }
+}
+.crt-wrap {
+  animation: crt-appear 1.2s steps(4) both;
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline {
+  content: '';
+  position: absolute;
+  width: 100%;
+  animation: scanline-flash 0.4s ease-out;
+  z-index: 2;
 }
