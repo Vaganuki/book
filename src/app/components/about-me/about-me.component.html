@@ -1,18 +1,54 @@
-<p>Je vous jure qu'il y aura des choses à dire à un moment quoi (inspectez la page svp)</p>
-<code>
-  <br/>
-  ⠀⠀⠀⡶⢶⡴⢦⡀⠀⠀⠀⠀<br/>
-  ⠀⠀⠀⣧⠀⠁⣼⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⣀⣀⠀⠀⠀<br/>
-  ⠀⢠⠟⠉⣠⣄⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣯⠙⠁⣸⠇⠀⠀<br/>
-  ⢠⡎⢀⡼⠋⠈⢋⣁⣀⣀⠀⠀⠀⠀⣀⠤⠶⠶⠶⢤⡀⢸⣇⡴⢦⡈⠙⢦⠀<br/>
-  ⣾⠁⣾⣁⣴⡾⢛⣉⠭⠭⢽⣲⣶⣋⣁⣠⣴⣶⡶⠶⠟⠶⠶⢦⡀⠙⣦⠘⣆<br/>
-  ⡏⠀⣿⣿⡿⠗⠉⠁⠀⣀⡠⢬⣍⣉⣛⡻⠟⢉⡤⢖⡤⣭⣍⠐⠻⣆⢸⠀⢸<br/>
-  ⡇⠀⣿⣿⠁⠀⢀⡴⢋⡕⢫⢚⡿⢶⡄⠈⡿⠉⠁⣼⡟⣧⣽⣇⢀⡞⣾⠀⢸<br/>
-  ⡇⠀⣿⣿⠀⠋⠱⣞⡁⠀⢹⣯⣻⣾⣿⠴⠓⠤⠤⠼⠛⠛⠉⣭⢯⡀⡟⠀⢸<br/>
-  ⡇⠀⢸⣿⠀⡠⠶⠶⠾⠿⠾⢭⣉⣁⣤⣤⣤⡤⠤⠴⠶⠒⣉⣀⡼⢱⠇⠀⢸<br/>
-  ⡇⠀⠸⣿⠘⠧⣀⣘⡒⠲⠶⠦⠤⠤⠤⠤⠴⠶⠶⠖⠒⢋⣉⣴⣣⠞⠀⢀⡞<br/>
-  ⢷⠀⠀⢿⣆⡀⠀⠉⠉⠉⠑⠲⠶⠶⠶⠶⠒⠒⠛⠋⠉⢉⣉⣼⡀⢀⡴⠟⠀<br/>
-  ⠘⣧⠀⠈⠻⣿⣷⣦⣤⣄⣀⣀⣠⣤⣤⣤⣤⣤⣤⣶⣿⣿⣿⣿⣟⠁⠀⠀⠀<br/>
-  ⠀⢸⣷⣄⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀<br/>
-  ⠀⠚⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠋⠀<br/>
-</code>
+<div class="about-container pixel-fade">
+  <div class="card">
+    <div class="portrait">
+      <!--      <img src="assets/perso.png" alt="Portrait pixelisé de moi" />-->
+    </div>
+
+    <div class="info">
+      <h2>Moi, le mystérieux dev</h2>
+      <p>
+        Développeur full-stack passionné par l’esthétique rétro-tech, j’aime explorer des univers interactifs et
+        narratifs.
+        Fan de dark fantasy, pixel art et de code propre.
+      </p>
+
+      <div class="bars">
+        <h2>Niveau {{ level }}</h2>
+        <div class="bar xp">
+          <label>⭐ XP : {{ xp }}%</label>
+          <div class="progress">
+            <div class="fill" [style.width.%]="xp"></div>
+          </div>
+        </div>
+
+        <div class="bar life">
+          <label>❤️ Vie</label>
+          <div class="progress">
+            <div class="fill" [style.width.%]="life"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!--<p>Je vous jure qu'il y aura des choses à dire à un moment quoi (inspectez la page svp)</p>-->
+
+  <!--
+
+    ⠀⠀⠀⡶⢶⡴⢦⡀
+    ⠀⠀⠀⣧⠀⠁⣼⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⣀⣀
+    ⠀⢠⠟⠉⣠⣄⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣯⠙⠁⣸⠇
+    ⢠⡎⢀⡼⠋⠈⢋⣁⣀⣀⠀⠀⠀⠀⣀⠤⠶⠶⠶⢤⡀⢸⣇⡴⢦⡈⠙⢦
+    ⣾⠁⣾⣁⣴⡾⢛⣉⠭⠭⢽⣲⣶⣋⣁⣠⣴⣶⡶⠶⠟⠶⠶⢦⡀⠙⣦⠘⣆
+    ⡏⠀⣿⣿⡿⠗⠉⠁⠀⣀⡠⢬⣍⣉⣛⡻⠟⢉⡤⢖⡤⣭⣍⠐⠻⣆⢸⠀⢸
+    ⡇⠀⣿⣿⠁⠀⢀⡴⢋⡕⢫⢚⡿⢶⡄⠈⡿⠉⠁⣼⡟⣧⣽⣇⢀⡞⣾⠀⢸
+    ⡇⠀⣿⣿⠀⠋⠱⣞⡁⠀⢹⣯⣻⣾⣿⠴⠓⠤⠤⠼⠛⠛⠉⣭⢯⡀⡟⠀⢸
+    ⡇⠀⢸⣿⠀⡠⠶⠶⠾⠿⠾⢭⣉⣁⣤⣤⣤⡤⠤⠴⠶⠒⣉⣀⡼⢱⠇⠀⢸
+    ⡇⠀⠸⣿⠘⠧⣀⣘⡒⠲⠶⠦⠤⠤⠤⠤⠴⠶⠶⠖⠒⢋⣉⣴⣣⠞⠀⢀⡞
+    ⢷⠀⠀⢿⣆⡀⠀⠉⠉⠉⠑⠲⠶⠶⠶⠶⠒⠒⠛⠋⠉⢉⣉⣼⡀⢀⡴⠟
+    ⠘⣧⠀⠈⠻⣿⣷⣦⣤⣄⣀⣀⣠⣤⣤⣤⣤⣤⣤⣶⣿⣿⣿⣿⣟⠁
+    ⠀⢸⣷⣄⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀
+    ⠀⠚⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠋
+
+  -->

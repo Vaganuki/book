@@ -1,0 +1,106 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  color: #e6dbff;
+  height: 100%;
+  .card {
+    background: rgba(40, 0, 60, 0.8);
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+
+    .portrait img {
+      width: 120px;
+      height: 120px;
+      image-rendering: pixelated;
+      border: 2px solid #fff;
+    }
+
+    .info {
+      flex: 1;
+
+      h2 {
+        font-family: 'Press Start 2P', monospace;
+        margin-bottom: 1rem;
+        color: #d8b4fe;
+      }
+
+      p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 1.5rem;
+      }
+
+      .bars {
+        .bar {
+          margin-bottom: 1rem;
+
+          label {
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+          }
+
+          .progress {
+            background: #322;
+            border: 1px solid #888;
+            height: 14px;
+            border-radius: 4px;
+
+            .fill {
+              height: 100%;
+              background: linear-gradient(to right, #d946ef, #8b5cf6);
+              border-radius: 4px;
+              transition: width 0.4s ease;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .companion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 64px;
+      height: 64px;
+      image-rendering: pixelated;
+    }
+
+    .dialogue {
+      font-family: monospace;
+      margin-top: 0.5rem;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #8a4fff;
+    }
+  }
+}
+
+.pixel-fade{
+  animation: pixel-fade-in 1s steps(4) both;
+}
+
+@keyframes pixel-fade-in {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
