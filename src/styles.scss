@@ -1,40 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
-//body {
-//  margin: 0;
-//  padding: 0;
-//  height: 100vh;
-//  background: linear-gradient(
-//      to bottom,
-//      #421d5d 0%,
-//      #e44585 100%,
-//  );
-//
-//  &::before {
-//    content: '';
-//    position: absolute;
-//    top: 0;
-//    left: 0;
-//    width: 100%;
-//    height: 100%;
-//    z-index: -1;
-//    background-image: linear-gradient(
-//        to right,
-//        rgba(255, 255, 255, 0.125) 1px,
-//        transparent 1px
-//    ),
-//    linear-gradient(
-//        to bottom,
-//        rgba(255, 255, 255, 0.125) 1px,
-//        transparent 1px
-//    );
-//    background-size: 32px 32px;
-//    pointer-events: none;
-//  }
-//}
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=VT323&family=Press+Start+2P&family=Coral+Pixels&display=swap');
 @import "primeicons/primeicons.css";
 
 :root {
+  --couleur-primaire: red;
+  --couleur-primaire-hover: green;
+  --couleur-primaire-active: blue;
+
+  --couleur-secondaire: pink;
+  --couleur-secondaire-hover: lightgreen;
+  --couleur-secondaire-active: lightblue;
+
+  --texte-principale: #000;
+  --texte-secondaire: #ccc;
+
+  --bordure-principale: #ff5c8a;
+  --bordure-secondaire: lightgreen;
+  //--highlight-bg: #fff;
+  //--highlight-focus-bg: #D8B4E2;
+  //--highlight-text: #2B0035;
+  //--surface-bg: #f3e6f8;
+  //--surface-bg-secondaire: #000;
+
   --primary-color: #D22FFF;
   --primary-inverse-color: #FFF1FF;
   --primary-hover-color: #BD28B8;
@@ -49,6 +36,25 @@
 }
 
 .dark-mode {
+  --couleur-primaire: white;
+  --couleur-primaire-hover: green;
+  --couleur-primaire-active: blue;
+
+  --couleur-secondaire: pink;
+  --couleur-secondaire-hover: lightgreen;
+  --couleur-secondaire-active: lightblue;
+
+  --texte-principale: white;
+  --texte-secondaire: #ccc;
+
+  --bordure-principale: #ff5c8a;
+  --bordure-secondaire: lightgreen;
+  //--highlight-bg: #fff;
+  //--highlight-focus-bg: #D8B4E2;
+  //--highlight-text: #2B0035;
+  //--surface-bg: #f3e6f8;
+  //--surface-bg-secondaire: #000;
+
   --primary-color: #000000;
   --primary-inverse-color: #0F0417;
   --primary-hover-color: #F180D4;
@@ -129,26 +135,34 @@ button.p-button {
   );
 }
 
-.p-inputtext {
-  background-color: var(--surface-bg);
-  border: 1px solid var(--highlight-focus-bg);
-  color: var(--text-color);
-  border-radius: 0.25rem;
-
-  &:focus {
-    outline: 2px solid var(--highlight-focus-bg);
-  }
-}
-
-.p-card {
-  background-color: var(--card-bg);
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  padding: 1rem;
-  color: var(--text-color);
-}
-
-.p-highlight {
-  background-color: var(--highlight-bg);
-  color: var(--highlight-text-color);
-}
+//body {
+//  margin: 0;
+//  padding: 0;
+//  height: 100vh;
+//  background: linear-gradient(
+//      to bottom,
+//      rgba(65, 28, 92, 0.5) 0%,
+//      rgba(228, 69, 133, 0.7) 100%,
+//  );
+//  &::before {
+//    content: '';
+//    position: absolute;
+//    top: 0;
+//    left: 0;
+//    width: 100%;
+//    height: 100%;
+//    z-index: -1;
+//    background-image: linear-gradient(
+//        to right,
+//        rgba(255, 255, 255, 0.125) 1px,
+//        transparent 1px
+//    ),
+//    linear-gradient(
+//        to bottom,
+//        rgba(255, 255, 255, 0.125) 1px,
+//        transparent 1px
+//    );
+//    background-size: 32px 32px;
+//    pointer-events: none;
+//  }
+//}
