@@ -1,5 +1,5 @@
 <div class="character-sheet">
-  <div class="identity">
+  <div style="--position:1" class="identity">
     <h1>{{ character.identity.name }}</h1>
     <p class="subtitle">{{ character.identity.title }}</p>
     <div class="info">
@@ -8,13 +8,15 @@
       <p>Familier : {{ character.identity.familiar }}</p>
     </div>
   </div>
-  <div class="inventory">
+
+  <div style="--position:2" class="inventory">
     <h2>Inventaire</h2>
     <ul>
       <li *ngFor="let item of character.inventory">{{ item }}</li>
     </ul>
   </div>
-  <div class="skills">
+
+  <div style="--position:3" class="skills">
     <h2>Compétences</h2>
     <div *ngFor="let skill of character.skills">
       <span>{{ skill.name }}</span>
@@ -24,7 +26,7 @@
     </div>
   </div>
 
-  <div class="mainStats">
+  <div style="--position:4" class="mainStats">
     <h2>Niveau : {{ level }}</h2>
     <div class="mainStatBar">
       <label><i class="pi pi-heart-fill" style="color: red"></i> HP</label>
@@ -46,22 +48,18 @@
     </div>
   </div>
 
-
-  <div class="stats">
+  <div style="--position:5" class="stats">
     <div *ngFor="let stat of character.stats | keyvalue">
       <span class="label">{{ stat.key.toUpperCase() }} : {{ stat.value }}</span>
     </div>
   </div>
 
-
-
-
-  <div class="lore">
+  <div style="--position:6" class="lore">
     <h2>Citation</h2>
     <p>{{ character.lore }}</p>
   </div>
 
-  <div class="debuff">
+  <div style="--position:7" class="debuff">
     <h2>Malus</h2>
     <ul>
       <li *ngFor="let debuff of character.debuffs">{{ debuff }}</li>
