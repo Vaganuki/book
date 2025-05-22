@@ -11,6 +11,7 @@ export class AboutMeComponent {
 
   birthday: Date = new Date('2000-06-29');
   life: number = 45;
+  pc: number = 65;
   xp: number = 0;
   level: number = 0;
 
@@ -38,4 +39,47 @@ export class AboutMeComponent {
 
     this.xp = Math.floor((timeSinceLast / totalYearTime) * 100);
   }
+
+  character = {
+    identity: {
+      name: 'Hugo | SleepyBoi',
+      title: 'Développeur Mystique (Full Stack Web) / Alchimiste Visuel (Graphiste)',
+      species: 'Humain fatigué',
+      alignment: 'Chaotique Neutre',
+      familiar: 'Lilou (Felis catus)'
+    },
+    stats: {
+      int: 121,
+      str: 0,
+      dex: 5,
+      cha: 40,
+    },
+    skills: [
+      {name: 'Graphisme', level: 97},
+      {name: 'Angular', level: 90},
+      {name: 'SCSS', level: 85},
+      {name: 'Node.js', level: 80},
+      {name: 'PostgreSQL', level: 80},
+      {name: 'MongoDB', level: 70},
+    ],
+    inventory: [
+      'Un super GitHub',
+      'Spotify (non optionel)',
+      'WebStorm',
+      'Procreate',
+      'Suite Adobe (légale)',
+      'Potion x3 (café)',
+    ],
+    lore: 'En fait j\'aime pas grandir parce que depuis que je suis né je me trouve génial et maintenant je suis pas sûr si c\'est vrai.' ,
+    debuffs: [
+      'Astigmatisme',
+      'Presbytie',
+      'Asthme',
+      'Spectre autistique',
+      'Magic: The gathering',
+      'LGPD'
+    ]
+  };
+
+
 }

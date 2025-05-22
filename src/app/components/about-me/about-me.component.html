@@ -1,43 +1,73 @@
-<div class="crt-wrap">
-<!--  <div class="scanline">-->
-    <div class="about-container">
-      <div class="card">
-        <div class="portrait">
-          <!--      <img src="assets/perso.png" alt="Portrait pixelisé de moi" />-->
-        </div>
-
-        <div class="info">
-          <h2>Moi, le mystérieux dev</h2>
-          <p>
-            Développeur full-stack passionné par l’esthétique rétro-tech, j’aime explorer des univers interactifs et
-            narratifs.
-            Fan de dark fantasy, pixel art et de code propre.
-          </p>
-
-          <div class="bars">
-            <h2>Niveau {{ level }}</h2>
-            <div class="bar xp">
-              <label>️<i class="pi pi-star-fill" style="color: yellow"></i> XP : {{ xp }}%</label>
-              <div class="progress">
-                <div class="fill" [style.width.%]="xp"></div>
-              </div>
-            </div>
-
-            <div class="bar life">
-              <label>️<i class="pi pi-heart-fill" style="color: red"></i> Vie</label>
-              <div class="progress">
-                <div class="fill" [style.width.%]="life"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+<div class="character-sheet">
+  <div class="identity">
+    <h1>{{ character.identity.name }}</h1>
+    <p class="subtitle">{{ character.identity.title }}</p>
+    <div class="info">
+      <p>Espèce : {{ character.identity.species }}</p>
+      <p>Alignement : {{ character.identity.alignment }}</p>
+      <p>Familier : {{ character.identity.familiar }}</p>
+    </div>
+  </div>
+  <div class="inventory">
+    <h2>Inventaire</h2>
+    <ul>
+      <li *ngFor="let item of character.inventory">{{ item }}</li>
+    </ul>
+  </div>
+  <div class="skills">
+    <h2>Compétences</h2>
+    <div *ngFor="let skill of character.skills">
+      <span>{{ skill.name }}</span>
+      <div class="bar">
+        <div class="fill" [style.width.%]="skill.level"></div>
       </div>
     </div>
-<!--  </div>-->
+  </div>
+
+  <div class="mainStats">
+    <h2>Niveau : {{ level }}</h2>
+    <div class="mainStatBar">
+      <label><i class="pi pi-heart-fill" style="color: red"></i> HP</label>
+      <div class="progress">
+        <div class="fill" [style.width.%]="life"></div>
+      </div>
+    </div>
+    <div class="mainStatBar">
+      <label>PC</label>
+      <div class="progress">
+        <div class="fill" [style.width.%]="pc"></div>
+      </div>
+    </div>
+    <div class="mainStatBar">
+      <label><i class="pi pi-star-fill" style="color: yellow"></i> XP : {{ xp }}%</label>
+      <div class="progress">
+        <div class="fill" [style.width.%]="xp"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="stats">
+    <div *ngFor="let stat of character.stats | keyvalue">
+      <span class="label">{{ stat.key.toUpperCase() }} : {{ stat.value }}</span>
+    </div>
+  </div>
+
+
+
+
+  <div class="lore">
+    <h2>Citation</h2>
+    <p>{{ character.lore }}</p>
+  </div>
+
+  <div class="debuff">
+    <h2>Malus</h2>
+    <ul>
+      <li *ngFor="let debuff of character.debuffs">{{ debuff }}</li>
+    </ul>
+  </div>
 </div>
-
-<!--<p>Je vous jure qu'il y aura des choses à dire à un moment quoi (inspectez la page svp)</p>-->
-
 <!--
 
   ⠀⠀⠀⡶⢶⡴⢦⡀
