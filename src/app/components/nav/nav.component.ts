@@ -66,9 +66,5 @@ export class NavComponent {
       label: 'Contact',
       route: 'contact'
     },
-    {
-      label: 'dev',
-      route: 'dev'
-    }
   ];
 }
