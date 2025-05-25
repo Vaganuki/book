@@ -11,7 +11,7 @@
 
   & .subtitle {
     font-size: 0.75rem;
-    color: var(--primary-hover-color);
+    color: var(--text-color-muted);
   }
 
   & .identity {
@@ -19,7 +19,7 @@
     display: block;
 
     & h1 {
-      color: var(--primary-active-color);
+      color: var(--primary-color);
       text-transform: uppercase;
     }
 
@@ -51,7 +51,7 @@
 
         & .fill {
           height: 100%;
-          background: var(--primary-active-color);
+          background: var(--accent-color);
           border-radius: 4px;
         }
       }
@@ -76,7 +76,7 @@
 
       & .fill {
         height: 100%;
-        background: var(--primary-active-color);
+        background: var(--accent-color);
         border-radius: 4px;
       }
     }

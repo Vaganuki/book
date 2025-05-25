@@ -9,26 +9,25 @@
   text-transform: uppercase;
 
   & .navItem {
-    //padding: 0.8rem 0;
     display: inline-block;
 
     &:has(> .routerLinkActive) {
       &:hover,
       &:has(button:focus) {
-        box-shadow: inset 0 0 0 4px var(--primary-active-color), inset 0 0 0 8px var(--primary-color);
+        box-shadow: inset 0 0 0 4px var(--primary-active-color), inset 0 0 0 8px var(--primary-inverse-color);
       }
 
       background-color: var(--primary-active-color);
 
       & button {
-        color: var(--surface-bg);
+        color: var(--surface-bg-secondary);
       }
     }
 
     &:has(:not(.routerLinkActive)) {
       &:hover,
       &:has(button:focus) {
-        background-color: var(--primary-color);
+        background-color: var(--accent-color);
       }
     }
 

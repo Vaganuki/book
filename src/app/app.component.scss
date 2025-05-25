@@ -1,6 +1,6 @@
 @import "primeicons/primeicons.css";
 
-$primary-color: #E961C6FF;
+$primary-color: #8A4DCE;
 
 #screen {
   display: grid;
@@ -10,8 +10,8 @@ $primary-color: #E961C6FF;
 
   height: 90vh;
   width: 95vw;
-  background-color: var(--surface-bg);
-  color: var(--texte-principale);
+  background-color: var(--surface-bg-secondary);
+  color: var(--primary-color);
   clip-path: polygon(
       0px calc(100% - 6px),
       3px calc(100% - 6px),
@@ -43,9 +43,7 @@ $primary-color: #E961C6FF;
   grid-template: 1fr / 1fr fit-content(1em);
   padding: 0 1rem;
   align-items: center;
-  border: 6px solid var(--bordure-principale);
-  //outline: 6px solid var(--primary-inverse-color);
-  //outline-offset: -2px;
+  border: 6px solid var(--border-color);
 
   & #titleMain {
     display: flex;
@@ -62,21 +60,23 @@ $primary-color: #E961C6FF;
     gap: 0.5rem;
 
     & * {
-      border: var(--bordure-principale) 4px solid;
+      border: var(--border-color) 4px solid;
       padding: 0.25rem;
     }
 
     & #closingScreen, #minusScreen, #darkScreen {
       display: block;
-      //pointer-events: bounding-box;
       cursor: pointer;
+      &:hover{
+        background-color: var(--primary-active-color);
+      }
     }
   }
 }
 
 #sideNav {
   grid-area: sideNav;
-  border: 6px solid var(--bordure-principale);
+  border: 6px solid var(--border-color);
   border-top: none;
 
 }
@@ -84,19 +84,19 @@ $primary-color: #E961C6FF;
 ::-webkit-scrollbar {
   width: 20px;
   &-track{
-    background: var(--highlight-bg);
+    background: var(--surface-bg-secondary);
   }
   &-thumb {
-    background: var(--primary-color);
+    background: var(--accent-color);
    &:hover{
-     background: var(--primary-active-color);
+     background: var(--highlight-color);
    }
   }
 }
 
 #sideScreen {
   grid-area: sideScreen;
-  border: 6px solid var(--bordure-principale);
+  border: 6px solid var(--border-color);
   border-top: none;
   border-left: none;
   overflow: scroll;

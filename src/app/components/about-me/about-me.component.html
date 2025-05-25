@@ -29,19 +29,19 @@
   <div class="mainStats">
     <h2>Niveau : {{ level }}</h2>
     <div class="mainStatBar">
-      <label><i class="pi pi-heart-fill" style="color: red"></i> HP</label>
+      <label><i class="pi pi-heart"></i> HP</label>
       <div class="progress">
         <div class="fill" [style.width.%]="life"></div>
       </div>
     </div>
     <div class="mainStatBar">
-      <label> <i class="pi pi-palette" style="color: blue"></i> PC</label>
+      <label> <i class="pi pi-palette"></i> PC</label>
       <div class="progress">
         <div class="fill" [style.width.%]="pc"></div>
       </div>
     </div>
     <div class="mainStatBar">
-      <label><i class="pi pi-star-fill" style="color: yellow"></i> XP : {{ xp }}%</label>
+      <label><i class="pi pi-star"></i> XP : {{ xp }}%</label>
       <div class="progress">
         <div class="fill" [style.width.%]="xp"></div>
       </div>

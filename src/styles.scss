@@ -3,69 +3,41 @@
 @import "primeicons/primeicons.css";
 
 :root {
-  --couleur-primaire: red;
-  --couleur-primaire-hover: green;
-  --couleur-primaire-active: blue;
+  --primary-color: #8A4DCE; // Texte principal
+  --primary-hover-color: #A268D6; // Hover
+  --primary-active-color: #703DB7; // Action pressée
+  --primary-inverse-color: #F9F2FF; //Pour le contraste
 
-  --couleur-secondaire: pink;
-  --couleur-secondaire-hover: lightgreen;
-  --couleur-secondaire-active: lightblue;
+  --surface-bg: #F5EBFC; //Fond
+  --surface-bg-secondary: #E2D0F5; //Variation pour les menus
 
-  --texte-principale: #000;
-  --texte-secondaire: #ccc;
+  --text-color: #2E023C; //Texte
+  --text-color-muted: #6B4D80; //Texte secondaire
 
-  --bordure-principale: #ff5c8a;
-  --bordure-secondaire: lightgreen;
-  //--highlight-bg: #fff;
-  //--highlight-focus-bg: #D8B4E2;
-  //--highlight-text: #2B0035;
-  //--surface-bg: #f3e6f8;
-  //--surface-bg-secondaire: #000;
+  --accent-color: #D986E8; //Pour les survols / Call to action
+  --highlight-color: #C963E4; // Petits détails lumineux
 
-  --primary-color: #D22FFF;
-  --primary-inverse-color: #FFF1FF;
-  --primary-hover-color: #BD28B8;
-  --primary-active-color: #A11EA0;
-
-  --highlight-bg: #ECD3F0;
-  --highlight-focus-bg: #D8B4E2;
-  --highlight-text: #2B0035;
-
-  --surface-bg: #f3e6f8;
-  --text-color: #2B0035;
+  --border-color: #C29BDF;
+  --shadow-color: rgba(51, 14, 73, 0.2);
 }
 
 .dark-mode {
-  --couleur-primaire: white;
-  --couleur-primaire-hover: green;
-  --couleur-primaire-active: blue;
+  --primary-color: #B05CE3;
+  --primary-hover-color: #C775EF;
+  --primary-active-color: #954DC2;
+  --primary-inverse-color: #1E022E;
 
-  --couleur-secondaire: pink;
-  --couleur-secondaire-hover: lightgreen;
-  --couleur-secondaire-active: lightblue;
+  --surface-bg: #1A0824;
+  --surface-bg-secondary: #2C0E40;
 
-  --texte-principale: white;
-  --texte-secondaire: #ccc;
+  --text-color: #E1C4F5;
+  --text-color-muted: #A678C8; //À modifier
 
-  --bordure-principale: #ff5c8a;
-  --bordure-secondaire: lightgreen;
-  //--highlight-bg: #fff;
-  //--highlight-focus-bg: #D8B4E2;
-  //--highlight-text: #2B0035;
-  //--surface-bg: #f3e6f8;
-  //--surface-bg-secondaire: #000;
+  --accent-color: #FF8EF9; //À modifier
+  --highlight-color: #F9A3FC;
 
-  --primary-color: #000000;
-  --primary-inverse-color: #0F0417;
-  --primary-hover-color: #F180D4;
-  --primary-active-color: #FF9CE4;
-
-  --highlight-bg: rgba(233, 97, 198, 0.24);
-  --highlight-focus-bg: rgba(233, 97, 198, 0.4);
-  --highlight-text: #F7CFFF;
-
-  --surface-bg: #1a0d22;
-  --text-color: #F7CFFF;
+  --border-color: #52266D;
+  --shadow-color: rgba(0, 0, 0, 0.6);
 }
 
 * {
@@ -83,86 +55,3 @@ body {
   display: grid;
   place-items: center;
 }
-
-// À voir si nécessaire ?
-
-button.p-button {
-  background-color: var(--primary-color);
-  color: var(--primary-inverse-color);
-  border-radius: 0.25rem;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
-  text-transform: uppercase;
-  //transition: background 0.2s ease;
-
-  &:hover {
-    background-color: var(--primary-color-hover);
-
-    &::before {
-      content: "> ";
-    }
-  }
-
-  &:focus {
-    background-color: var(--primary-active-color);
-
-    &::before {
-      content: "> ";
-    }
-  }
-
-
-  clip-path: polygon(
-      0px calc(100% - 6px),
-      3px calc(100% - 6px),
-      3px calc(100% - 3px),
-      6px calc(100% - 3px),
-      6px 100%,
-      calc(100% - 6px) 100%,
-      calc(100% - 6px) calc(100% - 3px),
-      calc(100% - 3px) calc(100% - 3px),
-      calc(100% - 3px) calc(100% - 6px),
-      100% calc(100% - 6px),
-      100% 6px,
-      calc(100% - 3px) 6px,
-      calc(100% - 3px) 3px,
-      calc(100% - 6px) 3px,
-      calc(100% - 6px) 0px,
-      6px 0px,
-      6px 3px,
-      3px 3px,
-      3px 6px,
-      0px 6px
-  );
-}
-
-//body {
-//  margin: 0;
-//  padding: 0;
-//  height: 100vh;
-//  background: linear-gradient(
-//      to bottom,
-//      rgba(65, 28, 92, 0.5) 0%,
-//      rgba(228, 69, 133, 0.7) 100%,
-//  );
-//  &::before {
-//    content: '';
-//    position: absolute;
-//    top: 0;
-//    left: 0;
-//    width: 100%;
-//    height: 100%;
-//    z-index: -1;
-//    background-image: linear-gradient(
-//        to right,
-//        rgba(255, 255, 255, 0.125) 1px,
-//        transparent 1px
-//    ),
-//    linear-gradient(
-//        to bottom,
-//        rgba(255, 255, 255, 0.125) 1px,
-//        transparent 1px
-//    );
-//    background-size: 32px 32px;
-//    pointer-events: none;
-//  }
-//}
