@@ -89,7 +89,7 @@ export class LinksComponent {
       case 'legacy':
         this.outputHistory.push('Consultationdes archives ancestrales: Legacy...');
         setTimeout(() => {
-          window.open('/legacy/index.html');
+          window.open('/book/legacy/index.html');
         }, 600);
         break;
       case 'torpfiolo':

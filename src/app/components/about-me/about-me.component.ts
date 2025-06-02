@@ -46,7 +46,7 @@ export class AboutMeComponent {
       title: 'Développeur Mystique (Full Stack Web) / Alchimiste Visuel (Graphiste)',
       species: 'Humain fatigué',
       alignment: 'Chaotique Neutre',
-      familiar: 'Lilou (Felis catus)'
+      familiar: 'Lilou (Felis Catus)'
     },
     stats: {
       int: 121,
@@ -77,7 +77,6 @@ export class AboutMeComponent {
       'Asthme',
       'Spectre autistique',
       'Magic: The gathering',
-      'LGPD'
     ]
   };
 
