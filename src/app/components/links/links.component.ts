@@ -125,6 +125,18 @@ export class LinksComponent {
       case 'hlep':
         this.outputHistory.push('Tu veux dire \'help\', non ?');
         break;
+        // Ces deux commandes sont un hommage à Aude Beurive, ma merveilleuse formatrice
+      case 'pied':
+        this.outputHistory.push('Alors on est un kiffeur mon gourmand ?');
+        break;
+      case 'pieds':
+        this.outputHistory.push('Alors on est un GROS kiffeur mon gourmand ?');
+        break;
+        // Cette prochaine commande est un hommage à Simon Arce, mon cher collègue
+      case 'quoi':
+        this.outputHistory.push('feur!');
+        break;
+        // Merci pour tout
       default:
         this.outputHistory.push(`Commande inconnue : ${cmd}`);
         break
