@@ -42,8 +42,8 @@ export class AppComponent {
     darkThemeButton!.classList.toggle('pi-moon');
     darkThemeButton!.classList.toggle('pi-sun');
   }
-  showScreen: boolean = false;
-  showIcon : boolean = true;
+  showScreen: boolean = true;
+  showIcon : boolean = false;
 
   hideScreen() {
     this.showIcon = true;
