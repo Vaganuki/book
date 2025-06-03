@@ -5,6 +5,7 @@ import {MusicComponent} from './components/music/music.component';
 import {ProjectsComponent} from './components/projects/projects.component';
 import {AboutMeComponent} from './components/about-me/about-me.component';
 import {ContactsComponent} from './components/contacts/contacts.component';
+import {ClaculatriceComponent} from './components/claculatrice/claculatrice.component';
 
 export const routes: Routes = [
   {
@@ -22,6 +23,10 @@ export const routes: Routes = [
   {
     path: 'about-me',
     component: AboutMeComponent,
+  },
+  {
+    path: 'claculatrice',
+    component: ClaculatriceComponent,
   },
   {
     path: 'contact',

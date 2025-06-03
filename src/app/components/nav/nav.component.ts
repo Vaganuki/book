@@ -59,6 +59,10 @@ export class NavComponent {
       route: 'projects'
     },
     {
+      label:'Casino',
+      route: 'claculatrice'
+    },
+    {
       label: 'Musiques',
       route: 'music'
     },
