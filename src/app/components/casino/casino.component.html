@@ -1,60 +1,17 @@
-<!--Version finale ici-->
-
 <div class="arcane-roulette">
   <button class="roll-btn" (click)="roll()" [disabled]="isRolling">I feel lucky (ruin me)</button>
   <p>Victoire{{ wins > 1 ? 's' : '' }} : {{ wins }} | Défaite{{ losses > 1 ? 's' : '' }} : {{ losses }}</p>
   <div class="wheel">
-    <p class="symbol" #option></p>
-    <p class="symbol" #option></p>
-    <p class="symbol" #option></p>
-    <p class="symbol" #option></p>
-    <p class="symbol" #option></p>
-    <p class="symbol" #option></p>
-    <p class="symbol" #option></p>
-    <p class="symbol" #option></p>
-    <p class="symbol" #option></p>
-    <p class="symbol" #option></p>
-    <p class="symbol" #option></p>
+    <p class="symbol" #option>☢ decay ☢</p>
+    <p class="symbol" #option>╳ failed ╳</p>
+    <p class="symbol" #option>☠ LOSE ☠</p>
+    <p class="symbol" #option>✘ lose again ✘</p>
+    <p class="symbol" #option>⛧ unlucky ⛧</p>
+    <p class="symbol" #option>🜚 JACKPOT !!!!! 🜚</p>
+    <p class="symbol" #option>⛧ unlucky ⛧</p>
+    <p class="symbol" #option>╳ failed ╳</p>
+    <p class="symbol" #option>☠ LOSE ☠</p>
+    <p class="symbol" #option>✘ lose again ✘</p>
+    <p class="symbol" #option>☢ decay ☢</p>
   </div>
 </div>
-
-
-<!--Legacy ici-->
-
-<!--<div class="arcane-roulette">-->
-<!--  <button class="roll-btn" (click)="luminance()" [disabled]="isLuminanceRunning">I feel lucky (make me broke)</button>-->
-<!--  <p>Victoires: {{wins}} | Défaites: {{losses}} </p>-->
-<!--  <div class="wheel">-->
-<!--    <p class="symbol" #lumiere>lose everything</p>-->
-<!--    <p class="symbol" #lumiere>lose everything</p>-->
-<!--    <p class="symbol" #lumiere>lose everything</p>-->
-<!--    <p class="symbol" #lumiere>lose everything</p>-->
-<!--    <p class="symbol" #lumiere>lose everything</p>-->
-<!--    <p class="symbol" #lumiere>JACKPOT!!!!</p>-->
-<!--    <p class="symbol" #lumiere>lose everything</p>-->
-<!--    <p class="symbol" #lumiere>lose everything</p>-->
-<!--    <p class="symbol" #lumiere>lose everything</p>-->
-<!--    <p class="symbol" #lumiere>lose everything</p>-->
-<!--    <p class="symbol" #lumiere>lose everything</p>-->
-<!--  </div>-->
-<!--</div>-->
-
-<!--<div class="roulette-container">-->
-<!--  <button (click)="roll()" class="roll-btn" [disabled]="isLuminanceRunning">I feel lucky (make me broke)</button>-->
-<!--  <div class="stats">-->
-<!--    Victoires : {{ wins }} | Défaites : {{ losses }}-->
-<!--  </div>-->
-
-<!--  <div class="wheel-frame">-->
-<!--    <div class="wheel" [style.transform]="transform">-->
-<!--      <div class="slot"-->
-<!--           *ngFor="let result of results"-->
-<!--           [ngClass]="{-->
-<!--       'jackpot': result.includes('JACKPOT'),-->
-<!--       'glitch': !result.includes('JACKPOT')-->
-<!--     }">-->
-<!--        {{ result }}-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->

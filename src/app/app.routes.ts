@@ -30,7 +30,7 @@ export const routes: Routes = [
     component: CasinoComponent,
   },
   {
-    path: 'claculatrice',
+    path: 'claculaltrice',
     component: ClaculatriceComponent,
   },
   {

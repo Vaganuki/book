@@ -10,59 +10,12 @@ import {randomInt} from 'toolzy';
   styleUrl: './casino.component.scss'
 })
 export class CasinoComponent {
-
-  isLuminanceRunning = false;
+  isRolling = false;
 
   wins = parseInt(this.getStat('wins'));
   losses = parseInt(this.getStat('losses'));
 
-  luminance() {
-    this.isLuminanceRunning = true;
-    const caseList = this.cases.toArray();
-
-    caseList.forEach(c => {
-      c.nativeElement.classList.remove('lum');
-    })
-
-    let cycleCount = 0;
-    const cycles = caseList.length;
-    const randomIndex = Math.floor(Math.random() * caseList.length);
-
-    const cycle = () => {
-
-      caseList.forEach((elem, i: number) => {
-        setTimeout(() => {
-          elem.nativeElement.classList.toggle('lum');
-          const beep = new Audio('sounds/8-bit-hit-7_NWM.mp3').play();
-          setTimeout(() => {
-            elem.nativeElement.classList.toggle('lum');
-          }, 50);
-        }, 50 * i);
-      });
-
-      cycleCount++;
-
-      if (cycleCount < cycles) {
-        setTimeout(cycle, 50 * cycles + 50);
-      }
-    };
-    cycle();
-
-    setTimeout(() => {
-      const element = caseList[randomIndex];
-      element.nativeElement.classList.toggle('lum');
-      this.isLuminanceRunning = false;
-      if (randomIndex == 5) {
-        const beep = new Audio('sounds/experimental-8-bit-sound-270302.mp3').play();
-        this.wins++;
-        this.saveStat('wins', this.wins);
-      } else {
-        const beep = new Audio('sounds/8-bit-wrong-2-84407.mp3').play();
-        this.losses++;
-        this.saveStat('losses', this.losses);
-      }
-    }, cycles * (50 * (caseList.length - 1) + 50 + 50))
-  }
+  @ViewChildren('option') rouletteOption!: QueryList<ElementRef>;
 
   // Merci, encore une fois, à mon collègue Simon Arce
 
@@ -74,63 +27,59 @@ export class CasinoComponent {
     sessionStorage.setItem(key, value.toString());
   }
 
-
-  //Nouvelle Prod ici
-
-  results: string[] = [];
-  allOptions = [
-    '𓆩✖𓆪', 'lose everything', '𓆩☠𓆪', 'lose everything', '𓆩✖𓆪',
-    'JACKPOT !!!!!',
-    '𓆩✖𓆪', 'lose everything', '𓆩✘𓆪', 'lose everything', '𓆩✖𓆪',
-  ];
-
-  transform = 'translateY(0px)'
-
   roll() {
-    this.results = [];
-    this.transform = 'translateY(0)';
-    this.isLuminanceRunning = true;
-    setTimeout(() => {
+    this.isRolling = true;
+    const optionsList = this.rouletteOption.toArray();
 
-      const spinResults = [];
+    optionsList.forEach(option => {
+      option.nativeElement.classList.remove('selected', 'glitch', 'jackpot');
+    })
 
-      for (let i = 0; i < 20; i++) {
-        const random = this.allOptions[randomInt(0, this.allOptions.length - 1)];
-        spinResults.push(random)
-        const beep = new Audio('sounds/8-bit-hit-7_NWM.mp3').play();
+    let cycleCount = 0;
+    const cycles = optionsList.length;
+    const optionIndex = randomInt(0, optionsList.length - 1)
+
+    const cycle = () => {
+
+      optionsList.forEach((elem, i: number) => {
+        setTimeout(() => {
+          elem.nativeElement.classList.toggle('selected');
+          const beep = new Audio('sounds/8-bit-hit-7_NWM.mp3').play();
+          setTimeout(() => {
+            elem.nativeElement.classList.toggle('selected');
+          }, 50)
+        }, 50 * i);
+      });
+
+      cycleCount++;
+
+      if (cycleCount < cycles) {
+        setTimeout(cycle, 50 * cycles + 50);
       }
+    };
 
-      const final = this.allOptions[randomInt(0, this.allOptions.length - 1)];
-      spinResults.push(final);
+    cycle();
 
-      this.results = spinResults;
+    setTimeout(() => {
+      const selectedOption = optionsList[optionIndex];
+      selectedOption.nativeElement.classList.toggle('selected');
+      this.isRolling = false;
+      if (optionIndex === 5) {
+        selectedOption.nativeElement.classList.toggle('jackpot');
 
-      setTimeout(() => {
-        const totalHeight = 30 * (spinResults.length - 1);
-        this.transform = `translateY(-${totalHeight}px)`;
-      })
+        const beep = new Audio('sounds/experimental-8-bit-sound-270302.mp3').play();
 
-      setTimeout(() => {
-        if (final === 'JACKPOT !!!!!') {
-          const beep = new Audio('sounds/experimental-8-bit-sound-270302.mp3').play();
-          this.wins++;
-          this.saveStat('wins', this.wins);
-        } else {
-          const beep = new Audio('sounds/8-bit-wrong-2-84407.mp3').play();
-          this.losses++;
-          this.saveStat('losses', this.losses);
-        }
-        this.isLuminanceRunning = false;
-      }, 2000);
-    },100);
+        this.wins++;
+        this.saveStat('wins', this.wins);
+      } else {
+        selectedOption.nativeElement.classList.toggle('glitch');
+
+        const beep = new Audio('sounds/8-bit-wrong-2-84407.mp3').play();
+
+        this.losses++;
+        this.saveStat('losses', this.losses);
+      }
+    }, cycles * (50 * (optionsList.length - 1) + 50 + 50));
+
   }
-
-
-
-  // Version finale parce que y en a marre
-
-  isRolling = false;
-
-  @ViewChildren('option') rouletteOption!: QueryList<ElementRef>;
-
 }

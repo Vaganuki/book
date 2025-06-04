@@ -58,10 +58,10 @@ export class NavComponent {
       label: 'Mes productions',
       route: 'projects'
     },
-    {
-      label: 'Claquélculatrice',
-      route: 'claculatrice'
-    },
+    // {
+    //   label: 'Claculaltrice',
+    //   route: 'claculaltrice'
+    // },
     {
       label:'Casino',
       route: 'casino'

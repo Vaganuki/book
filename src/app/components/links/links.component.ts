@@ -19,8 +19,9 @@ export class LinksComponent {
       window.addEventListener('keydown', this.terminalFocus);
     }
   }
+
   terminalFocus = (event: KeyboardEvent) => {
-    if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp' && event.key !== 'Enter' && event.key !== ' ' && event.key!== 'ArrowLeft') {
+    if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp' && event.key !== 'Enter' && event.key !== ' ' && event.key !== 'ArrowLeft') {
       this.terminalInput.nativeElement.focus();
     }
   }
@@ -44,6 +45,7 @@ export class LinksComponent {
         this.outputHistory.push('→ linkedin');
         this.outputHistory.push('→ github');
         this.outputHistory.push('→ donation');
+        this.outputHistory.push('→ "donation"');
         this.outputHistory.push('→ moxfield');
         this.outputHistory.push('→ legacy');
         this.outputHistory.push('→ torpfiolo');
@@ -87,7 +89,7 @@ export class LinksComponent {
         }, 600);
         break;
       case 'legacy':
-        this.outputHistory.push('Consultationdes archives ancestrales: Legacy...');
+        this.outputHistory.push('Consultation des archives ancestrales: Legacy...');
         setTimeout(() => {
           window.open('/book/legacy/index.html');
         }, 600);
@@ -125,18 +127,24 @@ export class LinksComponent {
       case 'hlep':
         this.outputHistory.push('Tu veux dire \'help\', non ?');
         break;
-        // Ces deux commandes sont un hommage à Aude Beurive, ma merveilleuse formatrice
+      // Ces deux commandes sont un hommage à Aude Beurive, ma merveilleuse formatrice
       case 'pied':
         this.outputHistory.push('Alors on est un kiffeur mon gourmand ?');
         break;
       case 'pieds':
         this.outputHistory.push('Alors on est un GROS kiffeur mon gourmand ?');
         break;
-        // Cette prochaine commande est un hommage à Simon Arce, mon cher collègue
+      // Ces prochaines commandes sont un hommage à Simon Arce, mon cher collègue
       case 'quoi':
         this.outputHistory.push('feur!');
         break;
-        // Merci pour tout
+      case '"donation"':
+        this.outputHistory.push('Redirection vers l\'autel de la chance...');
+        setTimeout(() => {
+          window.location.href = '/casino';
+        }, 600);
+        break;
+      // Merci pour tout
       default:
         this.outputHistory.push(`Commande inconnue : ${cmd}`);
         break

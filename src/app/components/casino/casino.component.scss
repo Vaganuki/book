@@ -1,144 +1,95 @@
-//
-//.arcane-roulette {
-//  background: radial-gradient(#1e002a, #000);
-//  width: 100%;
-//  height: 100%;
-//  border: 4px double #9b6fdc;
-//  padding: 2rem;
-//  box-shadow: 0 0 20px #a264ff;
-//  font-family: 'Press Start 2P', monospace;
-//  text-align: center;
-//
-//  .wheel {
-//    //display: flex;
-//    //justify-content: space-around;
-//    padding: 1rem;
-//    border: 2px dashed #8a4fe3;
-//    background-color: #220033;
-//    filter: contrast(1.2) brightness(1.1);
-//  }
-//
-//  .symbol {
-//    color: #d7b4ff;
-//    text-shadow: 0 0 4px #fff;
-//    transition: transform 0.2s;
-//  }
-//
-//  .roll-btn {
-//    margin-top: 1rem;
-//    background: #6e36a7;
-//    color: #fff;
-//    padding: 0.5rem 2rem;
-//    border: 1px solid #fff;
-//    box-shadow: 0 0 10px #d89eff;
-//    cursor: pointer;
-//    font-family: 'Press Start 2P', monospace;
-//  }
-//
-//  .roll-btn:hover {
-//    background: #9b6fdc;
-//  }
-//}
-//.lum{
-//  color: orange;
-//  background-color: #fff;
-//}
+.arcane-roulette {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
 
+  background: radial-gradient(#000, #1e002a);
+  border: 4px double var(--primary-color);
 
-
-// Nouvelle vague
-.roulette-container {
-  font-family: 'Press Start 2P', monospace;
-  color: #e0c6ff;
   text-align: center;
-  padding: 2rem;
-  background: #0a0014;
 
-  .roll-btn {
-    background: #6a1f9b;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    font-size: 0.8rem;
-    text-shadow: 0 0 5px #fff;
-    box-shadow: 0 0 10px #c699ff;
-    cursor: pointer;
+  .wheel {
+    width: 70%;
+    margin: 0 auto;
+    border: 2px ridge var(--primary-color);
+    filter: contrast(1.2) brightness(1.15);
 
-    &:hover {
-      background: #9b4df7;
+    .stats {
+      margin: 1rem 0;
+      font-size: 0.8rem;
+    }
+
+    .symbol {
+      margin: 0.4rem 0;
+      text-shadow: 0 0 4px var(--primary-color);
+      text-transform: uppercase;
     }
   }
 
-  .stats {
-    margin: 1rem 0;
-    font-size: 0.8rem;
-  }
+  .roll-btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
 
-  .wheel-frame {
-    width: 300px;
-    height: 200px;
-    overflow: hidden;
-    margin: auto;
-    border: 2px dotted #a572ff;
-    box-shadow: 0 0 20px #c699ff;
-    position: relative;
-  }
+    &:hover {
+      background: var(--primary-hover-color);
+    }
 
-  .wheel {
-    display: flex;
-    flex-direction: column;
-    transition: transform 2s ease-out;
-  }
-
-  .slot {
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
-    padding: 0.2rem;
-    color: #fff;
-    text-shadow: 0 0 3px #ff00f7;
+    &:disabled {
+      background: var(--accent-color);
+    }
   }
 }
 
+
+.selected {
+  color: orange;
+  background-color: rgba(255,255,255,0.2);
+}
+
+.jackpot {
+  color: #ffe700;
+  text-shadow: 0 0 6px #ffd700, 0 0 12px #fff;
+  animation: flicker 0.6s infinite;
+}
+
+.glitch {
+  color: #ff5ef0;
+  text-shadow: 0 0 4px #ff5ef0, 0 0 8px #ff0090;
+  animation: glitch 0.3s infinite;
+}
 
 
 @keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-1px, 1px); }
-  40% { transform: translate(1px, -1px); }
-  60% { transform: translate(-2px, 0px); }
-  80% { transform: translate(2px, 2px); }
-  100% { transform: translate(0); }
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-1px, 1px);
+  }
+  40% {
+    transform: translate(1px, -1px);
+  }
+  60% {
+    transform: translate(-2px, 0px);
+  }
+  80% {
+    transform: translate(2px, 2px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
 
 @keyframes flicker {
-  0% { opacity: 1; }
-  50% { opacity: 0.6; }
-  100% { opacity: 1; }
-}
-
-.slot {
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  padding: 0.2rem;
-  color: #fff;
-  text-shadow: 0 0 2px #8f3dff, 0 0 6px #b05eff;
-
-  &.glitch {
-    animation: glitch 0.3s infinite;
-    color: #ff5ef0;
-    text-shadow: 0 0 4px #ff5ef0, 0 0 8px #ff0090;
+  0% {
+    opacity: 1;
   }
-
-  &.jackpot {
-    color: #ffe700;
-    font-weight: bold;
-    text-shadow: 0 0 6px #ffd700, 0 0 12px #fff;
-    animation: flicker 0.6s infinite;
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
   }
 }
