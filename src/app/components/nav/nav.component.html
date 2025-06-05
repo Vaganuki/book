@@ -1,7 +1,16 @@
-<ul class="navMenu">
-  @for (item of routes; track $index) {
-    <li class="navItem">
-      <button #navLink [routerLink]="[item.route]" routerLinkActive="routerLinkActive" [routerLinkActiveOptions]="{exact: true}">{{item.label}}</button>
-    </li>
-  }
-</ul>
+<div class="navContainer">
+  <ul class="navMenu">
+    @for (item of routes; track $index) {
+      <li class="navItem" [class.currentIndexNav]="$index === indexNav">
+        <button #navLink [routerLink]="[item.route]" routerLinkActive="routerLinkActive"
+                [routerLinkActiveOptions]="{exact: true}">{{ item.label }}
+        </button>
+      </li>
+    }
+  </ul>
+  <div class="navArrows">
+    <button class="navUp" (click)="navigateUp()" [disabled]="indexNav === 0">&uarr;</button>
+    <button class="navDown" (click)="navigateDown()" [disabled]="indexNav === routes.length - 1">&darr;
+    </button>
+  </div>
+</div>

@@ -15,32 +15,65 @@ export class NavComponent {
 
   //Support des inputs clavier
   @ViewChildren('navLink', {read: ElementRef}) nav_ItemList!: QueryList<ElementRef>;
-  private indexNav = 0;
+  indexNav = 0;
+  navList: ElementRef[] = [];
 
   ngAfterViewInit() {
+    this.navList = this.nav_ItemList.toArray();
     if (isPlatformBrowser(this.platformId)) {
       window.addEventListener('keydown', this.navKeyFocus);
     }
   }
 
   navKeyFocus = (event: KeyboardEvent) => {
-    const navList = this.nav_ItemList.toArray();
-    switch (event.key) {
-      case 'ArrowUp':
-        this.indexNav = this.indexNav - 1 >= 0 ? this.indexNav - 1 : navList.length - 1;
-        navList[this.indexNav].nativeElement.focus();
-        break;
-      case 'ArrowDown':
-        this.indexNav = (this.indexNav + 1) % navList.length;
-        navList[this.indexNav].nativeElement.focus();
-        break;
-      case 'ArrowLeft':
-        navList[this.indexNav].nativeElement.focus();
-        break;
-      default:
-        break;
+
+    if (window.innerWidth <= 767) {
+      switch (event.key) {
+        case 'ArrowUp':
+          this.navigateUp();
+          break;
+        case 'ArrowDown':
+          this.navigateDown();
+          break;
+      }
+      return;
+    } else {
+      switch (event.key) {
+        case 'ArrowUp':
+          this.indexNav = this.indexNav - 1 >= 0 ? this.indexNav - 1 : this.navList.length - 1;
+          this.navList[this.indexNav].nativeElement.focus();
+          this.playNavigationSound("up");
+          break;
+        case 'ArrowDown':
+          this.indexNav = (this.indexNav + 1) % this.navList.length;
+          this.navList[this.indexNav].nativeElement.focus();
+          this.playNavigationSound("down");
+          break;
+        case 'ArrowLeft':
+          this.navList[this.indexNav].nativeElement.focus();
+          break;
+        default:
+          break;
+      }
     }
   }
+
+  navigateUp() {
+    if (this.indexNav > 0) {
+      this.indexNav--;
+      this.navList[this.indexNav].nativeElement.focus();
+      this.playNavigationSound("up");
+    }
+  }
+
+  navigateDown() {
+    if (this.indexNav < this.routes.length - 1) {
+      this.indexNav++;
+      this.navList[this.indexNav].nativeElement.focus();
+      this.playNavigationSound("down");
+    }
+  }
+
   routes: NavItem[] = [
     {
       label: 'Accueil',
@@ -63,7 +96,7 @@ export class NavComponent {
     //   route: 'claculaltrice'
     // },
     {
-      label:'Casino',
+      label: 'Casino',
       route: 'casino'
     },
     {
@@ -75,4 +108,28 @@ export class NavComponent {
       route: 'contact'
     },
   ];
+
+  private playNavigationSound(direction: 'up' | 'down') {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    try {
+      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+
+      oscillator.frequency.setValueAtTime(direction === 'up' ? 800 : 400, audioContext.currentTime);
+      oscillator.type = 'square';
+
+      gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 0.1);
+    } catch (error) {
+      console.debug('Audio not supported or blocked');
+    }
+  }
 }

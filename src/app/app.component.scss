@@ -67,7 +67,8 @@ $primary-color: #8A4DCE;
     & #closingScreen, #minusScreen, #darkScreen {
       display: block;
       cursor: pointer;
-      &:hover{
+
+      &:hover {
         background-color: var(--primary-active-color);
       }
     }
@@ -82,15 +83,18 @@ $primary-color: #8A4DCE;
 }
 
 ::-webkit-scrollbar {
-  width: 20px;
-  &-track{
+  width: 1.25rem;
+
+  &-track {
     background: var(--surface-bg-secondary);
   }
+
   &-thumb {
     background: var(--accent-color);
-   &:hover{
-     background: var(--highlight-color);
-   }
+
+    &:hover {
+      background: var(--highlight-color);
+    }
   }
 }
 
@@ -127,6 +131,7 @@ $primary-color: #8A4DCE;
 
   &:hover {
     cursor: pointer;
+
     & svg,
     &::after {
       background-color: rgba($primary-color, 0.4);
@@ -134,6 +139,37 @@ $primary-color: #8A4DCE;
     }
   }
 }
+
 [hidden] {
   display: none !important;
+}
+
+@media (max-width: 767px) {
+
+  #screen {
+    display: grid;
+    grid-template:
+      "titleBar" 15%
+      "sideNav" 10%
+      "sideScreen" 75%;
+    width: 85vw;
+
+    & #titleBar {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-evenly;
+      width: 100%;
+      padding: 0.4rem;
+      margin: 0;
+      border: 6px solid var(--border-color);
+    }
+
+    & #sideScreen {
+      border: 6px solid var(--border-color);
+      border-top: none;
+    }
+  }
+  .iconEXE {
+    width: 30vw;
+  }
 }

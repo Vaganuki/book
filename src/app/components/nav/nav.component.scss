@@ -39,9 +39,12 @@
       background: none;
       width: 100%;
       height: 2.75rem;
+
       &:hover,
       &:focus {
-        &::before{
+        animation: retroFade 0.6s ease-in-out;
+
+        &::before {
           content: '>';
           animation: blink 0.5s infinite;
         }
@@ -57,16 +60,134 @@
 }
 
 @keyframes blink {
-  0%{
+  0% {
     opacity: 1;
   }
-  50%{
+  50% {
     opacity: 1;
   }
-  51%{
+  51% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 0;
+  }
+}
+
+
+// NOUVEAU : Styles mobile
+@media (max-width: 767px) {
+  .navContainer {
+    display: flex;
+    height: 100%;
+
+    & .navMenu {
+      width: 80%;
+      height: 100%;
+
+      & .navItem {
+        display: none;
+        height: 100%;
+
+        &.currentIndexNav {
+          display: flex;
+          align-items: center;
+
+          & button {
+            animation: retroFade 0.6s ease-in-out;
+          }
+        }
+
+      }
+    }
+
+    & .navArrows {
+      width: 20%;
+      display: flex;
+      flex-direction: row-reverse;
+
+      & button {
+        width: 100%;
+        background-color: var(--primary-active-color);
+        color: var(--surface-bg-secondary);
+        border: 2px solid var(--primary-color);
+        // Effet au clic
+        &:active {
+          animation: glitchEffect 0.5s ease-in-out;
+          transform: scale(0.95);
+        }
+
+        &:disabled {
+          opacity: 0.5;
+          filter: grayscale(1);
+          cursor: not-allowed;
+
+          &:hover {
+            filter: grayscale(1);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Sur desktop, cache la nav mobile
+@media (min-width: 768px) {
+  .navArrows {
+    display: none;
+  }
+}
+
+@keyframes glitchEffect {
+  0% {
+    transform: translateY(0);
+    filter: hue-rotate(0deg);
+  }
+  10% {
+    transform: translateY(-2px);
+    filter: hue-rotate(-20deg);
+  }
+  20% {
+    transform: translateY(2px);
+    filter: hue-rotate(-30deg);
+  }
+  30% {
+    transform: translateY(-1px);
+    filter: hue-rotate(-40deg);
+  }
+  40% {
+    transform: translateY(1px);
+    filter: hue-rotate(-50deg);
+  }
+  50% {
+    transform: translateY(0);
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    transform: translateY(0);
+    filter: hue-rotate(0deg);
+  }
+}
+
+@keyframes retroFade {
+  0% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  25% {
+    opacity: 0.7;
+    filter: brightness(1.3) saturate(1.2);
+  }
+  50% {
+    opacity: 0.3;
+    filter: brightness(0.8) saturate(0.8) sepia(0.2);
+  }
+  75% {
+    opacity: 0.8;
+    filter: brightness(1.1) saturate(1.1);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1);
   }
 }

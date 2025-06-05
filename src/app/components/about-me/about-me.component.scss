@@ -94,3 +94,20 @@
     grid-area: debuff;
   }
 }
+
+@media (max-width: 767px) {
+
+  .character-sheet {
+    grid-template: auto / 1fr;
+    grid-template-areas:
+      "identity"
+      "mainStats"
+      'stats'
+      'skills'
+      'inventory'
+      'debuff'
+      'lore'
+    ;
+  }
+
+}

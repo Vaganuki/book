@@ -13,6 +13,7 @@ export class LinksComponent {
   private platformId = inject(PLATFORM_ID);
 
   @ViewChild('terminalInput', {static: false}) terminalInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('bottomAnchor', {static: false}) terminalScreen!: ElementRef<HTMLDivElement>;
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
@@ -141,7 +142,7 @@ export class LinksComponent {
       case '"donation"':
         this.outputHistory.push('Redirection vers l\'autel de la chance...');
         setTimeout(() => {
-          window.location.href = '/casino';
+          window.location.href = '/book/casino'; //lien à adapter selon le repo
         }, 600);
         break;
       // Merci pour tout
@@ -150,11 +151,22 @@ export class LinksComponent {
         break
     }
     this.currentInput = '';
-    setTimeout(() => {
-      this.terminalInput?.nativeElement?.scrollIntoView({
-        behavior: 'instant',
-        block: 'center',
-      });
-    }, 0);
+    if (window.innerWidth > 767) {
+      setTimeout(() => {
+        this.terminalInput?.nativeElement?.scrollIntoView({
+          behavior: 'instant',
+          block: 'center',
+        });
+      }, 0);
+    } else {
+      setTimeout(() => {
+        this.terminalScreen.nativeElement.scrollIntoView({
+          behavior: 'instant',
+          block: 'end',
+          inline: 'nearest',
+          }
+        )
+      })
+    }
   }
 }

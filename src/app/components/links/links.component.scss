@@ -26,3 +26,18 @@
     outline: none;
   }
 }
+
+@media (max-width: 767px) {
+  .terminalOutput {
+    max-width: 100%;
+    word-break: break-word;
+    white-space: pre-wrap;
+  }
+  .terminalInput {
+    & input {
+      word-break: break-word;
+      white-space: pre-wrap;
+      max-width: 98%;
+    }
+  }
+}
