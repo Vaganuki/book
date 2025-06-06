@@ -1,2 +1,18 @@
 <p>claculatrice works!</p>
-
+<p class="display">{{displayedNumber}}</p>
+<span class="calcContainer">
+  <button class="calc" [disabled]="wrongPathTryAgain" (click)="selectNumber($event)">0</button>
+  <button class="calc" [disabled]="wrongPathTryAgain" (click)="selectNumber($event)">1</button>
+  <button class="calc" [disabled]="wrongPathTryAgain" (click)="selectNumber($event)">2</button>
+  <button class="calc" [disabled]="wrongPathTryAgain" (click)="selectNumber($event)">3</button>
+  <button class="calc" [disabled]="wrongPathTryAgain" (click)="selectNumber($event)">4</button>
+  <button class="calc" [disabled]="wrongPathTryAgain" (click)="selectNumber($event)">5</button>
+  <button class="calc" [disabled]="wrongPathTryAgain" (click)="selectNumber($event)">6</button>
+  <button class="calc" [disabled]="wrongPathTryAgain" (click)="selectNumber($event)">7</button>
+  <button class="calc" [disabled]="wrongPathTryAgain" (click)="selectNumber($event)">8</button>
+  <button class="calc" [disabled]="wrongPathTryAgain" (click)="selectNumber($event)">9</button>
+  <button class="calc" [disabled]="wrongPathTryAgain" (click)="saveNumber()">+</button>
+  <button class="calc" (click)="resetCalc()">C</button>
+  <button class="calc" [disabled]="wrongPathTryAgain" (click)="barCodeCalc()">=</button>
+</span>
+<button (click)="playMelody()">play melody</button>

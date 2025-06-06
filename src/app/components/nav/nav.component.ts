@@ -17,6 +17,7 @@ export class NavComponent {
   @ViewChildren('navLink', {read: ElementRef}) nav_ItemList!: QueryList<ElementRef>;
   indexNav = 0;
   navList: ElementRef[] = [];
+  audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
 
   ngAfterViewInit() {
     this.navList = this.nav_ItemList.toArray();
@@ -91,10 +92,10 @@ export class NavComponent {
       label: 'Mes productions',
       route: 'projects'
     },
-    // {
-    //   label: 'Claculaltrice',
-    //   route: 'claculaltrice'
-    // },
+    {
+      label: 'Claculaltrice',
+      route: 'claculaltrice'
+    },
     {
       label: 'Casino',
       route: 'casino'
@@ -113,21 +114,21 @@ export class NavComponent {
     if (!isPlatformBrowser(this.platformId)) return;
 
     try {
-      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
-      const oscillator = audioContext.createOscillator();
-      const gainNode = audioContext.createGain();
+
+      const oscillator = this.audioContext.createOscillator();
+      const gainNode = this.audioContext.createGain();
 
       oscillator.connect(gainNode);
-      gainNode.connect(audioContext.destination);
+      gainNode.connect(this.audioContext.destination);
 
-      oscillator.frequency.setValueAtTime(direction === 'up' ? 800 : 400, audioContext.currentTime);
+      oscillator.frequency.setValueAtTime(direction === 'up' ? 800 : 400, this.audioContext.currentTime);
       oscillator.type = 'square';
 
-      gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+      gainNode.gain.setValueAtTime(0.1, this.audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, this.audioContext.currentTime + 0.1);
 
-      oscillator.start(audioContext.currentTime);
-      oscillator.stop(audioContext.currentTime + 0.1);
+      oscillator.start(this.audioContext.currentTime);
+      oscillator.stop(this.audioContext.currentTime + 0.1);
     } catch (error) {
       console.debug('Audio not supported or blocked');
     }
