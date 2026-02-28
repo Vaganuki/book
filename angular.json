@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "SleepyBook": {
+    "book": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -39,7 +39,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/sleepy-book",
+            "outputPath": "dist/book",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -56,12 +56,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -74,7 +69,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "4kB",
-                  "maximumError": "20kB"
+                  "maximumError": "8kB"
                 }
               ],
               "outputHashing": "all"
@@ -91,10 +86,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "SleepyBook:build:production"
+              "buildTarget": "book:build:production"
             },
             "development": {
-              "buildTarget": "SleepyBook:build:development"
+              "buildTarget": "book:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -122,14 +117,8 @@
             ],
             "scripts": []
           }
-        },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
-  },
-  "cli": {
-    "analytics": false
   }
 }
