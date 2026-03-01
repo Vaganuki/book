@@ -1,1 +1,10 @@
+@if (showLoader) {
+  <app-loader (animationDone)="endLoader()"/>
+}
+<main>
+<div class="hero-container">
+  <h2>Sleepy</h2>
+  <h3>Project</h3>
+</div>
+</main>
 <router-outlet />
