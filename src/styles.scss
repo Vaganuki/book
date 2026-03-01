@@ -3,10 +3,24 @@
 
 *{
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  color: white;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+body{
+  background-color: black;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Bebas Neue', cursive;
   line-height: 0.75em;
+  color: crimson;
+}
+
+.unselectable {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE 10+ / Edge */
+  user-select: none;         /* Standard */
 }

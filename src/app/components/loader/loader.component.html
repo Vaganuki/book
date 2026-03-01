@@ -1,8 +1,29 @@
-<div class="loading-overlay" #overlay>
-  <svg>
+<div class="loading-overlay unselectable" #overlay>
+  <div class="loading-text-overlay">
+    <div class="loader-item-container">
+      <ul class="loader-items">
+        <li class="loader-item" #loaderItemRef>// Booting human.dev environment...</li>
+        <li class="loader-item" #loaderItemRef>// Loading structured chaos...</li>
+        <li class="loader-item" #loaderItemRef>// Compiling TypeScript (strict mode, obviously)...</li>
+        <li class="loader-item" #loaderItemRef>// Refactoring something that already worked...</li>
+        <li class="loader-item" #loaderItemRef>// Optimizing performance...</li>
+        <li class="loader-item" #loaderItemRef>// Renaming variables for the 3rd time...</li>
+        <li class="loader-item" #loaderItemRef>// Checking alignment down to the pixel...</li>
+        <li class="loader-item" #loaderItemRef>// Debating architecture decisions internally...</li>
+        <li class="loader-item" #loaderItemRef>// Removing console.log (most of them)...</li>
+        <li class="loader-item" #loaderItemRef>// Playing a quick game on MTGo...</li>
+        <li class="loader-item" #loaderItemRef>// Taking a step back... Looks good.</li>
+        <li class="loader-item" #loaderItemRef>// Build complete. Welcome to my lair.</li>
+      </ul>
+    </div>
+    <div class="loader-count">({{formattedPercent}}%)</div>
+  </div>
+
+
+  <svg class="loading-svg" #svgContainer>
     <defs>
       <clipPath id="almondClip">
-        <path #almondPath d="" />
+        <path #almondPath d=""/>
       </clipPath>
 
       <mask id="irisMask">
