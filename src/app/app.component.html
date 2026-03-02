@@ -2,9 +2,13 @@
   <app-loader (animationDone)="endLoader()"/>
 }
 <main>
-<div class="hero-container unselectable">
-  <h2>Sleepy</h2>
-  <h3>Project</h3>
-</div>
+  <h1 class="sr-only">SleepyBook</h1>
+  <div class="hero-container">
+    <h2>Sleepy</h2>
+    <p>Project</p>
+    <div #heroImage class="hero-background">
+      <img [src]="'placeholders/' + imagesUris[currentImageIndex]" alt="Hero Image">
+    </div>
+  </div>
 </main>
-<router-outlet />
+<router-outlet/>
