@@ -3,11 +3,21 @@
 }
 <main>
   <h1 class="sr-only">SleepyBook</h1>
-  <div class="hero-container">
+  <div class="hero-container unselectable">
     <h2>Sleepy</h2>
     <p>Project</p>
-    <div #heroImage class="hero-background">
-      <img [src]="'placeholders/' + imagesUris[currentImageIndex]" alt="Hero Image">
+    <div class="hero-background">
+      <div #heroHighlighter class="hero-highlighter"></div>
+      <div #heroMainImageContainer class="main-image">
+        <div #heroMainHue class="hero-hue"></div>
+        <img #heroMainImage class="hero-image" [src]="'placeholders/' + imagesUris[currentImageIndex]"
+             alt="Hero Image">
+      </div>
+      <div #heroSecondaryImageContainer class="secondary-image">
+        <div #heroSecondaryHue class="hero-hue"></div>
+        <img #heroSecondaryImage class="hero-image" [src]="'placeholders/' + imagesUris[nextImageIndex]"
+             alt="Hero Image">
+      </div>
     </div>
   </div>
 </main>
