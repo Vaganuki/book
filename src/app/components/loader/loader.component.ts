@@ -19,6 +19,7 @@ import gsap from 'gsap';
 export class LoaderComponent {
 
   @ViewChild('overlay') overlay!: ElementRef<HTMLDivElement>;
+  @ViewChild('loadingTextOverlay') loadingTextOverlay!: ElementRef<HTMLDivElement>;
   @ViewChild('almondPath') almondPath!: ElementRef<SVGPathElement>;
   @ViewChild('iris') iris!: ElementRef<SVGCircleElement>;
   @ViewChild('svgContainer') svgContainer!: ElementRef<SVGElement>;
@@ -31,69 +32,31 @@ export class LoaderComponent {
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
-    this.playIntro();
+    this.loaderAnimation();
   }
 
   get formattedPercent(): string {
     return String(this.currentPercent).padStart(3, '0');
   }
 
-  private playIntro(): void {
-    this.playTextSequence().then(() => this.playSvgAnimation());
-  }
+  private loaderAnimation() {
 
-  private playTextSequence(): Promise<void> {
-    return new Promise((resolve) => {
-      const items = this.loaderItems.toArray();
+    //Loading text variables
+    const items = this.loaderItems.toArray();
 
-      items.forEach((item) => item.nativeElement.classList.remove('active'));
+    items.forEach((item) => item.nativeElement.classList.remove('active'));
 
-      const itemDuration = 0.35;
+    const itemDuration = 0.2;
 
-      const delays = items.map(() => 0.25 + Math.random() * 0.2);
-      const offsets = delays.reduce((acc, delay, i) => {
-        acc.push(i === 0 ? 0 : acc[i - 1] + itemDuration + delays[i - 1]);
-        return acc;
-      }, [] as number[]);
+    const delays = items.map(() => 0.2 + Math.random() * 0.2);
+    const offsets = delays.reduce((acc, delay, i) => {
+      acc.push(i === 0 ? 0 : acc[i - 1] + itemDuration + delays[i - 1]);
+      return acc;
+    }, [] as number[]);
 
-      const totalDuration = offsets[offsets.length - 1] + itemDuration + delays[delays.length - 1];
+    const totalDuration = offsets[offsets.length - 1] + itemDuration + delays[delays.length - 1];
 
-      const tl = gsap.timeline({
-        onComplete: () => {
-          (document.querySelector('.loading-text-overlay') as HTMLElement).style.display = 'none';
-          this.overlay.nativeElement.style.backgroundColor = 'transparent';
-          resolve();
-        }
-      });
-
-      const counter = {val : 0};
-      tl.to(counter,{
-        val: 100,
-        duration: totalDuration,
-        ease: 'none',
-        onUpdate: () => {
-          this.currentPercent = Math.round(counter.val);
-          this.cdr.detectChanges();
-        }
-      },0);
-
-
-      items.forEach((item, index) => {
-        tl.call(() => {
-          if(index > 0) items[index - 1].nativeElement.classList.remove('active');
-          item.nativeElement.classList.add('active');
-          item.nativeElement.scrollIntoView({block:'nearest', behavior: 'smooth'});
-        }, [], offsets[index]);
-
-        tl.to({},{
-          duration: itemDuration + delays[index],
-        },offsets[index]);
-      });
-
-    });
-  }
-
-  private playSvgAnimation(): void {
+    //SVG animation variables
 
     const vw = window.innerWidth;
     const vh = window.innerHeight;
@@ -132,13 +95,61 @@ export class LoaderComponent {
     const proxy = {rx: 0, ry: 0};
     almondEl.setAttribute('d', buildAlmond(0, 0));
 
+
+    //ACTUAL animation
     const tl = gsap.timeline({
-      onComplete: () => this.animationDone.emit(),
+      onComplete: () => {
+        this.animationDone.emit();
+      },
     });
+
+    tl.fromTo(this.loadingTextOverlay.nativeElement,{
+      height: 0,
+    },{
+      height: '15vh',
+      duration: 0.4,
+      easing: 'power2.out',
+    },0);
+
+    //Here we do the Loading part
+    const counter = {val: 0};
+    tl.to(counter, {
+      val: 100,
+      duration: totalDuration,
+      ease: 'power1.inOut',
+      onUpdate: () => {
+        this.currentPercent = Math.round(counter.val);
+        this.cdr.detectChanges();
+      }
+    }, ('<'));
+
+    items.forEach((item, i) => {
+      tl.call(() => {
+        if (i > 0) items[i - 1].nativeElement.classList.remove('active');
+        item.nativeElement.classList.add('active');
+        item.nativeElement.scrollIntoView({block:'nearest', behavior: 'smooth'});
+      }, [], offsets[i]);
+
+      tl.to({}, {
+        duration: itemDuration + delays[i],
+      }, offsets[i]);
+    });
+
+    tl.to(this.loadingTextOverlay.nativeElement,{
+      height: 0,
+      opacity: 0,
+      duration: 0.4,
+      easing: 'power2.out',
+      onComplete: () => {
+        this.overlay.nativeElement.style.backgroundColor = 'transparent'
+      },
+    },'<');
+
+    //here we do the svg thingy
 
     tl.to(svgEl, {
       display: "block",
-    }, 0);
+    }, '<');
 
     tl.to(proxy, {
       rx: vw * 0.45,
@@ -148,7 +159,7 @@ export class LoaderComponent {
       onUpdate: () => {
         almondEl.setAttribute('d', buildAlmond(proxy.rx, proxy.ry));
       }
-    }, 0);
+    }, '<+0.5');
 
     tl.to(irisEl, {
       attr: {
