@@ -43,17 +43,15 @@ export class AppComponent {
   isCurrentHero = true;
 
   imagesUris: string[] = [
-    '30-40_Absent_avec_effets.png',
-    '2024-01-30_192441_10.jpg',
-    '120-60.png',
-    '2024-01-30_192441_16.jpg',
-    '2024-01-30_192441_17.jpg',
-    'affiche.jpg',
-    'Bannière.jpg',
-    'iPad.png',
-    'Manuscrit_2024-12-01_180652_1.jpg',
-    'Manuscrit_2024-12-01_180652_7.jpg',
-    'passif_agressif.jpg',
+    '30-40_Absent_avec_effets.jpg',
+    'banner.gif',
+    'cassette_textures.png',
+    'paper_texture.png',
+    'passif_agressif.png',
+    'scan_croquis_attitude.png',
+    'scan_main.jpg',
+    'scan_selfie.jpg',
+    'texture_pull.jpg'
   ];
 
   private carouselTimer: any;
